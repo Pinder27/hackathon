@@ -1,0 +1,17 @@
+.idea-description-container{
+  width: 80%;
+  margin: auto;
+}
+
+.idea-detail input, textarea{
+    background: #e0dede;
+    border: none;
+     margin-top: 0;
+    width: 53%;
+    border: black;
+}
+
+.idea-detail{
+   background-color: rgb(248, 246, 246);
+   padding: 15px;
+}

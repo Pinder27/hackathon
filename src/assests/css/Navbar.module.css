@@ -1,0 +1,81 @@
+
+
+
+.navbarChild {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 633px);
+  background-color: #e4e4e4;
+  box-shadow: 0 3.9562458992004395px 39.56px rgba(0, 0, 0, 0.25);
+  width: 1266px;
+  height: 77.54px;
+}
+.joinUs {
+  position: relative;
+  line-height: 160%;
+  font-weight: 600;
+}
+.joinUsWrapper {
+  position: absolute;
+  top: 14.25px;
+  right: 181.99px;
+  border-radius: 3.16px;
+  background-color: #ff5a05;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 11.868732452392578px 23.737464904785156px;
+  cursor: pointer;
+  text-align: right;
+  color: #e4e4e4;
+}
+.contact,
+.guidelines,
+.hackathons,
+.results {
+  position: absolute;
+  top: 26.11px;
+  line-height: 160%;
+  font-weight: 600;
+  opacity: 0.7;
+}
+.results {
+  right: 504.67px;
+  cursor: pointer;
+}
+.contact,
+.guidelines,
+.hackathons {
+  right: 578.11px;
+}
+.contact,
+.guidelines {
+  right: 405.87px;
+  cursor: pointer;
+}
+.contact {
+  right: 328.97px;
+}
+.logo1Icon {
+  position: absolute;
+  top: 0;
+  left: 167.17px;
+  width: 140px;
+  height: 76px;
+  object-fit: cover;
+}
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  text-align: left;
+  font-size: 15.82px;
+  color: #000;
+  font-family: "Source Sans Pro";
+} 
+
+
+
+
+ 

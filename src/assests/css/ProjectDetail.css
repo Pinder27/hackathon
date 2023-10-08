@@ -1,0 +1,87 @@
+.project-detail-container{
+    width: 75%;
+    margin: auto;
+}
+
+.table-container {
+    width: 100%;
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-container th, .table-container td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .table-row{
+    background-color: #bdd4ea;
+    margin-bottom: 10px;
+  }
+  
+/* .table-row-gape{
+      border-collapse: separate;
+      border-spacing: 1px; /* Adjust the spacing as per your preference */
+      /* width: 100%; /* Ensure the table takes 100% width */
+  /* } */ 
+
+  .table-row-gape th, .table-row-gape td {
+    padding: 7px; /* Adjust the padding as per your preference */
+    text-align: left; /* Adjust text alignment as needed */
+  }
+
+
+.pre-project-detail td{
+  padding: 0 15px;
+}
+
+.table-row-gape {
+  width: 100%;
+}
+
+.custom-row-margin {
+  /* padding: 10px 0; Adjust the padding as per your preference */
+  border-top: 5px solid #f8f9fa; /* Add top border to create spacing */
+  border-bottom: 5px solid #f8f9fa;
+}
+
+.custom-row-margin .first-cell {
+  flex: 1; /* Take up available space (left) */
+  text-align: left;
+  padding-left: 4%;
+  width: 14%;
+}
+
+.custom-row-margin .second-cell {
+  flex: 1; /* Take up available space (center) */
+  padding-left: 6%;
+}
+
+.custom-row-margin .third-cell {
+  flex: 1; /* Take up available space (right) */
+  text-align: left;
+  padding-left: 25%;
+}
+
+.table-row-gape .email-header {
+  text-align: left;
+  padding-left: 25%;
+}
+
+.no-border{
+    border: 0;
+    box-shadow: none; 
+}
+
+.link-to-text{
+  text-decoration: none;
+  color: black;
+}
+
+.link-to-text:hover{
+  text-decoration: underline;
+  color: blue;
+}

@@ -1,0 +1,29 @@
+.row-with-shadow-flex{
+    background-color: #f4f4f4;
+    padding: 10px 30px 10px 30px;
+    display: flex;
+    justify-content: space-between; /* Aligns the blocks with space in between */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px rgb(223, 221, 221);
+}
+
+.row-with-shadow button, .row-with-shadow-flex button{
+  /* width: 15%; */
+  display: block;
+  color: #fff;
+  background: #043465;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+ 
+.click-to-view-btn {
+    text-decoration: none;
+    color: white;
+    font-family: Montserrat, sans-serif;
+    padding: 5px;
+  }

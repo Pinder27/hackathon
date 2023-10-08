@@ -1,0 +1,677 @@
+.ourHistoryChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1266px;
+    height: 600.56px;
+  }
+  .hackathon30Was {
+    margin: 0;
+  }
+  .hackathon30WasContainer {
+    position: absolute;
+    top: 106.82px;
+    left: 0;
+    font-size: 15.82px;
+    line-height: 160%;
+    white-space: pre-wrap;
+    text-align: justify;
+    display: inline-block;
+    width: 895.7px;
+  }
+  .ourHistoryParent {
+    position: absolute;
+    top: 82.29px;
+    left: 184.36px;
+    width: 895.7px;
+    height: 431.82px;
+  }
+  .ourHistory,
+  .themesChild {
+    position: absolute;
+    left: 0;
+    width: 1266px;
+  }
+  .ourHistory {
+    top: 3215.64px;
+    height: 600.56px;
+    color: #111;
+  }
+  .themesChild {
+    top: 0;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
+    height: 875.91px;
+  }
+  .inTermsOf,
+  .ourThemes {
+    position: absolute;
+    left: 184.36px;
+    display: inline-block;
+    width: 895.7px;
+  }
+  .ourThemes {
+    top: 34.81px;
+    font-size: 48.27px;
+    line-height: 120%;
+    font-family: "Source Sans Pro";
+    text-align: left;
+  }
+  .inTermsOf {
+    top: 717.66px;
+    letter-spacing: 0.08em;
+    line-height: 160%;
+    font-weight: 500;
+    text-align: justify;
+  }
+  .artificialIntelligence,
+  .augmentedRealityAr,
+  .virtualRealityVrContainer {
+    position: absolute;
+    left: 174.87px;
+    letter-spacing: 0.1em;
+    line-height: 160%;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    width: 189.11px;
+  }
+  .augmentedRealityAr {
+    top: 337.07px;
+    justify-content: center;
+  }
+  .artificialIntelligence,
+  .virtualRealityVrContainer {
+    top: 584.73px;
+  }
+  .artificialIntelligence {
+    top: 337.07px;
+    left: 413.03px;
+    justify-content: center;
+  }
+  .dModellingTxtContainer {
+    line-break: anywhere;
+    width: 100%;
+  }
+  .blockchain,
+  .brainComputerInterface,
+  .dModelling,
+  .edgeCloud,
+  .internetOfThingsContainer {
+    position: absolute;
+    top: 584.73px;
+    left: 413.03px;
+    letter-spacing: 0.1em;
+    line-height: 160%;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    width: 189.11px;
+  }
+  .blockchain,
+  .brainComputerInterface,
+  .edgeCloud,
+  .internetOfThingsContainer {
+    top: 337.07px;
+    left: 651.2px;
+  }
+  .blockchain,
+  .brainComputerInterface,
+  .edgeCloud {
+    top: 584.73px;
+    justify-content: center;
+  }
+  .blockchain,
+  .edgeCloud {
+    top: 349.73px;
+    left: 889.37px;
+  }
+  .edgeCloud {
+    top: 584.73px;
+  }
+  .edgeComputing1,
+  .maskGroupIcon {
+    position: absolute;
+    top: 222.34px;
+    left: 228.67px;
+    width: 796.79px;
+    height: 329.95px;
+    object-fit: cover;
+  }
+  .edgeComputing1 {
+    top: 468.42px;
+    left: 942.38px;
+    width: 84.66px;
+    height: 84.66px;
+  }
+  .themesItem {
+    position: absolute;
+    top: 189.9px;
+    left: 163px;
+    border-radius: 34.81px;
+    background-color: transparent;
+    border: 0.8px solid #5d5c5c;
+    box-sizing: border-box;
+    width: 216.01px;
+    height: 474.75px;
+  }
+  .extendedRealityXr {
+    margin: 0;
+    font-weight: 800;
+  }
+  .spatialComputing {
+    margin: 0;
+    font-weight: 500;
+  }
+  .extendedRealityXrContainer {
+    position: absolute;
+    top: 138.47px;
+    left: 158.25px;
+    letter-spacing: 0.09em;
+    color: #242424;
+    font-family: Inter;
+  }
+  .themes {
+    position: absolute;
+    top: 2339.73px;
+    left: 0;
+    width: 1266px;
+    height: 875.91px;
+    text-align: center;
+    font-size: 15.82px;
+    color: #090909;
+  }
+  .whatIsUhackathon40MetaEdChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1266px;
+    height: 448.64px;
+  }
+  .hackathon40MetaContainer,
+  .whatIsHackathon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 120%;
+    display: inline-block;
+    width: 895.7px;
+  }
+  .hackathon40MetaContainer {
+    top: 106.82px;
+    font-size: 15.82px;
+    line-height: 160%;
+    font-weight: 500;
+    white-space: pre-wrap;
+    text-align: justify;
+  }
+  .whatIsHackathon40MetaEdiParent {
+    position: absolute;
+    top: 82.29px;
+    left: 184.36px;
+    width: 895.7px;
+    height: 281.82px;
+  }
+  .sponsorsChild,
+  .whatIsUhackathon40MetaEd {
+    position: absolute;
+    top: 1891.09px;
+    left: 0;
+    width: 1266px;
+    height: 448.64px;
+  }
+  .sponsorsChild {
+    top: 0;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.26);
+    height: 398px;
+  }
+  .meetOurSponsors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 120%;
+    font-weight: 500;
+    display: inline-block;
+    width: 895.7px;
+  }
+  .groupChild,
+  .groupChild1,
+  .groupChild2,
+  .groupChild3,
+  .groupInner,
+  .groupItem,
+  .rectangleDiv {
+    position: absolute;
+    top: 106.82px;
+    left: 0;
+    background-color: #e4e4e4;
+    box-shadow: 0.7912490963935852px 3.164996385574341px 9.49px
+      rgba(0, 0, 0, 0.46);
+    width: 206.52px;
+    height: 64.88px;
+  }
+  .groupChild1,
+  .groupChild2,
+  .groupChild3,
+  .groupInner,
+  .groupItem,
+  .rectangleDiv {
+    top: 204.14px;
+    left: 114.73px;
+  }
+  .groupChild1,
+  .groupChild2,
+  .groupChild3,
+  .groupInner,
+  .rectangleDiv {
+    top: 106.82px;
+    left: 230.25px;
+  }
+  .groupChild1,
+  .groupChild2,
+  .groupChild3,
+  .rectangleDiv {
+    top: 204.14px;
+    left: 344.98px;
+  }
+  .groupChild1,
+  .groupChild2,
+  .groupChild3 {
+    top: 106.82px;
+    left: 460.51px;
+  }
+  .groupChild2,
+  .groupChild3 {
+    top: 204.14px;
+    left: 587.11px;
+  }
+  .groupChild3 {
+    top: 106.82px;
+    left: 690.76px;
+  }
+  .image25Icon {
+    position: absolute;
+    top: 120.96px;
+    left: 38.07px;
+    width: 130.37px;
+    height: 36.6px;
+    object-fit: cover;
+  }
+  .google1RemovebgPreview1Icon,
+  .image27Icon,
+  .newMicrosoftLogoRemovebgPrIcon {
+    position: absolute;
+    top: 120.96px;
+    left: 272.08px;
+    width: 122.86px;
+    height: 36.05px;
+    object-fit: cover;
+  }
+  .image27Icon,
+  .newMicrosoftLogoRemovebgPrIcon {
+    left: 512.26px;
+    width: 103.01px;
+  }
+  .newMicrosoftLogoRemovebgPrIcon {
+    left: 710.71px;
+    width: 166.62px;
+    height: 36.6px;
+  }
+  .f3ffbecad044276726c01RemovebgIcon {
+    position: absolute;
+    top: 219.21px;
+    left: 161.03px;
+    width: 113.93px;
+    height: 34.75px;
+    object-fit: cover;
+  }
+  .a2c3b80d4b7a7599788bfeb9b848ceIcon,
+  .kisspngLogoBrandWalmartDesIcon {
+    position: absolute;
+    top: 218.28px;
+    left: 409.56px;
+    width: 78.15px;
+    height: 36.6px;
+    object-fit: cover;
+  }
+  .kisspngLogoBrandWalmartDesIcon {
+    left: 613.98px;
+    width: 152.76px;
+  }
+  .meetOurSponsorsParent {
+    position: absolute;
+    top: 31.74px;
+    left: 184.19px;
+    width: 897.28px;
+    height: 269.03px;
+  }
+  .headerChild,
+  .sponsors {
+    position: absolute;
+    width: 1266px;
+  }
+  .sponsors {
+    top: 1493px;
+    left: 0.17px;
+    height: 398px;
+    text-align: center;
+  }
+  .headerChild {
+    top: 0;
+    left: 0;
+    background-color: #d9d9d9;
+    box-shadow: 0 0.9999996423721313px 2px 1px rgba(0, 0, 0, 0.22);
+    height: 472px;
+  }
+  .landingPageChild {
+    position: absolute;
+    top: -170.12px;
+    left: -181.19px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(0, 0, 0, 0.13) 99.98%
+    );
+    width: 1266px;
+    height: 537.26px;
+    display: none;
+  }
+  .hackathon40MetaContainer1 {
+    position: absolute;
+    top: 64.88px;
+    left: 0;
+    font-size: 50.64px;
+    line-height: 120%;
+    display: inline-block;
+    width: 443.1px;
+  }
+  .incedo {
+    top: 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .incedo,
+  .presents,
+  .the4thIterationContainer {
+    position: absolute;
+    left: 0.05px;
+    line-height: 160%;
+  }
+  .presents {
+    top: 24.53px;
+    font-size: 12.66px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+  }
+  .the4thIterationContainer {
+    top: 193.07px;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 330.82px;
+  }
+  .getStarted {
+    position: relative;
+    line-height: 160%;
+  }
+  .getStartedWrapper {
+    position: absolute;
+    top: 323.49px;
+    left: 0.05px;
+    border-radius: 3.16px;
+    background-color: #ff5a05;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 11.868732452392578px 23.737464904785156px;
+    cursor: pointer;
+    color: #e4e4e4;
+    font-family: "Source Sans Pro";
+  }
+  .landingPage,
+  .vrGlasses1,
+  .websiteLandingPage2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 443.1px;
+    height: 372.23px;
+  }
+  .vrGlasses1,
+  .websiteLandingPage2 {
+    top: 67.85px;
+    left: 181.02px;
+  }
+  .vrGlasses1 {
+    top: -22.15px;
+    left: -36.4px;
+    width: 662.28px;
+    height: 403.54px;
+    object-fit: cover;
+  }
+  .days,
+  .div,
+  .hours,
+  .minutes,
+  .seconds {
+    position: absolute;
+    line-height: 120%;
+    font-weight: 600;
+  }
+  .div {
+    top: 114.73px;
+    left: 45.89px;
+    display: inline-block;
+    width: 497.7px;
+    height: 95.74px;
+    mix-blend-mode: difference;
+  }
+  .days,
+  .hours,
+  .minutes,
+  .seconds {
+    top: 0.79px;
+    left: 0;
+  }
+  .hours,
+  .minutes,
+  .seconds {
+    left: 103.65px;
+  }
+  .minutes,
+  .seconds {
+    top: 0;
+    left: 206.52px;
+  }
+  .seconds {
+    left: 314.13px;
+  }
+  .metrics {
+    position: absolute;
+    top: 184.36px;
+    left: 109.2px;
+    width: 388.13px;
+    height: 19.79px;
+    mix-blend-mode: difference;
+    font-size: 15.82px;
+  }
+  .headset {
+    position: absolute;
+    top: 36.2px;
+    left: 578.23px;
+    width: 589.48px;
+    height: 330.74px;
+    text-align: center;
+    font-size: 55.39px;
+    color: #fff;
+  }
+  .header {
+    position: absolute;
+    top: 76px;
+    left: -0.83px;
+    width: 1266px;
+    height: 472px;
+    font-size: 15.82px;
+  }
+  .v627Aew42TechnologybackgrouIcon {
+    position: absolute;
+    top: 0;
+    left: -4px;
+    border-radius: 48px;
+    width: 715px;
+    height: 716px;
+    object-fit: cover;
+  }
+  .incedo1 {
+    position: absolute;
+    top: 47px;
+    left: 266px;
+    font-size: 45.31px;
+    line-height: 160%;
+    font-weight: 600;
+    color: red;
+    text-shadow: 0 3.9999985694885254px 4px rgba(0, 0, 0, 0.74);
+  }
+  .hackathon401,
+  .presents1 {
+    position: absolute;
+    top: 100px;
+    left: 284px;
+    line-height: 160%;
+  }
+  .hackathon401 {
+    top: 175px;
+    left: 163px;
+    font-size: 48px;
+    font-weight: 600;
+    color: #a6ca19;
+    text-shadow: 0 3.9999985694885254px 4px rgba(0, 0, 0, 0.9);
+  }
+  .groupChild4 {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    border-radius: 20px;
+    background-color: rgba(0, 163, 255, 0.03);
+    box-shadow: 0 3.9999985694885254px 4px rgba(0, 0, 0, 0.89);
+    border: 1px solid #b230b5;
+    box-sizing: border-box;
+    width: 395px;
+    height: 107px;
+  }
+  .inr200000,
+  .prizesWorth {
+    position: absolute;
+    top: 0;
+    left: 96px;
+    line-height: 160%;
+  }
+  .inr200000 {
+    top: 54px;
+    left: 80px;
+  }
+  .rectangleParent {
+    position: absolute;
+    top: 383px;
+    left: 157px;
+    width: 395px;
+    height: 112px;
+  }
+  .st2nd {
+    position: absolute;
+    top: 0;
+    left: 56px;
+    line-height: 160%;
+    font-weight: 600;
+  }
+  .iconCalendar {
+    position: absolute;
+    height: 67.96%;
+    width: 14.96%;
+    top: 16.59%;
+    right: 85.62%;
+    bottom: 15.45%;
+    left: -0.58%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .iconLocation,
+  .st2ndNovParent {
+    position: absolute;
+    top: 307px;
+    left: 235px;
+    width: 239px;
+    height: 58px;
+  }
+  .iconLocation {
+    height: 100%;
+    width: 8.51%;
+    top: 0;
+    right: 91.49%;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .udyogViharsector18gurugram {
+    position: absolute;
+    top: 3px;
+    left: 74px;
+    line-height: 160%;
+  }
+  .iconLocationParent {
+    position: absolute;
+    height: 8.93%;
+    width: 91.65%;
+    top: 72.32%;
+    right: 4.1%;
+    bottom: 18.75%;
+    left: 4.24%;
+  }
+  .poster {
+    position: absolute;
+    top: 666px;
+    left: 270.17px;
+    width: 707px;
+    height: 708px;
+    text-align: justify;
+    font-size: 36px;
+    color: #fff;
+  }
+  .websiteLandingPage1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 3.17px;
+    bottom: 0;
+    left: -3.17px;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  .bot1Icon {
+    position: absolute;
+    top: 710.54px;
+    left: 1172.63px;
+    width: 53.01px;
+    height: 53.01px;
+    object-fit: cover;
+  }
+  .websiteLandingPage {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 4435.75px;
+    overflow-y: auto;
+    text-align: left;
+    font-size: 48.27px;
+    color: #000;
+    font-family: Outfit;
+  }
+  

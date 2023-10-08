@@ -1,0 +1,31 @@
+.team-detail-container{
+    width: 75%;
+    margin: auto;
+}
+.team-detail-container input{
+    width: 81%;
+    background: #e0dede;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.participant-detail input{
+    width: 40%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+
+.add-btn{
+    background-color: #043465 !important;
+    border: none;
+}
+
+.submit-btn{
+    background-color: #ff5a05 !important;
+    border: none;
+}
