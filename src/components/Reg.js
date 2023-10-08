@@ -1,13 +1,9 @@
 import React from "react";
 import "../assests/css/Reg.css";
 import { useState, useContext } from "react";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-// import "../../utils/generalstyles/generalstyles.css";
 import { useNavigate } from "react-router";
-// import CircularProgress from "@mui/material/CircularProgress";
+import Navbar from './Navbar';
 
-// import GoogleIcon from '@mui/icons-material/Google';
 
 const Reg = () => {
     const [name, setName] = useState("");
@@ -124,6 +120,7 @@ const Reg = () => {
 
     return (
         <>
+          <Navbar />
         {
             // loading ? (
             // <div className="circle">
@@ -131,6 +128,8 @@ const Reg = () => {
             //         <h2>Processing...</h2>
             //     </div> ):
             //  (
+                
+    
             <div className="auth-container">
                 <div className="main">
                     <input type="checkbox" id="chk" aria-hidden="true" />

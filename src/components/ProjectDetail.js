@@ -2,9 +2,9 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import documentIcon from './Images/document.svg'
-import SubmittedDetails from './components/SubmittedDetails';
-import './ProjectDetail.css';
+import SubmittedDetails from './SubmittedDetails';
+import '../assests/css/ProjectDetail.css';
+import Navbar from './Navbar';
 
 const ProjectDetail = () => {
   const TeamList = [
@@ -66,6 +66,8 @@ const ProjectDetail = () => {
 
   return (
     <>
+        <Navbar />
+
       <div className='project-detail-container'>
         <h2 className='mb-5'>Hackathon name</h2>
         <p style={{fontSize:"25px"}}>Your Team</p>
