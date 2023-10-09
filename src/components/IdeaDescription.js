@@ -1,9 +1,12 @@
 import React from 'react'
+import Navbar from './Navbar';
 import '../assests/css/IdeaDescription.css'
 
 const IdeaDescription = () => {
     return (
-        <div className='idea-description-container'>
+        <>
+          <Navbar />
+          <div className='idea-description-container'>
             
             <div className='idea-detail mx-auto'>
             <h2 className='text-center mt-4'>Describe your Idea</h2>
@@ -20,7 +23,8 @@ const IdeaDescription = () => {
                 <button className='btn btn-primary submit-btn btn-lg btn-block d-block mt-3' >Submit</button>
               
             </div>
-        </div>
+        </div> 
+        </>
     )
 }
 

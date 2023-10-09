@@ -1,5 +1,6 @@
 import React from 'react'
-import './CompletedHackathon.css'
+import '../assests/css/CompletedHackathon.css'
+import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 
 const HackathonList = () => {
@@ -37,6 +38,8 @@ const HackathonList = () => {
   ];
 
   return (
+    <>
+    <Navbar />
     <div className='mx-5'>
       {/* name of user will be displayed here */}
       <h2 style={{marginBottom:"50px"}}>Anuj</h2>  
@@ -62,6 +65,7 @@ const HackathonList = () => {
        
       }
     </div>
+    </>
   )
 }
 

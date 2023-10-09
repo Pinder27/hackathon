@@ -1,5 +1,6 @@
 import React from 'react'
-import ProjectList from './components/projectListRow'
+import ProjectList from './projectListRow'
+import Navbar from './Navbar';
 
 const PanelistProjectList = () => {
   const allotedList=[
@@ -37,6 +38,9 @@ const PanelistProjectList = () => {
   ]  
 
   return (
+    <>
+    <Navbar />
+
     <div className='w-75 mx-auto'>
       <h3 className='text-center mb-4'>Project List</h3>
       <div className='row-with-shadow-flex' style={{ backgroundColor: "#bdd4ea" }}>
@@ -92,6 +96,7 @@ const PanelistProjectList = () => {
           </table>
        */}
     </div>
+    </>
   )
 }
 

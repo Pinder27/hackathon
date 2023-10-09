@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import '../assests/css/TeamDetail.css'
+import Navbar from './Navbar';
 
 import removeIcon from '../assests/images/remove-icon.svg'
 
@@ -57,6 +58,8 @@ const TeamDetail = () => {
         setFormFields(data);
     }
   return (
+    <>    <Navbar />
+    
     <div className='team-detail-container'>
      <h1 className="text-center mb-5">Team Details</h1> 
       <h3><label className='d-block'>Team Name</label></h3>
@@ -104,6 +107,7 @@ const TeamDetail = () => {
      <button className='btn btn-primary submit-btn btn-block text-center' onClick={submit}>Submit</button>
      </div>
     </div>
+    </>
   )
 }
 

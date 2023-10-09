@@ -1,8 +1,8 @@
 import React from "react";
 import "../assests/css/Reg.css";
 import { useState, useContext } from "react";
-
 import { useNavigate } from "react-router";
+import Navbar from './Navbar';
 
 
 const Reg = () => {
@@ -26,8 +26,16 @@ const Reg = () => {
 
     return (
         <>
+          <Navbar />
         {
-         
+            // loading ? (
+            // <div className="circle">
+            //         <CircularProgress />
+            //         <h2>Processing...</h2>
+            //     </div> ):
+            //  (
+                
+    
             <div className="auth-container">
                 <div className="main">
                     <input type="checkbox" id="chk" aria-hidden="true" />

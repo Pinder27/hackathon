@@ -1,5 +1,6 @@
 import React from 'react'
-import SubmittedDetails from './components/SubmittedDetails'
+import SubmittedDetails from './SubmittedDetails'
+import Navbar from './Navbar';
 
 const PanelReview = () => {
 
@@ -15,6 +16,8 @@ const PanelReview = () => {
 
 
   return (
+    <>    <Navbar />
+    
     <div className='w-75 mx-auto'>
      <div>
         <span>Team Name:- </span>
@@ -39,6 +42,7 @@ const PanelReview = () => {
         GitRepoUrl={submittedData.GitRepoUrl}
         />
     </div>
+    </>
   )
 }
 
