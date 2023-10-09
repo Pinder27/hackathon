@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary"style={{boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.25)"}}>
     <div class="container-fluid">
-      <a className="navbar-brand ms-5" href="#">
+      <a className="navbar-brand ms-5" href="/">
         <img src={Logo}  height="35" />
       </a>
       

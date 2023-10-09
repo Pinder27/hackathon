@@ -85,3 +85,7 @@
   text-decoration: underline;
   color: blue;
 }
+
+.copy-btn{
+  cursor: pointer;
+}

@@ -42,7 +42,7 @@ const PanelistProjectList = () => {
     <Navbar />
 
     <div className='w-75 mx-auto'>
-      <h3 className='text-center mb-4'>Project List</h3>
+      <h3 className='text-center mb-5 mt-4'>Project List</h3>
       <div className='row-with-shadow-flex' style={{ backgroundColor: "#bdd4ea" }}>
             <span style={{width:"15%"}} className='fw-bold'>S. No.</span>
             <span style={{width:"25%"}} className='fw-bold'>Team Name</span> 

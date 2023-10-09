@@ -61,7 +61,7 @@ const TeamDetail = () => {
     <>    <Navbar />
     
     <div className='team-detail-container'>
-     <h1 className="text-center mb-5">Team Details</h1> 
+     <h1 className="mb-5 mt-3 text-center">Team Details</h1> 
       <h3><label className='d-block'>Team Name</label></h3>
         <input  className='mb-5' onChange={e => setTeamName(e.target.value)}/>
         
@@ -101,10 +101,10 @@ const TeamDetail = () => {
         )
        }
        </form>
-       <button className='btn btn-primary btn-sm add-btn mb-3 ' onClick={addFields}>+ Add more</button>
+       <button className='btn btn-sm add-btn mb-3 text-light'  onClick={addFields}>+ Add more</button>
      </div>
      <div className='text-center'>
-     <button className='btn btn-primary submit-btn btn-block text-center' onClick={submit}>Submit</button>
+     <button className='btn submit-btn btn-block text-center text-light' onClick={submit}>Submit</button>
      </div>
     </div>
     </>

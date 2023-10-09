@@ -69,7 +69,7 @@ const ProjectDetail = () => {
         <Navbar />
 
       <div className='project-detail-container'>
-        <h2 className='mb-5'>Hackathon name</h2>
+        <h2 className='mb-5 mt-4'>Hackathon name</h2>
         <p style={{fontSize:"25px"}}>Your Team</p>
 
         <div style={{padding: "5px" }}>

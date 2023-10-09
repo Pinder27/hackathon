@@ -1,9 +1,9 @@
 .team-detail-container{
-    width: 75%;
+    width: 74%;
     margin: auto;
 }
 .team-detail-container input{
-    width: 81%;
+    width: 90%;
     background: #e0dede;
     justify-content: center;
     margin: 20px auto;
@@ -14,7 +14,7 @@
 }
 
 .participant-detail input{
-    width: 40%;
+    width: 45%;
     display: inline-block;
     margin-left: 5px;
 }
@@ -28,4 +28,5 @@
 .submit-btn{
     background-color: #ff5a05 !important;
     border: none;
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
 }
