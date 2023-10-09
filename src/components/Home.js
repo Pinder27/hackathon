@@ -7,6 +7,7 @@ import fedex from "../assests/images/fedex.png";
 import fedx from "../assests/images/fedx.png";
 import amazon from "../assests/images/amazon.png";
 import walmart from "../assests/images/walmart.png";
+import incedologo from "../assests/images/incedo-logo.png"
 
 import Poster from "../assests/images/Poster.png";
 
@@ -52,7 +53,9 @@ const Home = () => {
           className="col-5 d-flex mt-5 flex-column "
           style={{ paddingLeft: "160px" }}
         >
-          <div className="mb-2 h5 d-flex ">INCEDO</div>
+          <div className="mb-2 h5 d-flex ">
+            <img src={incedologo} height="30px"/>
+          </div>
           <div className="mb-3 h5 d-flex ">PRESENTS</div>
           <div className=" display-5 d-flex " style={{ fontWeight: "bold" }}>
             Hackathon 4.0
