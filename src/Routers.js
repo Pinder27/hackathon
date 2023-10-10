@@ -1,5 +1,4 @@
 import {BrowserRouter, Route, Routes } from 'react-router-dom'
-
 import Home from './components/Home'
 import CompletedHackathon from './components/CompletedHackathon'
 import ProjectDetail from './components/ProjectDetail';
@@ -11,7 +10,7 @@ import TeamDetail from './components/TeamDetailForm'
 import IdeaDescription from './components/IdeaDescription'
 import PanelistProjectList from './components/PanelistProjectList';
 import PanelReview from './components/PanelReview';
-
+import JudgeReview from './components/JudgeReview';
 
 export default function Router(){
     return(
@@ -29,6 +28,7 @@ export default function Router(){
                 <Route path="/projectDetail/:id" element={<ProjectDetail />}></Route>
                 <Route path="/panelistProjectList" element={<PanelistProjectList />}></Route>
                 <Route path="/panelReview/:id" element={<PanelReview />}></Route>
+                <Route path='/judgereview' element={<JudgeReview />}></Route>
             </Routes>
             </BrowserRouter>
         </div>

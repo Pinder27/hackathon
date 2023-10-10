@@ -54,45 +54,45 @@ export default function GuideLines() {
             Entrants may enter by visiting dropboxhackathon2023.devpost.com
             (“Hackathon Website”) and following the below steps:
             <p> 1. Register for
-            the Hackathon on the Hackathon Website by clicking the “Join
-            Hackathon” button. To complete registration, sign up to create a
-            free Devpost account, or log in with an existing Devpost account.
-            This will enable you to receive important updates and to create your
-            Submission.</p>
-           <p> 2. Entrants will obtain access to the required developer
-            tools/platform and complete a Project described below in Project
-            Requirements. Use of the developer tools will be subject to the
-            license agreement related thereto. Entry in the Hackathon
-            constitutes consent for the Sponsor and Devpost to collect and
-            maintain an Entrant’s personal information for the purpose of
-            operating and publicizing the Hackathon.</p>
-           <p>
-           3. Sign up for a free Test
-            Mode DropboxSign account at https://app.hellosign.com/account/signUp
-           </p>
-           <p>
-           4. To be considered for the Most Valuable Feedback Prizes, participants
-            must be registered for the hackathon on Devpost, have started a
-            project, and complete an online form (each a “Feedback Submission”).
-            Feedback must be submitted during the Feedback Period. Participants
-            who have begun a project must complete the survey with actionable
-            comments, as determined by Sponsor, that Sponsor can use to improve
-            the Dropbox Sign API or related documentation (for example, bug
-            reports, user interface improvements, suggested integrations, and
-            more). Each Entrant may submit only one (1) Feedback Submission.
-           </p>
-           <p>
-           5. Create a video that includes footage that explains your project’s
-            features and functionality through a comprehensive demonstration.
-           </p>
-          <p>
-          6. Complete and enter all of the required fields on the “Enter a
-            Submission” page of the Hackathon Website (each of the above,
-            together with the Project as defined below, are collectively a
-            “Submission”) during the Submission Period and follow the
-            requirements below.
-          </p>
-           
+              the Hackathon on the Hackathon Website by clicking the “Join
+              Hackathon” button. To complete registration, sign up to create a
+              free Devpost account, or log in with an existing Devpost account.
+              This will enable you to receive important updates and to create your
+              Submission.</p>
+            <p> 2. Entrants will obtain access to the required developer
+              tools/platform and complete a Project described below in Project
+              Requirements. Use of the developer tools will be subject to the
+              license agreement related thereto. Entry in the Hackathon
+              constitutes consent for the Sponsor and Devpost to collect and
+              maintain an Entrant’s personal information for the purpose of
+              operating and publicizing the Hackathon.</p>
+            <p>
+              3. Sign up for a free Test
+              Mode DropboxSign account at https://app.hellosign.com/account/signUp
+            </p>
+            <p>
+              4. To be considered for the Most Valuable Feedback Prizes, participants
+              must be registered for the hackathon on Devpost, have started a
+              project, and complete an online form (each a “Feedback Submission”).
+              Feedback must be submitted during the Feedback Period. Participants
+              who have begun a project must complete the survey with actionable
+              comments, as determined by Sponsor, that Sponsor can use to improve
+              the Dropbox Sign API or related documentation (for example, bug
+              reports, user interface improvements, suggested integrations, and
+              more). Each Entrant may submit only one (1) Feedback Submission.
+            </p>
+            <p>
+              5. Create a video that includes footage that explains your project’s
+              features and functionality through a comprehensive demonstration.
+            </p>
+            <p>
+              6. Complete and enter all of the required fields on the “Enter a
+              Submission” page of the Hackathon Website (each of the above,
+              together with the Project as defined below, are collectively a
+              “Submission”) during the Submission Period and follow the
+              requirements below.
+            </p>
+
           </div>
         </section>
         <section className="mb-5">
@@ -108,14 +108,14 @@ export default function GuideLines() {
         </section>
       </div>
       <div className="d-flex justify-content-center mb-5 ">
-      <button
-            className="mb-2 mt-5 btn btn-lg text-white "
-            style={{ backgroundColor: "#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
-          >
-            Apply Now
-          </button>
+        <button
+          className="mb-2 mt-5 btn btn-lg text-white "
+          style={{ backgroundColor: "#ef4815", boxShadow: "0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
+        >
+          Apply Now
+        </button>
       </div>
-      
+
       <Footer />
     </div>
   );

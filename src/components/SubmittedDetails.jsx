@@ -22,7 +22,14 @@ const SubmittedDetails = ({ user, teamName, ideaTitle, ideaSolution, pptUrl, pdf
 
   return (
     <div>
-      <p className='mt-5 fw-semibold' style={{ fontSize: "18px" }}>Your Project</p>
+      {
+        user === "Participant" ? (
+          <p className='mt-5 fw-semibold' style={{ fontSize: "18px" }}>  Your Project</p>
+        ) : (
+          <p className='mt-5 fw-semibold' style={{ fontSize: "18px" }}>  Project Details </p>
+        )
+      }
+
       <div style={{ backgroundColor: "#f8f9fa" }} className='px-5 py-3'>
         <div className="d-flex justify-content-between align-items-center mb-4">
           <p className='h6 mx-auto'>{ideaTitle}</p>
@@ -75,7 +82,7 @@ const SubmittedDetails = ({ user, teamName, ideaTitle, ideaSolution, pptUrl, pdf
                 {
                   showTick ?
                     (
-                    <DoneIcon className='mx-2' style={{marginBottom:"7px"}}/>
+                      <DoneIcon className='mx-2' style={{ marginBottom: "7px" }} />
                     ) : (
                       <ContentCopyIcon onClick={handleCopyToClipboard} className='mx-2 copy-btn' alt="Copy to Clipboard" />
                     )}

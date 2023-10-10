@@ -1,8 +1,12 @@
 import React from 'react'
-import SubmittedDetails from './SubmittedDetails'
+import { useState } from 'react';
 import Navbar from './Navbar';
+import SubmittedDetails from './SubmittedDetails';
+import '../assests/css/JudgeReview.css'
 
-const PanelReview = () => {
+const JudgeReview = () => {
+
+  const [rating, setRating] = useState(0);
 
   const submittedData = {
     teamName: "hackathon_team_name",
@@ -14,6 +18,30 @@ const PanelReview = () => {
     GitRepoUrl: "https://github.com/play-with-docker/play-with-kubernetes.github.io"
   };
 
+
+  const handleRatingChange = (value) => {
+    setRating(value);
+  };
+
+  const renderRatingStars = () => {
+    const stars = [];
+    for (let i = 1; i <= 10; i++) {
+      stars.push(
+        <button
+          key={i}
+          className={`star ${i === rating ? 'filled' : ''} mx-1 p-1 px-3`}
+          onClick={() => handleRatingChange(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+    return stars;
+  };
+
+ const submit= () =>{
+  console.log(rating);
+ }
 
   return (
     <>
@@ -40,13 +68,19 @@ const PanelReview = () => {
           pdfUrl={submittedData.pdfUrl}
           GitRepoUrl={submittedData.GitRepoUrl}
         />
-        <div className='mt-5 mb-3 d-flex justify-content-between'>
-        <button type="button" class="btn btn-success btn-lg px-5 mx-5 fw-semibold">Approve</button>
-        <button type="button" class="btn btn-danger btn-lg px-5 mx-5 fw-semibold">Reject</button>
+
+        {/* scale */}
+        <div className="text-center mt-4">{renderRatingStars()}</div>
+        <p className='text-center mt-2' style={{ fontSize: "20px" }}>You rated this project <b>{rating}</b> out of 10.</p>
+        <div className='text-center'>
+          <button className='text-center btn submit-btn fw-semibold text-white py-2 px-5 mb-4 mt-3'
+            onClick={submit}>
+            Rate
+          </button>
         </div>
       </div>
     </>
   )
 }
 
-export default PanelReview
+export default JudgeReview
