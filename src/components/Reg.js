@@ -27,7 +27,7 @@ const Reg = ({user,setUser}) => {
         console.log(user)
         axios({
             method:"post",
-            url:"http://localhost:8087/auth/login",
+            url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/auth/login",
             data:user
         }).then((res)=>{
             console.log(res.data.token);
@@ -59,7 +59,7 @@ const Reg = ({user,setUser}) => {
         }
         axios({
             method:"post",
-            url:"http://localhost:8087/registration",
+            url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/registration",
             data:user
         }).then((res)=>{
             console.log(res)
