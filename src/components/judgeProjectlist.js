@@ -17,6 +17,8 @@ score: []
   }
 ]);
 
+const [loader,setLoader] = useState(true)
+
   useEffect(()=>{
       axios({
         method:"get",
@@ -27,6 +29,7 @@ score: []
       }).then((res)=>{
               console.log(res.data);
               setAllotedList(res.data);
+              setLoader(false);
       })
   },[])
    
@@ -37,16 +40,19 @@ score: []
     <>
     
 
-    <div className='w-75 mx-auto'>
+    <div className='w-75 mx-auto' style={{height:"100vh"}}>
       <h3 className='text-center mb-4 mt-4'>Project List</h3>
       <div className='p-3 d-flex justify-content-between mb-3' style={{ backgroundColor: "#bdd4ea",boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)",borderStyle:"solid",borderWidth:"0.5px" }}>
             <span style={{width:"15%"}} className='fw-bold'>S. No.</span>
             <span style={{width:"25%"}} className='fw-bold'>Team Name</span> 
             <span style={{width:"35%"}} className='fw-bold'>Project Name</span>
-            <span style={{width:"30%"}} className='fw-bold'>Status</span> 
+           
       </div>
-     {
-        allotedList.length === 0?
+      {loader?(<div class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>):(allotedList.length === 0?
         (
             <h4>You dont have any approvals request yet.</h4>
         ):
@@ -62,7 +68,9 @@ score: []
                         />
               </div>
             ))
-        )
+        ))}
+     {
+        
      }
 
       {/* <table className='table-row-gape w-75 mx-auto mt-5' 

@@ -53,7 +53,7 @@ export default function Navbar({user,setUser}) {
     <div className="ms-2">{username}</div>
   </div>
   <ul class="dropdown-menu dropdown-menu-right" style={{}}>
-    <li><Link to="/userdashboard" class="dropdown-item" href="#">Dashboard</Link></li>
+    <li><Link to="/projectDetail" class="dropdown-item" href="#">Dashboard</Link></li>
     <li><a onClick={()=>{setUser(false); localStorage.removeItem("token"); navigate("/")}} class="dropdown-item" href="#">Log Out</a></li>
     
   </ul>

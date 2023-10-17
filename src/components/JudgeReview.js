@@ -2,38 +2,50 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import SubmittedDetails from './SubmittedDetails';
 import '../assests/css/JudgeReview.css'
-import { Navigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import axios from 'axios';
 
 
 const JudgeReview = () => {
   const param = useParams();
-  const navigate = Navigate();
+  const navigate = useNavigate();
 
   const [rating, setRating] = useState(0);
+  
 
-  // useEffect(()=>{
-  //   axios({
-  //     method:"get",
-  //     url:"http://localhost:8087/api/implementations/"+`${param.id}`,
-  //     headers: {
-  //       'Authorization': `Bearer ${localStorage.getItem("token")}`,
-  //     }
-  //   }).then((res)=>{
-  //           console.log(res.data);      
-  //   })
-  // },[])
-
+ 
+  
   const submittedData = {
     teamName: "hackathon_team_name",
     ideaTitle: "idea_title",
     ideaDescription: "idea description",
     ideaSolution: "solution",
-    pptUrl: "https://www.africau.edu/images/default/sample.pdf",
+    pptURL: "https://www.africau.edu/images/default/sample.pdf",
     pdfUrl: "https://www.africau.edu/images/default/sample.pdf",
-    GitRepoUrl: "https://github.com/play-with-docker/play-with-kubernetes.github.io"
+    gitHubURL: "https://github.com/play-with-docker/play-with-kubernetes.github.io",
+    idea:{
+      title:""
+    },
+    implementation:{
+      description:""
+    }
   };
+  const [data,setData] = useState(submittedData)
+  const [loader,setLoader] = useState(true)
 
+  useEffect(()=>{
+    axios({
+      method:"get",
+      url:"http://localhost:8087/api/implementations/"+`${param.id}`,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+      }
+    }).then((res)=>{
+            console.log(res.data); 
+            setData(res.data)     
+            setLoader(false)
+    })
+  },[])
 
   const handleRatingChange = (value) => {
     setRating(value);
@@ -57,51 +69,55 @@ const JudgeReview = () => {
   };
 
  const submit= () =>{
-  // console.log(rating);
-  // axios({
-  //   method:"psot",
-  //   url:"http://localhost:8087/api/implementations/addScores",
-  //   data:{score:rating},
-  //       headers: {
-  //         'Authorization': `Bearer ${localStorage.getItem("token")}`,
-  //       }
-  //     }).then((res)=>{
-  //             console.log(res.data);
-  //             navigate("/JudgeProjectList")
+  console.log(rating);
+  axios({
+    method:"psot",
+    url:"http://localhost:8087/api/implementations/addScores",
+    data:{score:rating},
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }
+      }).then((res)=>{
+              console.log(res.data);
+              alert("project evaluated")
+              navigate("/JudgeProjectList")
               
-  //     })
+      })
  }
 
   return (
-    <div className='p-5'>
-      
-
+    <div className='p-5' style={{height:"150vh"}}>
+      {loader?(<div class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>):(
       <div className='w-75 mx-auto mt-5' >
         <div className='' >
         <div className='my-2 fw-semibold'>
-          <p className='h5' >Team Name:- {submittedData.teamName}</p>
+          <p className='h5' >Team Name:- {data.teamName}</p>
         </div>
         <div className='my-2 fw-semibold h5'>
-          <span>Idea:-{submittedData.ideaTitle}</span>
+          <span>Idea:-{data.idea.title}</span>
         </div>
         <p className='mb-0 mt-5 fw-semibold h5'>
           Idea Summary
         </p>
         <div className="border-0 p-2 h5"  >
-        {submittedData.ideaDescription}
+        {data.idea.summary}
           </div>
         {/* display your project field component */}
         </div>
-        {/* <SubmittedDetails
+        <SubmittedDetails
           user="Panelist"
-          teamName={submittedData.teamName}
-          ideaTitle={submittedData.ideaTitle}
-          ideaSolution={submittedData.ideaSolution}
-          pptUrl={submittedData.pptUrl}
-          pdfUrl={submittedData.pdfUrl}
-          GitRepoUrl={submittedData.GitRepoUrl}
+          teamName={data.teamName}
+          ideaTitle={data.ideaTitle}
+          documentation={data.implementation.description}
+          pptUrl={data.implementation.pptURL}
+          pdfUrl={data.pdfUrl}
+          GitRepoUrl={data.implementation.gitHubURL}
         />
-         */}
+        
 
         {/* scale */}
         <div className="text-center mt-4">{renderRatingStars()}</div>
@@ -113,7 +129,9 @@ const JudgeReview = () => {
           </button>
         </div>
         
-      </div>
+      </div>)}
+      
+
       
     </div>
   )

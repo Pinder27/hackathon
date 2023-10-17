@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router';
 const PanelReview = () => {
   const param = useParams();
   const navigate = useNavigate();
+  const [loader, setLoader] = useState(true);
   
     const submittedData={
        team:{teamName:""},
@@ -28,6 +29,7 @@ const PanelReview = () => {
    }).then((res)=>{
     console.log(res.data);
     setData(res.data);
+    setLoader(false)
    })
  },[]);
 
@@ -65,8 +67,13 @@ const PanelReview = () => {
  }
 
   return (
-    <>    
-    
+    <div style={{height:"100vh"}}>    
+    {
+      loader?(<div class="text-center mt-5">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>):( <div>
     <div className='w-75 mx-auto'>
      <div>
         <span>Team Name:- </span>
@@ -131,7 +138,10 @@ const PanelReview = () => {
     </div>
   </div>
 </div>
-    </>
+</div>)
+    }
+   
+    </div>
   )
 }
 

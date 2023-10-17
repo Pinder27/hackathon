@@ -44,7 +44,7 @@ export default function Router(){
                 <Route  path='/teamdetail'  element={<TeamDetail/>}/>
                 <Route  path='/ideadescription'  element={<IdeaDescription/>}/>
                 <Route path="/userdashboard" element={<UserDashboard user={user} setUser={setUser} />}></Route>
-                <Route path="/projectDetail/:id" element={<ProjectDetail />}></Route>
+                <Route path="/projectDetail" element={<ProjectDetail />}></Route>
                 <Route path="/panelistProjectList" element={<PanelistProjectList />}></Route>
                 <Route path="/panelReview/:id" element={<PanelReview />}></Route>
                 <Route path="/judgeReview/:id" element={<JudgeReview />}></Route>

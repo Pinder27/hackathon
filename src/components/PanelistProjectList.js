@@ -1,61 +1,74 @@
-import React, { useEffect, useState } from 'react'
-import ProjectList from './projectListRow'
-import axios from 'axios'
-
+import React, { useEffect, useState } from "react";
+import ProjectList from "./projectListRow";
+import axios from "axios";
 
 const PanelistProjectList = () => {
-  const [allotedList,setAllotedList] = useState([ 
-]);
+  const [allotedList, setAllotedList] = useState([]);
+  const [loader, setLoader] = useState(true);
 
-  useEffect(()=>{
-      axios({
-        method:"get",
-        url:"http://localhost:8087/v1/api/ideas",
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem("token")}`,
-        }
-      }).then((res)=>{
-              console.log("allotedlist- ",res.data);
-              setAllotedList(res.data);
-      })
-  },[])
-   
-
-
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://localhost:8087/v1/api/ideas",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }).then((res) => {
+      console.log("allotedlist- ", res.data);
+      setAllotedList(res.data);
+      setLoader(false);
+    });
+  }, []);
 
   return (
     <>
-    
+      <div className="w-75 mx-auto" style={{height:"100vh"}}>
+        <h3 className="text-center mb-4 mt-4">Project List</h3>
+        <div
+          className="p-3 d-flex justify-content-between mb-3"
+          style={{
+            backgroundColor: "#bdd4ea",
+            boxShadow: "0px 0px 8px 1px rgba(0, 0, 0, 0.2)",
+            borderStyle: "solid",
+            borderWidth: "0.5px",
+          }}
+        >
+          <span style={{ width: "15%" }} className="fw-bold">
+            S. No.
+          </span>
+          <span style={{ width: "25%" }} className="fw-bold">
+            Team Name
+          </span>
+          <span style={{ width: "35%" }} className="fw-bold">
+            Project Name
+          </span>
+          <span style={{ width: "30%" }} className="fw-bold">
+            Status
+          </span>
+        </div>
 
-    <div className='w-75 mx-auto'>
-      <h3 className='text-center mb-4 mt-4'>Project List</h3>
-      <div className='p-3 d-flex justify-content-between mb-3' style={{ backgroundColor: "#bdd4ea",boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)",borderStyle:"solid",borderWidth:"0.5px" }}>
-            <span style={{width:"15%"}} className='fw-bold'>S. No.</span>
-            <span style={{width:"25%"}} className='fw-bold'>Team Name</span> 
-            <span style={{width:"35%"}} className='fw-bold'>Project Name</span>
-            <span style={{width:"30%"}} className='fw-bold'>Status</span> 
-      </div>
-     {
-        allotedList.length === 0?
-        (
-            <h4>You dont have any approvals request yet.</h4>
-        ):
-        (
-            allotedList.map((row,index) =>(
-                <div key={index}>
-                   <ProjectList 
-                        sNo={index}
-                        teamName={row.teamName}
-                        projectName={row.idea.title}
-                        status={row.idea.status}
-                        id={row.idea.id}
-                        />
-              </div>
-            ))
-        )
-     }
+        {
+          loader?(<div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>):(allotedList.length === 0 ? (
+          <h4>You dont have any approvals request yet.</h4>
+        ) : (
+          allotedList.map((row, index) => (
+            <div key={index}>
+              <ProjectList
+                sNo={index}
+                teamName={row.teamName}
+                projectName={row.idea.title}
+                status={row.idea.status}
+                id={row.idea.id}
+              />
+            </div>
+          ))
+        ))
+        }
+        
 
-      {/* <table className='table-row-gape w-75 mx-auto mt-5' 
+        {/* <table className='table-row-gape w-75 mx-auto mt-5' 
       style={{backgroundColor:"rgb(227 227 202)", borderCollapse:"separate", borderSpacing:"0 20px"}}
       >
             <thead>
@@ -81,9 +94,9 @@ const PanelistProjectList = () => {
             </tbody>
           </table>
        */}
-    </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default PanelistProjectList
+export default PanelistProjectList;

@@ -1,13 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import documentIcon from '../assests/images/document.svg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-const SubmittedDetails = ({user, teamName, ideaTitle, ideaSolution, pptUrl, pdfUrl, GitRepoUrl}) => {
+const SubmittedDetails = ({user, ideaTitle, documentation, pptUrl, pdfUrl, GitRepoUrl,implementationId}) => {
+  
+  
+  const [ppt,setPpt] = useState(pptUrl);
+  const [pdf,setPdf] = useState(pdfUrl);
+  const [git,setGit] = useState(GitRepoUrl);
+  console.log(GitRepoUrl)
+  
+
+  function HandleSubmit(){
+    var data = {};
+    if(ppt!==""){
+      data.pptURL = ppt
+    }
+    if(git!==""){
+      data.gitHubURL = git
+    }
+    axios({
+      method:"put",
+      url:"http://localhost:8087/api/implementations/"+`${implementationId}`,
+      headers: {
+              'Authorization': `Bearer ${localStorage.getItem("token")}`,
+               },
+      data:data
+
+    }).then((res)=>{
+      console.log(res.data);
+      alert("files updated");
+    })
+  }
   return (
     <div className='mb-5 d-flex flex-column'>
-   {user=="user" &&<p className='h5 ms-auto'>Your Project</p>}
-             {user=="user" && <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" className='btn text-white  ms-auto px-4 mt-3' style={{backgroundColor: "#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)"}}>Edit</button>}
-              <p className='h4 mx-auto'>{ideaTitle}</p>
+   {user=="User" &&<p className='h5 ms-auto'>Your Project</p>}
+             {user=="User" && <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" className='btn text-white  ms-auto px-4 mt-3' style={{backgroundColor: "#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)"}}>Edit</button>}
+              <p className='h5 mx-auto'>{ideaTitle}</p>
           <div style={{ backgroundColor: "#f8f9fa" }} className='p-4'>
             <div className="d-flex justify-content-between align-items-center mb-4">
               
@@ -18,7 +48,7 @@ const SubmittedDetails = ({user, teamName, ideaTitle, ideaSolution, pptUrl, pdfU
                   <td className='fw-semibold'>PPT:-</td>
                   <td>
                     <Link to={pptUrl}
-                    target='_blank'
+                    target={pptUrl}
                     className='link-to-text'
                     >
                      <img src={documentIcon}
@@ -32,9 +62,9 @@ const SubmittedDetails = ({user, teamName, ideaTitle, ideaSolution, pptUrl, pdfU
                 <tr>
                   <td className='fw-semibold' >Documentation:-</td>
                   <td>
-                    <a href={pdfUrl}
+                    <Link to={pdfUrl}
                     download="Addresources.js"
-                    target='_blank'
+                    target={documentation}
                     className='link-to-text'
                     >
                      <img src={documentIcon}
@@ -42,16 +72,17 @@ const SubmittedDetails = ({user, teamName, ideaTitle, ideaSolution, pptUrl, pdfU
                       className='mx-1'
                      />
                      Click here to view the documentation
-                    </a>
+                    </Link>
                   </td>
                 </tr>
                 <tr>
                   <td className='fw-semibold mb-3' >Github Repository:-</td>
-                  <td><input type='text'
+                  <td><a type='text'
                     className='no-border p-1 py-1'
                     style={{ backgroundColor: "rgb(233 233 233)", width: "75%" }}
-                    value={GitRepoUrl}
-                  /></td>
+                    target="_blank"
+                    href={GitRepoUrl}
+                  >{git}</a></td>
                 </tr>
               </tbody>
             </table>
@@ -68,26 +99,26 @@ const SubmittedDetails = ({user, teamName, ideaTitle, ideaSolution, pptUrl, pdfU
       <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">ppt</label>
     <div class="col-sm-10">
-      <input type="file" class="form-control" id="inputEmail3"/>
+      <input type="text" value={ppt} class="form-control" id="inputEmail3" onChange={(e)=>setPpt(e.target.value)}/>
     </div>
   </div>
       <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Documentation</label>
     <div class="col-sm-10">
-      <input type="file" class="form-control" id="inputEmail3"/>
+      <input type="text" value={pdf} class="form-control" id="inputEmail3" onChange={(e)=>setPdf(e.target.value)}/>
     </div>
   </div>
       <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Github-repo</label>
+    <label for="inputEmail3"  class="col-sm-2 col-form-label">Github-repo</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3"/>
+      <input type="text" class="form-control" value={git} id="inputEmail3" onChange={(e)=>setGit(e.target.value)}/>
     </div>
   </div>
   </form>
       </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" onClick={HandleSubmit} class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
