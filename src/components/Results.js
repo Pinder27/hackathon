@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 export default function Result(){
     return(
         <div>
-        <Navbar/>
+        
         <div className="mb-5 ">
             <div className="d-flex flex-column p-5 mb-5" style={{backgroundColor:"#D9D9D9", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.45)"}}>
                   <div className="h4 m-3 d-flex mb-5 justify-content-center">Ongoing Hackathons</div>
@@ -23,7 +23,7 @@ export default function Result(){
                   </div>
             </div>
         </div>
-        <Footer/>
+        
         </div>
     )
 }

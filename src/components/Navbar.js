@@ -1,12 +1,24 @@
 
 import { useState } from "react";
 import Logo from "../assests/images/Logo.png"
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import userimage from "../assests/images/user-3296 1.png"
+import jwt from 'jwt-decode'
 
 
-export default function Navbar() {
-  const [user,setUser] = useState(true);
+export default function Navbar({user,setUser}) {
+   const navigate = useNavigate();
+   const location = useLocation();
+  if(location.pathname=="/reg") return null;
+  if(location.pathname=="/login") return null;
+  if(location.pathname=="/admin") return null;
+  var username = "pinder";
+
+  if(user){
+    const token = localStorage.getItem("token");
+     username = jwt(token).sub; // decode your token here
+    console.log(username.sub)
+}
 
   return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary"style={{boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.25)"}}>
@@ -24,25 +36,25 @@ export default function Navbar() {
             <Link to='/' class="nav-link active" aria-current="page" href="#">Home</Link>
           </li>
           <li class="nav-item">
-            <Link to='/guidelines' class="nav-link active" aria-current="page" href="#">Guidelines</Link>
+            <Link to='/guidelines' class="nav-link active" aria-current="page" href="#">FAQs</Link>
           </li>
           <li class="nav-item">
-            <Link to="/results" class="nav-link active" aria-current="page" href="#">Results</Link>
+            <Link to="/results" class="nav-link active" aria-current="page" href="#">LeaderBoard</Link>
           </li>
           <li class="nav-item">
             <Link to="/contact" class="nav-link active" aria-current="page" href="#">Contact Us</Link>
           </li>
     
         </ul>
-       {!user&&<Link to="/reg" className="me-5 p-2 col-1 btn text-white" style={{backgroundColor:"#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)"}}>Join us</Link>}
+       {!user&&<Link to="/login" className="me-5 p-2 col-1 btn text-white" style={{backgroundColor:"#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)"}}>Join us</Link>}
        {user&&<div class="dropdown-center me-4">
   <div class=" me-5  dropdown-toggle d-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <img src={userimage} height="30px"/>
-    <div className="ms-2">Pinder</div>
+    <div className="ms-2">{username}</div>
   </div>
   <ul class="dropdown-menu dropdown-menu-right" style={{}}>
-    <li><a class="dropdown-item" href="#">Dashboard</a></li>
-    <li><a class="dropdown-item" href="#">Log Out</a></li>
+    <li><Link to="/userdashboard" class="dropdown-item" href="#">Dashboard</Link></li>
+    <li><a onClick={()=>{setUser(false); localStorage.removeItem("token"); navigate("/")}} class="dropdown-item" href="#">Log Out</a></li>
     
   </ul>
 </div>}

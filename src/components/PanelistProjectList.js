@@ -1,49 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProjectList from './projectListRow'
-import Navbar from './Navbar';
+import axios from 'axios'
+
 
 const PanelistProjectList = () => {
-  const allotedList=[
-    {
-        teamName:"abc",
-        projectName:"project Name 1",
-        status:"Approved",
-        review:"/panelReview/12"
-    },
-    {
-        teamName:"abc",
-        projectName:"project Name 2",
-        status:"Pending",
-        review:"/panelReview/122"
-    },
-    {
-        teamName:"abc",
-        projectName:"project Name 3",
-        status:"Rejected",
-        review:"/panelReview/132"
-    },
-    {
-        teamName:"abc",
-        projectName:"project Name 4",
-        status:"Approved",
-        review:"/panelReview/212"
-    },
-    {
-        teamName:"abc",
-        projectName:"project Name 5",
-        status:"Pending",
-        review:"/panelReview/1d2"
-    }
+  const [allotedList,setAllotedList] = useState([ 
+]);
 
-  ]  
+  useEffect(()=>{
+      axios({
+        method:"get",
+        url:"http://localhost:8087/v1/api/ideas",
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }
+      }).then((res)=>{
+              console.log("allotedlist- ",res.data);
+              setAllotedList(res.data);
+      })
+  },[])
+   
+
+
 
   return (
     <>
-    <Navbar />
+    
 
     <div className='w-75 mx-auto'>
-      <h3 className='text-center mb-4'>Project List</h3>
-      <div className='row-with-shadow-flex' style={{ backgroundColor: "#bdd4ea" }}>
+      <h3 className='text-center mb-4 mt-4'>Project List</h3>
+      <div className='p-3 d-flex justify-content-between mb-3' style={{ backgroundColor: "#bdd4ea",boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)",borderStyle:"solid",borderWidth:"0.5px" }}>
             <span style={{width:"15%"}} className='fw-bold'>S. No.</span>
             <span style={{width:"25%"}} className='fw-bold'>Team Name</span> 
             <span style={{width:"35%"}} className='fw-bold'>Project Name</span>
@@ -60,9 +46,9 @@ const PanelistProjectList = () => {
                    <ProjectList 
                         sNo={index}
                         teamName={row.teamName}
-                        projectName={row.projectName}
-                        status={row.status}
-                        review={row.review}
+                        projectName={row.idea.title}
+                        status={row.idea.status}
+                        id={row.idea.id}
                         />
               </div>
             ))

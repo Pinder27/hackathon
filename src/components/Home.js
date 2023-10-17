@@ -8,13 +8,26 @@ import fedx from "../assests/images/fedx.png";
 import amazon from "../assests/images/amazon.png";
 import walmart from "../assests/images/walmart.png";
 import incedologo from "../assests/images/incedo-logo.png"
-
 import Poster from "../assests/images/Poster.png";
+import { useNavigate } from "react-router";
+import bgImage from "../assests/images/pexels-alexander-kovalev-2847648.jpg"
+import "../assests/css/Home.css"
 
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+ 
 
-const Home = () => {
+
+
+const Home = ({user,setUser}) => {
+  const divStyle = {
+    backgroundImage: `url(${bgImage})`, // Adjust the path to your image
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    boxShadow:"0px 1px 2px 1px rgba(0, 0, 0, 0.25)"
+   
+     // Optional, for a fixed background
+  };
+  
   const calculateTimeLeft = () => {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft = {};
@@ -30,7 +43,7 @@ const Home = () => {
 
     return timeLeft;
   };
-  const targetDate = "2023-10-20T00:00:00";
+  const targetDate = "2023-11-01T00:00:00";
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
@@ -42,12 +55,22 @@ const Home = () => {
   });
 
   const { days, hours, minutes, seconds } = timeLeft;
+ 
+  var navigate =  useNavigate();
+   function HandleGetStarted(){
+    if(user){
+         navigate("/teamdetail")
+    }
+    else {
+      navigate("/login")
+    }
+   }
   return (
     <div>
-      <Navbar />
+      
       <div
-        className="container-fluid  d-flex row m-0 pb-5"
-        style={{ backgroundColor: "#D9D9D9", boxShadow:"0px 1px 2px 1px rgba(0, 0, 0, 0.25)" }}
+        className="container-fluid body-store  d-flex row m-0 pb-5"
+       
       >
         <div
           className="col-5 d-flex mt-5 flex-column "
@@ -58,21 +81,22 @@ const Home = () => {
           </div>
           <div className="mb-3 h5 d-flex ">PRESENTS</div>
           <div className=" display-5 d-flex " style={{ fontWeight: "bold" }}>
-            Hackathon 4.0
+            Hackathon 2023
           </div>
           <div
             className="mb-2 display-5 d-flex  "
             style={{ fontWeight: "bold" }}
           >
-            Meta Edition
+            
           </div>
           <div className="mb-2 text-left d-flex ">
-            The 4th iteration of Incedo Hackathon, Hackathon 4.0 META welcomes
+            The 4th iteration of Incedo Hackathon, Hackathon 2023 welcomes
             you!
           </div>
           <button
             className="mb-2 mt-5 btn btn-lg text-white col-5"
             style={{ backgroundColor: "#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
+            onClick={HandleGetStarted}
           >
             Get Started
           </button>
@@ -89,7 +113,7 @@ const Home = () => {
             style={{
               position: "absolute",
               top: "30%",
-              left: "21%",
+              left: "20%",
               fontWeight: "bold",
             }}
           >
@@ -105,7 +129,7 @@ const Home = () => {
             className="  h5  text-white"
             style={{ position: "absolute", top: "50%", left: "23%" }}
           >
-            days    hours    minutes   seconds
+            days     hours      minutes   seconds
           </pre>
         </div>
       </div>
@@ -176,18 +200,18 @@ const Home = () => {
 
       <div className="p-5">
         <div className="h1 text-center mb-3">
-          What is Hackathon 4.0 Meta Edition?
+          What is incedo Hackathon 2023?
         </div>
         <div className="mb-3">
-          Hackathon 4.0 META is an initiative in sync with the vision of incedo,
+          Hackathon 2023  is an initiative in sync with the vision of incedo,
           towards providing a mega platform to the programming community,
           technophiles and techpreneurs to address the critical challenges of
           the industry and society by building innovative solutions in form of
-          prototypes leveraging technologies under the umbrella of Metaverse.
+          prototypes leveraging technologies under the umbrella of incedo.
         </div>
 
         <div>
-          Hackathon 4.0 is a 24 hour coding marathon planning to invite
+          Hackathon 2023 is a 96 hour coding marathon planning to invite
           participants from G20 Nations and our associate International
           Universities to come together and participate in developing solutions
           towards achieving UN SDG goals leveraging the emerging technologies
@@ -198,7 +222,7 @@ const Home = () => {
       <div className="p-5">
         <div className="h1 text-center">Our History</div>
         <div>
-          Hackathon 3.0 was held on 5th and 6th August 2022. The event witnessed
+          first Hackathon  was held on 5th and 6th August 2019. The event witnessed
           participation from SAARC Nations as well. The event was applauded by
           Honorable Prime Minister Of India, Shri Narendra Modi.
         </div>
@@ -218,13 +242,13 @@ const Home = () => {
           opportunity of internships with the industry associates.
         </div>
         <div>
-          After the success of Hackathon 1.0, 2.0 & 3.0 School of Computer
-          Science is back with the 4th edition of incedo s Flagship event
-          Hackathon 4.0META to be held on 1st and 2nd September 2023. It’s a
+          After the success of Hackathon 1.0, 2.0 & 3.0 
+           is back with the 4th edition of incedo s Flagship event
+          Hackathon 2023 to be held on 1st and 2nd September 2023. It’s a
           signature event of School Of Computer Science.
         </div>
       </div>
-        <Footer/>
+        
     </div>
   );
 };

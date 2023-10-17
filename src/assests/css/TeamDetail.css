@@ -11,12 +11,14 @@
     border: none;
     outline: none;
     border-radius: 5px;
+    
 }
 
 .participant-detail input{
     width: 40%;
     display: inline-block;
     margin-left: 5px;
+    
 }
 
 

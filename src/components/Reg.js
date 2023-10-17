@@ -1,27 +1,75 @@
 import React from "react";
 import "../assests/css/Reg.css";
-import { useState, useContext } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router";
 import Navbar from './Navbar';
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 
-const Reg = () => {
-    const [name, setName] = useState("");
+const Reg = ({user,setUser}) => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [cpassword, setcPassword] = useState("");
     const navigate = useNavigate("");
     const [loading, setLoading] = useState(false);
+    const buttonRef = useRef();
 
     const handleSubmitLogin = async (e) => {
         e.preventDefault();
+        var user = {
+            username:username,
+            password:password
+        }
+        console.log(user)
+        axios({
+            method:"post",
+            url:"http://localhost:8087/auth/login",
+            data:user
+        }).then((res)=>{
+            console.log(res.data.token);
+            localStorage.setItem("token",res.data.token);
+            setUser(true);
+            if(username==="anuj27"){
+                navigate("/panelistProjectList")
+            }
+            else if(username==="dhruv27"){
+                navigate("/judgeReview")
+            }
+            else navigate("/");
+        })
         
       
     };
 
     const handleSubmitSignup = async (e) => {
         e.preventDefault();
-       
+        if(password!==cpassword){
+
+        }
+        var user = {
+            username:username,
+            firstName:firstName,
+            lastName:lastName,
+            email:email,
+            password:password
+        }
+        axios({
+            method:"post",
+            url:"http://localhost:8087/registration",
+            data:user
+        }).then((res)=>{
+            console.log(res)
+           // localStorage.setItem("token",res.token);
+          // setUser(true);
+           // navigate("/");
+           buttonRef.current.click();
+        },function(error){
+            console.log("error from sign up", error)
+        })
     };
 
     return (
@@ -42,15 +90,31 @@ const Reg = () => {
 
                     <div className="signup">
                         <form method="POST">
-                            <label for="chk" aria-hidden="true">
+                            <label ref={buttonRef} for="chk" aria-hidden="true">
                                 Sign up
                             </label>
                             <input
                                 type="text"
                                 name="name"
-                                placeholder="Name"
+                                placeholder="First Name"
                                 onChange={(e) => {
-                                    setName(e.target.value);
+                                    setFirstName(e.target.value);
+                                }}
+                            />
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Last Name"
+                                onChange={(e) => {
+                                    setLastName(e.target.value);
+                                }}
+                            />
+                             <input
+                                type="text"
+                                name="name"
+                                placeholder="username"
+                                onChange={(e)=>{
+                                    setUsername(e.target.value)
                                 }}
                             />
                             <input
@@ -90,11 +154,12 @@ const Reg = () => {
                                 Login
                             </label>
                             <input
-                                type="email"
+                                type="text"
                                 name="email"
-                                placeholder="Email"
+                                placeholder="username"
                                 onChange={(e) => {
-                                    setEmail(e.target.value);
+                                    setUsername(e.target.value);
+                                    console.log(username)
                                 }}
                             />
                             <input
@@ -111,6 +176,7 @@ const Reg = () => {
                             >
                                 Login
                             </button>
+                           <Link className="text-center"><div>Forgot Password</div></Link>
                         </form>
                     </div>
                 </div>
