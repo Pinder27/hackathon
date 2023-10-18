@@ -89,7 +89,7 @@ const PanelReview = () => {
      <span> {data.idea.summary}</span>
       {/* display your project field component */}
       <SubmittedDetails 
-        user="Panelist"
+        user="panelist"
         teamName={data.team.teamName}
         ideaTitle={data.idea.title}
         ideaSummary={data.idea.summary}
