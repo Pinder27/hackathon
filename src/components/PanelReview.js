@@ -22,7 +22,7 @@ const PanelReview = () => {
  useEffect(()=>{
    axios({
     method:"get",
-    url:"http://localhost:8087/v1/api/ideas/"+`${param.id}`,
+    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/"+`${param.id}`,
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("token")}`,
     }
@@ -36,7 +36,7 @@ const PanelReview = () => {
  function HandleApprove(){
   axios({
     method:"put",
-    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
       status:"approved"
     },
@@ -52,7 +52,7 @@ const PanelReview = () => {
  function HandleReject(){
   axios({
     method:"put",
-    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
       status:"rejected"
     },

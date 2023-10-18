@@ -32,7 +32,7 @@ const ProjectDetail = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:8087/user/dashboard/impl",
+      url: "https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/user/dashboard/impl",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -41,7 +41,7 @@ const ProjectDetail = () => {
       setData(res.data[0]);
       axios({
         method: "get",
-        url: "http://localhost:8087/user/dashboard/teamDetails",
+        url: "https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/user/dashboard/teamDetails",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -53,7 +53,7 @@ const ProjectDetail = () => {
         setLoader(false);
         axios({
           method: "get",
-          url: "http://localhost:8087/user/dashboard/idea",
+          url: "https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/user/dashboard/idea",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
