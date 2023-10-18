@@ -61,9 +61,12 @@ const ProjectDetail = () => {
           console.log("idea - ", res.data);
           setIdea(res.data);
           setLoader2(false);
-        });
+        })
       });
-    });
+    }).catch((e)=>{
+      console.log(e.response);
+      alert(e.response.data)
+    })
   }, []);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({

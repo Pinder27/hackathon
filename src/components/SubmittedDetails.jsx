@@ -62,7 +62,7 @@ const SubmittedDetails = ({
           className="table-row-gape mb-4"
         >
           <tbody>
-            <tr>
+           {user!=="panelist"&& <tr>
               <td className="fw-semibold">PPT:-</td>
               <td>
                 <Link to={pptUrl} target={pptUrl} className="link-to-text">
@@ -74,7 +74,7 @@ const SubmittedDetails = ({
                   Click here to view the PPT
                 </Link>
               </td>
-            </tr>
+            </tr>}
             <tr>
               <td className="fw-semibold">Documentation:-</td>
               <td>
@@ -93,7 +93,7 @@ const SubmittedDetails = ({
                 </Link>
               </td>
             </tr>
-            <tr>
+           {user!=="panelist" && <tr>
               <td className="fw-semibold mb-3">Github Repository:-</td>
               <td>
                 <div
@@ -113,7 +113,7 @@ const SubmittedDetails = ({
                   </a>
                 </div>
               </td>
-            </tr>
+            </tr>}
           </tbody>
         </table>
       </div>

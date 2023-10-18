@@ -119,7 +119,7 @@ export default function Login({user,setUser}){
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail" class="form-label">Email</label>
-    <input type="password" onChange={(e)=>{setEmail(e.target.value)}} class="form-control" id="exampleInputEmail"/>
+    <input type="email" onChange={(e)=>{setEmail(e.target.value)}} class="form-control" id="exampleInputEmail"/>
   </div>
   <div className="row">
   <div class="mb-3 col">
