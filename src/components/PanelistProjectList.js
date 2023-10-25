@@ -59,7 +59,7 @@ const PanelistProjectList = () => {
                 sNo={index}
                 teamName={row.teamName}
                 projectName={row.idea.title}
-                status={row.idea.status}
+                status={row.idea.status===null?"Pending":row.idea.status}
                 id={row.idea.id}
               />
             </div>

@@ -43,7 +43,7 @@ const Home = ({user,setUser}) => {
 
     return timeLeft;
   };
-  const targetDate = "2023-11-01T10:00:00";
+  const targetDate = "2023-11-06T10:00:00";
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const Home = ({user,setUser}) => {
          navigate("/teamdetail")
     }
     else {
-      navigate("/login")
+      navigate("/reg2")
     }
    }
   return (
@@ -83,12 +83,7 @@ const Home = ({user,setUser}) => {
           <div className=" display-5 d-flex " style={{ fontWeight: "bold" }}>
             Hackathon 2023
           </div>
-          <div
-            className="mb-2 display-5 d-flex  "
-            style={{ fontWeight: "bold" }}
-          >
-            
-          </div>
+        
           <div className="mb-2 text-left d-flex ">
             The 4th iteration of Incedo Hackathon, Hackathon 2023 welcomes
             you!
@@ -101,11 +96,10 @@ const Home = ({user,setUser}) => {
             Get Started
           </button>
         </div>
-        <div className="  col-sm-7 position-relative p-0">
+        <div className="  col-7 position-relative p-0">
           <img
             src={vrGlasses}
             className="img-fluid"
-            height="470"
             alt="VR Glasses"
           />
           <div

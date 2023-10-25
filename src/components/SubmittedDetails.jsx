@@ -78,10 +78,10 @@ const SubmittedDetails = ({
             <tr>
               <td className="fw-semibold">Documentation:-</td>
               <td>
-                <Link
-                  to={pdfUrl}
+                <a
                   download="Addresources.js"
-                  target={documentation}
+                  href={pdfUrl}
+                  target="_blank"
                   className="link-to-text"
                 >
                   <img
@@ -90,7 +90,7 @@ const SubmittedDetails = ({
                     className="mx-1"
                   />
                   Click here to view the documentation
-                </Link>
+                </a>
               </td>
             </tr>
            {user!=="panelist" && <tr>

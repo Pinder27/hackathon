@@ -1,10 +1,11 @@
 .team-detail-container{
     width: 75%;
     margin: auto;
+    background: #f48d8d00;
 }
 .team-detail-container input{
     width: 81%;
-    background: #e0dede;
+    background: #cdd4e1;
     justify-content: center;
     margin: 20px auto;
     padding: 10px;

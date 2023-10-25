@@ -12,6 +12,7 @@ export default function Navbar({user,setUser}) {
   if(location.pathname=="/reg") return null;
   if(location.pathname=="/login") return null;
   if(location.pathname=="/admin") return null;
+  if(location.pathname=="/reg2") return null;
   var username = "pinder";
 
   if(user){
@@ -46,7 +47,7 @@ export default function Navbar({user,setUser}) {
           </li>
     
         </ul>
-       {!user&&<Link to="/login" className="me-5 p-2 col-1 btn text-white" style={{backgroundColor:"#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)"}}>Join us</Link>}
+       {!user&&<Link to="/reg2" className="me-5 p-2 col-1 btn text-white" style={{backgroundColor:"#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)"}}>Join us</Link>}
        {user&&<div class="dropdown-center me-4">
   <div class=" me-5  dropdown-toggle d-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <img src={userimage} height="30px"/>

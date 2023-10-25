@@ -20,6 +20,9 @@ import DetailResult from './components/DetailResult';
 import Login from './components/login';
 import Admin from './components/Admin';
 import JudgeProjectList from './components/judgeProjectlist';
+import Implementation from './components/implementaion';
+import Idea from './components/Idea';
+import Reg2 from './components/Reg2';
 
 
 
@@ -49,8 +52,11 @@ export default function Router(){
                 <Route path="/panelReview/:id" element={<PanelReview />}></Route>
                 <Route path="/judgeReview/:id" element={<JudgeReview />}></Route>
                 <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
+                <Route path="/Reg2" element={<Reg2 user={user} setUser={setUser}/>}></Route>
                 <Route path="/admin" element={<Admin user={user} setUser={setUser}/>}></Route>
                 <Route path="/JudgeProjectList" element={<JudgeProjectList user={user} setUser={setUser}/>}></Route>
+                <Route path="/impl" element={<Implementation/>}></Route>
+                <Route path="/idea" element={<Idea/>}></Route>
                 
                 
                 

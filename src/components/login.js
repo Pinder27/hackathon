@@ -103,18 +103,18 @@ export default function Login({user,setUser}){
                 <h2>Sign up</h2>
  <div className="row">
   <div class="mb-3 col">
-    <label for="exampleInputfname" onChange={(e)=>setFirstName(e.target.value)} class="form-label">First Name</label>
-    <input type="email" class="form-control" id="exampleInputfname" aria-describedby="emailHelp"/>
+    <label for="exampleInputfname"  class="form-label">First Name</label>
+    <input type="text" onChange={(e)=>setFirstName(e.target.value)} class="form-control" id="exampleInputfname" aria-describedby="emailHelp"/>
   </div>
   <div class="mb-3 col">
     <label for="exampleInputlname" class="form-label">Last Name</label>
-    <input type="email" class="form-control" onChange={(e)=>setLastName(e.target.value)} id="exampleInputlname" aria-describedby="emailHelp"/>
+    <input type="text" class="form-control" onChange={(e)=>setLastName(e.target.value)} id="exampleInputlname" aria-describedby="emailHelp"/>
    
   </div>
   </div>
   <div class="mb-3">
     <label for="exampleInputusername" class="form-label">Username</label>
-    <input type="email" class="form-control" onChange={(e)=>setUsername(e.target.value)} id="exampleInputusername" aria-describedby="emailHelp"/>
+    <input type="text" class="form-control" onChange={(e)=>setUsername(e.target.value)} id="exampleInputusername" aria-describedby="emailHelp"/>
     
   </div>
   <div class="mb-3">

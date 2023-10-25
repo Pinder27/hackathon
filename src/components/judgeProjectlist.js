@@ -42,10 +42,11 @@ const [loader,setLoader] = useState(true)
 
     <div className='w-75 mx-auto' style={{height:"100vh"}}>
       <h3 className='text-center mb-4 mt-4'>Project List</h3>
-      <div className='p-3 d-flex justify-content-between mb-3' style={{ backgroundColor: "#bdd4ea",boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)",borderStyle:"solid",borderWidth:"0.5px" }}>
-            <span style={{width:"15%"}} className='fw-bold'>S. No.</span>
-            <span style={{width:"25%"}} className='fw-bold'>Team Name</span> 
-            <span style={{width:"35%"}} className='fw-bold'>Project Name</span>
+      <div className='p-3 row mb-3' style={{ backgroundColor: "#bdd4ea",boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)",borderStyle:"solid",borderWidth:"0.5px" }}>
+            <span  style={{width:"13%"}} className='fw-bold col'>S. No.</span>
+            <span style={{width:"30%"}} className='fw-bold col'>Team Name</span> 
+            <span style={{width:"20%"}} className='fw-bold col'>Project Name</span>
+            <span style={{width:"10%"}} className='fw-bold col'>status</span>
            
       </div>
       {loader?(<div class="text-center">

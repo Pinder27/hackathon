@@ -9,6 +9,7 @@ export default function Footer(){
   if(location.pathname=="/reg") return null;
   if(location.pathname=="/login") return null;
   if(location.pathname=="/admin") return null;
+  if(location.pathname=="/reg2") return null;
     return(
         <div>
              <div className="container-fluid p-5 " style={{backgroundColor:"#1E0156",boxShadow:"0px 0px 2px 1px rgba(0, 0, 0, 0.25)"}}>

@@ -5,6 +5,7 @@ import "../assests/css/TeamDetail.css";
 import removeIcon from "../assests/images/remove-icon.svg";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import Team1 from "../assests/images/Team3.jpg"
 
 const TeamDetail = () => {
   
@@ -93,15 +94,17 @@ const TeamDetail = () => {
     setFormFields(data);
   };
   return (
-    <>
-      <div className="team-detail-container mb-5">
-        <h1 className="text-center mb-5 mt-5">Team Details</h1>
-        <div className="p-2 m-5" style={{ background: "#F8F8F8", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}>
+    <div className="d-flex p-5" style={{backgroundColor:"#e2eaf9"}} >
+      
+      <div className="d-flex flex-column justify-content-center team-detail-container">
+        <h3 className="text-center">Team Details</h3>
+        <div className="p-2 m-3" style={{ background: "#f8f8f800", borderRadius:"5px" }}>
           <div  style={{marginLeft:"15%",marginTop:"5%"}}>
             <h5>
               <label>Team Name</label>
             </h5>
             <input
+            className="ms-1"
               
               onChange={(e) => setTeamName(e.target.value)}
             />
@@ -188,7 +191,7 @@ const TeamDetail = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
