@@ -61,7 +61,7 @@ const TeamDetail = () => {
     
     axios({
       method: "post",
-      url: "http://localhost:8087/TeamRegistration",
+      url: "https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/TeamRegistration",
       data: data,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,

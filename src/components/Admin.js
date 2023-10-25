@@ -10,7 +10,7 @@ export default function Admin() {
     e.preventDefault();
     axios({
       method:"put",
-      url:"http://localhost:8087/admin/updateRole",
+      url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/admin/updateRole",
       data:{
         userEmail: email,
         role: value
