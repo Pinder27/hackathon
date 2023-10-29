@@ -237,8 +237,8 @@ const JudgeReview = ({alert}) => {
   </div>
 </form>
       </div>
-      <div class="modal-footer">
-        <button onClick={submit} type="button" class="btn btn-primary">Submit</button>
+      <div class="d-flex justify-content-center mb-3">
+        <button onClick={submit} data-bs-dismiss="modal" type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
