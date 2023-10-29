@@ -2,9 +2,13 @@ import "../assests/css/rej2.css"
 import React, { useEffect, useState,useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
-export default function Reg2({user,setUser}){
+import Verification from "./verification";
+import ResetPassword from "./resetPassword";
+export default function Reg2({user,setUser,alert}){
     
     const [isSignupActive, setIsSignupActive] = useState(false);
+    const [verify,setVerify] = useState(false);
+    const [forgotPassword,setForgotPassword] = useState(false);
 
   const handleSignupClick = () => {
     setIsSignupActive(true);
@@ -39,6 +43,10 @@ export default function Reg2({user,setUser}){
          console.log(res.data.role[res.data.role.length-1].name);
          localStorage.setItem("token",res.data.token);
          setUser(true);
+         alert.setMessage("Login successful")
+         alert.setAlertStatus("success")
+         alert.setShow(true);
+         
          if(res.data.role[res.data.role.length-1].name==="Role_Panelist"){
              navigate("/panelistProjectList")
          }
@@ -70,15 +78,15 @@ export default function Reg2({user,setUser}){
      }
      axios({
          method:"post",
-         url:"http://localhost:8087/registration",
+         url:"http://localhost:8087/registration/register",
          data:user
      }).then((res)=>{
-         console.log(res)
+         console.log("sign in",res)
         // localStorage.setItem("token",res.token);
        // setUser(true);
         // navigate("/");
-        alert("sign up successful ,you can login now")
-        buttonRef.current.click();
+        setVerify(true);
+        
      },function(error){
          console.log("error from sign up", error)
      })
@@ -89,16 +97,16 @@ export default function Reg2({user,setUser}){
             <div className="body12 ">
   <div className={`container12 ${isSignupActive ? 'right-panel-active' : ''}`} id="container12">
     <div className="form-container sign-up-container">
-      <form action="#">
+      {(verify)?(<Verification email_={email} buttonRef={buttonRef} alert={alert}/>):(<form action="#">
         <h1>Create Account</h1>
         
         <span>or use your email for registration</span>
         <div class="row g-3">
   <div class="col">
-    <input type="text" onChange={(e)=>setFirstName(e.target.value)}  placeholder="First name" aria-label="First name"/>
+    <input type="text"  onChange={(e)=>setFirstName(e.target.value)} required  placeholder="First name" aria-label="First name"/>
   </div>
   <div class="col">
-    <input type="text" onChange={(e)=>setLastName(e.target.value)}  placeholder="Last name" aria-label="Last name"/>
+    <input type="text" onChange={(e)=>setLastName(e.target.value)} required  placeholder="Last name" aria-label="Last name"/>
   </div>
 </div>
         <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="Email" />
@@ -112,19 +120,19 @@ export default function Reg2({user,setUser}){
   </div>
 </div>
         <button onClick={handleSubmitSignup}>Sign Up</button>
-      </form>
+      </form>)}
     </div>
-    <div className="form-container sign-in-container">
-      <form action="#">
+   { <div className="form-container sign-in-container">
+     { forgotPassword?(<ResetPassword setForgotPassword={setForgotPassword}/>):(<form action="#">
         <h1 >Sign in</h1>
       
         <span>or use your account</span>
         <input type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="Username" />
         <input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
-        <a href="#">Forgot your password?</a>
+        <a href="#" onClick={(e)=>setForgotPassword(true)}>Forgot your password?</a>
         <button onClick={handleSubmitLogin}>Sign In</button>
-      </form>
-    </div>
+      </form>)}
+    </div>}
     <div className="overlay-container">
       <div className="overlay">
         <div className="overlay-panel overlay-left">

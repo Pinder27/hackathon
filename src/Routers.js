@@ -28,7 +28,7 @@ import Reg2 from './components/Reg2';
 
 
 
-export default function Router(){
+export default function Router({alert}){
     const [user,setUser] = useState(false)
     console.log(localStorage.getItem("token1"))
     if(!user&&localStorage.getItem("token")!=null){
@@ -44,15 +44,15 @@ export default function Router(){
                 <Route  path='/results'  element={<DetailResult/>}/>
                 <Route  path='/contact'  element={<Contact/>}/>
                 <Route  path='/reg'  element={<Reg user={user} setUser={setUser}/>}/>
-                <Route  path='/teamdetail'  element={<TeamDetail/>}/>
-                <Route  path='/ideadescription'  element={<IdeaDescription/>}/>
+                <Route  path='/teamdetail'  element={<TeamDetail alert={alert}/> }/>
+                <Route  path='/ideadescription'  element={<IdeaDescription alert={alert}/>}/>
                 <Route path="/userdashboard" element={<UserDashboard user={user} setUser={setUser} />}></Route>
-                <Route path="/projectDetail" element={<ProjectDetail />}></Route>
+                <Route path="/projectDetail" element={<ProjectDetail alert={alert} />}></Route>
                 <Route path="/panelistProjectList" element={<PanelistProjectList />}></Route>
-                <Route path="/panelReview/:id" element={<PanelReview />}></Route>
-                <Route path="/judgeReview/:id" element={<JudgeReview />}></Route>
+                <Route path="/panelReview/:id" element={<PanelReview alert={alert} />}></Route>
+                <Route path="/judgeReview/:id" element={<JudgeReview alert={alert} />}></Route>
                 <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
-                <Route path="/Reg2" element={<Reg2 user={user} setUser={setUser}/>}></Route>
+                <Route path="/Reg2" element={<Reg2 user={user} setUser={setUser} alert={alert}/>}></Route>
                 <Route path="/admin" element={<Admin user={user} setUser={setUser}/>}></Route>
                 <Route path="/JudgeProjectList" element={<JudgeProjectList user={user} setUser={setUser}/>}></Route>
                 <Route path="/impl" element={<Implementation/>}></Route>

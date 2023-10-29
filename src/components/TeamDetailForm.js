@@ -5,9 +5,9 @@ import "../assests/css/TeamDetail.css";
 import removeIcon from "../assests/images/remove-icon.svg";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import Team1 from "../assests/images/Team3.jpg"
 
-const TeamDetail = () => {
+
+const TeamDetail = ({alert}) => {
   
   const navigate = useNavigate();
   
@@ -40,7 +40,9 @@ const TeamDetail = () => {
 
     // Check if teamName is empty
     if (teamName.trim() === "") {
-      alert("Team Name cannot be empty");
+      alert.setMessage("Team Name cannot be empty");
+      alert.setAlertStatus("error")
+      alert.setShow(true)
       return; // Prevent form submission
     }
 
@@ -61,18 +63,20 @@ const TeamDetail = () => {
     
     axios({
       method: "post",
-      url: "https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/TeamRegistration",
+      url: "http://localhost:8087/TeamRegistration",
       data: data,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       },
     }).then((res)=>{
       console.log(res)
-      alert(res.data)
+      alert.setMessage("Team Submitted, Please fill your Idea details!");
+      alert.setAlertStatus("success")
+      alert.setShow(true);
            navigate("/ideadescription");
     }).catch((e)=>{
       console.log(e);
-      alert(e.response.data);
+      
     });
 
     console.log(teamName);
@@ -84,7 +88,9 @@ const TeamDetail = () => {
       const newFormFields = [...formFields, { name: "", email: "" }];
       setFormFields(newFormFields);
     } else {
-      alert("You can add a maximum of 4 participants.");
+      alert.setMessage("You can add a maximum of 4 participants");
+      alert.setAlertStatus("error")
+      alert.setShow(true)
     }
   };
 

@@ -43,7 +43,7 @@ const Home = ({user,setUser}) => {
 
     return timeLeft;
   };
-  const targetDate = "2023-11-06T10:00:00";
+  const targetDate = "2023-11-09T10:00:00";
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {

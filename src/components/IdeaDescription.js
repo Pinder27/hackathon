@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import "../assests/css/IdeaDescription.css";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import idea from "../assests/images/Idea1.jpg";
 
-const IdeaDescription = () => {
+
+const IdeaDescription = ({alert}) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
@@ -25,8 +25,14 @@ const IdeaDescription = () => {
       },
     }).then((res) => {
       console.log(res);
-      alert("idea submited successfully");
+      alert.setMessage("Idea is submitted successfully!");
+      alert.setAlertStatus("success")
+      alert.setShow(true);
       navigate("/projectDetail");
+    }).catch((e)=>{
+      alert.setMessage(e.data);
+      alert.setAlertStatus("error")
+      alert.setShow(true);
     });
   }
   return (

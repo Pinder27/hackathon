@@ -1,28 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom"
-export default function Team(){
+export default function Team({teamList,team}){
 
-    const [teamList, setTeamList] = useState([]);
-  const [loader, setLoader] = useState(true);
-  const [team,setTeam] = useState(true);
-    useEffect(() => {
-        axios({
-          method: "get",
-          url: "http://localhost:8087/user/dashboard/teamDetails",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }).then((res) => {
-          console.log("team res - ", res.data);
-          var team = res.data.members;
-          team.push(res.data.leader);
-          setTeamList(team);
-          setLoader(false);}).catch((e)=>{
-            setTeam(false)
-            alert(e.response.data)
-          })
-      }, []);
+   
 
     function createData(index, name, email) {
         return { index, name, email };
@@ -39,7 +20,7 @@ export default function Team(){
             className="mb-2 mt-5 btn btn-lg text-white col-3"
             style={{ backgroundColor: "#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
           >
-            Get Started
+             Create Team
           </Link>
         </div>
       )
@@ -62,14 +43,8 @@ export default function Team(){
                 </tr>
               </thead>
               <tbody style={{ backgroundColor: "#f8f9fa00" }}>
-                {loader ? (
-                  <div class="text-center">
-                    <div class="spinner-border" role="status">
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                  </div>
-                ) : (
-                  rows.map((row, index) => (
+                 
+                 { rows.map((row, index) => (
                     <tr
                       key={index}
                       className="custom-row-margin fw-semibold"
@@ -81,8 +56,8 @@ export default function Team(){
                       <td className="">{row.name}</td>
                       <td className="">{row.email}</td>
                     </tr>
-                  ))
-                )}
+                  ))}
+                
               </tbody>
             </table>
           </div>

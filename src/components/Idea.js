@@ -1,31 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import EditIcon from "../assests/images/edit3.png"
 
 
-export default function Idea(){
+export default function Idea({setTitle,setDocumentation,setSummary,title,documentation,summary,id,alert}){
 
-    const [data,setData] = useState({})
-    const [loader,setLoader] = useState(true)
-    const [title,setTitle] = useState("");
-    const [summary,setSummary] = useState("");
-    const [documentation,setDocumentation] = useState("");
-
-    useEffect(()=>{
-        axios({
-            method: "get",
-            url: "http://localhost:8087/user/dashboard/idea",
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }).then((res)=>{
-            console.log(res.data)
-            setData(res.data);
-            setTitle(res.data.ideas[0].title)
-            setDocumentation(res.data.ideas[0].pdfUrl)
-            setSummary(res.data.ideas[0].summary)
-            setLoader(false)
-          })
-    },[])
+  
 
     function HandleSubmit(e){
        e.preventDefault();
@@ -36,7 +16,7 @@ export default function Idea(){
       })
         axios({
             method: "put",
-            url: "http://localhost:8087/v1/api/ideas/"+`${data.ideas[0].id}`,
+            url: "http://localhost:8087/v1/api/ideas/"+`${id}`,
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -48,31 +28,23 @@ export default function Idea(){
           }).then((res)=>{
             console.log("editted",res.data);
            
-            alert(res.data)
+            alert.setMessage("Your idea has been updated.");
+            alert.setAlertStatus("success")
+            alert.setShow(true);
           })
     }
     return(
         <div className="p-5 mb-5" style={{backgroundColor:"#fff",marginLeft:"10%",marginRight:"10%",borderRadius:"5px"}}>
-               {loader?(<div class="d-flex justify-content-center">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>):  
-(
-<table class="table" >
-<button
-            type="button"
-            data-bs-toggle="modal"
+               <div>
+               <div className=" d-flex">
+          <img src={EditIcon}  data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            className="btn text-white  ms-auto px-4 mt-3"
-           
-            style={{
-              backgroundColor: "#ef4815",
-              boxShadow: "0px 0px 8px 1px rgba(0, 0, 0, 0.2)",
-            }}
-          >
-            Edit
-          </button>
+            className="btn text-white  ms-auto px-4 "
+            height="40px"/>
+            </div>
+<table class="table" >
+          
+
   <tbody>
     <tr>
       <th scope="row">Idea Ttile</th>
@@ -88,8 +60,8 @@ export default function Idea(){
       <td colspan="2"><a target="_blank" href={documentation}>{documentation}</a></td>
     </tr>
   </tbody>
-</table>)}
-
+</table>
+</div>
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -113,7 +85,7 @@ export default function Idea(){
   </div>
   
  
-  <button type="submit" onClick={HandleSubmit} class="btn btn-primary">Submit</button>
+  <button type="submit" onClick={HandleSubmit} data-bs-dismiss="modal" class="btn btn-primary">Submit</button>
 </form>
       </div>
     </div>

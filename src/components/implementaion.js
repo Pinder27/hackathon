@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SubmitImplementation from "./SubmitImplementation";
+import EditIcon from "../assests/images/edit3.png"
 
-export default function Implementation() {
+export default function Implementation({alert}) {
   const [data, setData] = useState({});
   const [implSubmitted, setImplSubmitted] = useState(true);
   const [ppt, setPpt] = useState("");
@@ -26,10 +27,10 @@ export default function Implementation() {
 
      else{
          setData(res.data[0]);
-         setDescription(data.description);
-         setGit(data.gitHubURL);
-         setPpt(data.pptURL);
-         setRecording(data.recordingURL);
+         setDescription(res.data[0].description);
+         setGit(res.data[0].gitHubURL);
+         setPpt(res.data[0].pptURL);
+         setRecording(res.data[0].recordingURL);
          
 
      }
@@ -54,7 +55,9 @@ export default function Implementation() {
       data: updateData,
     }).then((res) => {
       console.log(res.data);
-      alert("files updated");
+      alert.setMessage("Your implementations has been updated!");
+      alert.setAlertStatus("success")
+      alert.setShow(true);
     });
   }
   return (
@@ -65,36 +68,30 @@ export default function Implementation() {
   </div>
 </div>):(implSubmitted ? (
         <div>
-          <button
-            type="button"
-            data-bs-toggle="modal"
+          <div className="d-flex">
+          <img src={EditIcon}  data-bs-toggle="modal"
             data-bs-target="#staticBackdrop1"
-            className="btn text-white  ms-auto px-4 mt-3"
-           
-            style={{
-              backgroundColor: "#ef4815",
-              boxShadow: "0px 0px 8px 1px rgba(0, 0, 0, 0.2)",
-            }}
-          >
-            Edit
-          </button>
+            className="btn text-white  ms-auto px-4 "
+            height="40px"/>
+            </div>
+            
           <table class="table">
             <tbody>
               <tr>
                 <th scope="row">Description</th>
-                <td>{data.description}</td>
+                <td>{description}</td>
               </tr>
               <tr>
                 <th scope="row">PPT</th>
-                <td><a target="_blank" href={data.pptURL}>{data.pptURL}</a></td>
+                <td><a target="_blank" href={data.pptURL}>{ppt}</a></td>
               </tr>
               <tr>
                 <th scope="row">Recording</th>
-                <td><a target="_blank" href={data.recordingURL}>{data.recordingURL}</a></td>
+                <td><a target="_blank" href={data.recordingURL}>{recording}</a></td>
               </tr>
               <tr>
                 <th scope="row">GitRepoUrl</th>
-                <td><a target="_blank" href={data.gitHubURL}>{data.gitHubURL}</a></td>
+                <td><a target="_blank" href={data.gitHubURL}>{git}</a></td>
               </tr>
             </tbody>
           </table>
@@ -189,6 +186,7 @@ export default function Implementation() {
                 type="button"
                 onClick={HandleSubmit}
                 class="btn btn-primary"
+                data-bs-dismiss="modal"
               >
                 Submit
               </button>

@@ -10,7 +10,7 @@ const JudgeprojectListRow = ({sNo, teamName, projectName, status, id}) => {
            
             <span className='col'>
         
-            <Link className='btn text-white' style={{ backgroundColor:"#043465"}} to={`/judgeReview/`+`${id}`}>Review</Link>
+           {status? (<Link className='btn btn-sm text-white' style={{ backgroundColor:"#043465"}} to={`/judgeReview/`+`${id}`}>Review</Link>):"Evaluated"}
         
         </span>
     </div>

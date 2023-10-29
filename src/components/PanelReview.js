@@ -3,10 +3,11 @@ import SubmittedDetails from './SubmittedDetails'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 
-const PanelReview = () => {
+const PanelReview = ({alert}) => {
   const param = useParams();
   const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
+  const [feedback,setFeedback] = useState("");
   
     const submittedData={
        team:{teamName:""},
@@ -22,7 +23,7 @@ const PanelReview = () => {
  useEffect(()=>{
    axios({
     method:"get",
-    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/"+`${param.id}`,
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("token")}`,
     }
@@ -36,32 +37,38 @@ const PanelReview = () => {
  function HandleApprove(){
   axios({
     method:"put",
-    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
-      status:"approved"
+      status:"approved",
+      feedback:feedback
     },
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("token")}`,
     }
   }).then((res)=>{
            console.log(res);
-           alert(res.data)
+           alert.setMessage("Idea has been Reviewed!");
+           alert.setAlertStatus("success")
+           alert.setShow(true);
            navigate("/panelistProjectList")
   })
  }
  function HandleReject(){
   axios({
     method:"put",
-    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
-      status:"rejected"
+      status:"rejected",
+      feedback:feedback
     },
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("token")}`,
     }
   }).then((res)=>{
            console.log(res);
-           alert(res.data)
+           alert.setMessage("Idea has been Reviewed!");
+           alert.setAlertStatus("success")
+           alert.setShow(true);
            navigate("/panelistProjectList")
   })
  }
@@ -112,10 +119,10 @@ const PanelReview = () => {
       </div>
       <div class="modal-body ">
         <div>Give Feedback</div>
-         <textarea className='container-fluid'></textarea>
+         <textarea onChange={(e)=>setFeedback(e.target.value)} className='container-fluid'></textarea>
       </div>
       <div class="modal-footer">
-        <button onClick={HandleApprove} type="button" class="btn btn-success">Approve</button>
+        <button onClick={HandleApprove} data-bs-dismiss="modal" type="button" class="btn btn-success">Approve</button>
       </div>
     </div>
   </div>
@@ -130,10 +137,10 @@ const PanelReview = () => {
       </div>
       <div class="modal-body ">
       <div>Give Feedback</div>
-         <textarea className='container-fluid'></textarea>
+         <textarea onChange={(e)=>setFeedback(e.target.value)} className='container-fluid'></textarea>
       </div>
       <div class="modal-footer">
-        <button onClick={HandleReject}  type="button" class="btn btn-danger">Reject</button>
+        <button onClick={HandleReject} data-bs-dismiss="modal"  type="button" class="btn btn-danger">Reject</button>
       </div>
     </div>
   </div>

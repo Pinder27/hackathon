@@ -9,7 +9,7 @@ const PanelistProjectList = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas",
+      url: "http://localhost:8087/v1/api/ideas",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -48,8 +48,10 @@ const PanelistProjectList = () => {
         </div>
 
         {
-          loader?(<div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
+          loader?(<div class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>):(allotedList.length === 0 ? (
           <h4>You dont have any approvals request yet.</h4>
         ) : (
@@ -59,7 +61,7 @@ const PanelistProjectList = () => {
                 sNo={index}
                 teamName={row.teamName}
                 projectName={row.idea.title}
-                status={row.idea.status===null?"Pending":row.idea.status}
+                status={row.idea.status===null?"Pending":row.idea.status==="approved"?"Approved":"Rejected"}
                 id={row.idea.id}
               />
             </div>

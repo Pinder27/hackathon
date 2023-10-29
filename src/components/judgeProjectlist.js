@@ -22,7 +22,7 @@ const [loader,setLoader] = useState(true)
   useEffect(()=>{
       axios({
         method:"get",
-        url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/api/implementations",
+        url:"http://localhost:8087/api/implementations",
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("token")}`,
         }
@@ -37,7 +37,7 @@ const [loader,setLoader] = useState(true)
 
 
   return (
-    <>
+    <div className='p-1' style={{background:"#e2eaf9"}}>
     
 
     <div className='w-75 mx-auto' style={{height:"100vh"}}>
@@ -46,7 +46,7 @@ const [loader,setLoader] = useState(true)
             <span  style={{width:"13%"}} className='fw-bold col'>S. No.</span>
             <span style={{width:"30%"}} className='fw-bold col'>Team Name</span> 
             <span style={{width:"20%"}} className='fw-bold col'>Project Name</span>
-            <span style={{width:"10%"}} className='fw-bold col'>status</span>
+            <span style={{width:"10%"}} className='fw-bold col'>Status</span>
            
       </div>
       {loader?(<div class="text-center">
@@ -64,7 +64,7 @@ const [loader,setLoader] = useState(true)
                         sNo={index}
                         teamName={row.teamName}
                         projectName={row.ideaTitle}
-                        status={"pending"}
+                        status={row.implementation.score.length===0?true:false}
                         id={row.implementation.implementationId}
                         />
               </div>
@@ -101,7 +101,7 @@ const [loader,setLoader] = useState(true)
           </table>
        */}
     </div>
-    </>
+    </div>
   )
 }
 
