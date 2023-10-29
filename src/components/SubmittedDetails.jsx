@@ -27,7 +27,7 @@ const SubmittedDetails = ({
     }
     axios({
       method: "put",
-      url: "https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/api/implementations/" + `${implementationId}`,
+      url: "http://localhost:8087/api/implementations/" + `${implementationId}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
