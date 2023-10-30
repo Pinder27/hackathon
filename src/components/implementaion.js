@@ -14,7 +14,7 @@ export default function Implementation({alert}) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:8087/user/dashboard/impl",
+      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/user/dashboard/impl",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -48,7 +48,7 @@ export default function Implementation({alert}) {
     };
     axios({
       method: "put",
-      url: "http://localhost:8087/api/implementations/" + `${data.implementationId}`,
+      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/implementations/" + `${data.implementationId}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

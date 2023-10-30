@@ -29,7 +29,7 @@ const ProjectDetail = ({alert}) => {
  useEffect(() => {
      axios({
        method: "get",
-       url: "http://localhost:8087/user/dashboard/teamDetails",
+       url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/user/dashboard/teamDetails",
        headers: {
          Authorization: `Bearer ${localStorage.getItem("token")}`,
        },
@@ -48,7 +48,7 @@ const ProjectDetail = ({alert}) => {
    useEffect(()=>{
     axios({
         method: "get",
-        url: "http://localhost:8087/user/dashboard/idea",
+        url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/user/dashboard/idea",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

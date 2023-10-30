@@ -12,7 +12,7 @@ export default function SubmitImplementation({setImplSubmitted}){
         e.preventDefault();
         axios({
             method: "post",
-            url: "http://localhost:8087/api/submitImplementation",
+            url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/submitImplementation",
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },

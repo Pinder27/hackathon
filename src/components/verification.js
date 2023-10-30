@@ -44,7 +44,7 @@ function Verification({email_,buttonRef,alert}) {
     function handleVerify(){
         axios({
             method:"put",
-            url:"http://localhost:8087/registration/verifyEmail",
+            url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/registration/verifyEmail",
             params:{
                 email:email,
                 otp:otp
@@ -62,7 +62,7 @@ function Verification({email_,buttonRef,alert}) {
         console.log("email",email)
         axios({
             method:"put",
-            url:"http://localhost:8087/registration/regenerate-otp",
+            url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/registration/regenerate-otp",
             params:{
                 email:email
             }

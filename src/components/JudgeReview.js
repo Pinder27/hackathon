@@ -38,7 +38,7 @@ const JudgeReview = ({alert}) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:8087/api/implementations/" + `${param.id}`,
+      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/implementations/" + `${param.id}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -112,7 +112,7 @@ const JudgeReview = ({alert}) => {
     
     axios({
       method: "post",
-      url: "http://localhost:8087/api/implementations/addScores",
+      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/implementations/addScores",
       data: { 
         implementationId: data.implementation.implementationId,
         technicalProficiencyScore:rating1 ,

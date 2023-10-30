@@ -216,7 +216,7 @@ const Home = ({user,setUser}) => {
       <div className="p-5">
         <div className="h1 text-center">Our History</div>
         <div>
-          first Hackathon  was held on 5th and 6th August 2019. The event witnessed
+          First Hackathon  was held on 5th and 6th August 2019. The event witnessed
           participation from SAARC Nations as well. The event was applauded by
           Honorable Prime Minister Of India, Shri Narendra Modi.
         </div>
@@ -229,17 +229,16 @@ const Home = ({user,setUser}) => {
           internships with the associate organizations. The second version -
           Hackathon 2.0 was held in February ‘2020. It was a big success whose
           grand finale witnessed the participation of more than 50 teams from 11
-          states of the country. Winners received the prizes worth INR 1 lac.
+          states of the country. Winners received the prizes worth INR 10 lac.
           Three outstanding teams from the hackathon were chosen for the
           opportunity of participation in IEEE International Hackathon- YESIST,
-          to be held in Malaysia in 2020. Few participants also got the
+           held in Malaysia in 2020. Few participants also got the
           opportunity of internships with the industry associates.
         </div>
         <div>
           After the success of Hackathon 1.0, 2.0 & 3.0 
            is back with the 4th edition of incedo s Flagship event
-          Hackathon 2023 to be held on 1st and 2nd September 2023. It’s a
-          signature event of School Of Computer Science.
+          Hackathon 2023 to be held on 1st and 2nd September 2023. 
         </div>
       </div>
         

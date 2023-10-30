@@ -14,7 +14,7 @@ function ResetPassword({setForgotPassword}) {
  function handleSend(){
     axios({
         method:"post",
-        url:"http://localhost:8087/auth/forgotPassword",
+        url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/auth/forgotPassword",
         params:{
             username:username,
         }
@@ -28,7 +28,7 @@ function ResetPassword({setForgotPassword}) {
  function handleUpdate(){
     axios({
         method:"post",
-        url:"http://localhost:8087/auth/resetPassword",
+        url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/auth/resetPassword",
         data:{
             username:username,
             otp:otp,
