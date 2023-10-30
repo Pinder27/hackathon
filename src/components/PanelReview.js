@@ -23,7 +23,7 @@ const PanelReview = ({alert}) => {
  useEffect(()=>{
    axios({
     method:"get",
-    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/"+`${param.id}`,
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("token")}`,
     }
@@ -37,7 +37,7 @@ const PanelReview = ({alert}) => {
  function HandleApprove(){
   axios({
     method:"put",
-    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
       status:"approved",
       feedback:feedback
@@ -56,7 +56,7 @@ const PanelReview = ({alert}) => {
  function HandleReject(){
   axios({
     method:"put",
-    url:"https://3alj5tgxd8.execute-api.us-east-1.amazonaws.com/dev/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
       status:"rejected",
       feedback:feedback
@@ -82,18 +82,19 @@ const PanelReview = ({alert}) => {
       </div>
     </div>):( <div>
     <div className='w-75 mx-auto'>
-     <div>
-        <span>Team Name:- </span>
-        <span>{data.team.teamName}</span>
-     </div>
-     <div>
-        <span>Idea:- </span>
-        <span>{data.idea.title}</span>
-     </div>
-     <p>
-       Idea Summary 
-     </p>
-     <span> {data.idea.summary}</span>
+    <div className="mt-4">
+            <div className="h3 text-center mb-5">{data.team.teamName}</div>
+         
+            <div className="my-2 fw-semibold h5  d-flex ">
+              <div className="">Idea Title - </div>
+              <div className="ms-4">{data.idea.title}</div>
+            </div>
+            <div className="my-2 fw-semibold h5 d-flex ">
+            <p className=" ">Idea Summary - </p>
+            <div className="ms-4">{data.idea.summary}</div>
+            </div>
+            {/* display your project field component */}
+          </div>
       {/* display your project field component */}
       <SubmittedDetails 
         user="panelist"

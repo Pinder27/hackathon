@@ -106,6 +106,9 @@ const JudgeReview = ({alert}) => {
   };
 
   const submit = () => {
+    console.log(rating1)
+    console.log(rating2)
+    console.log(rating3)
     
     axios({
       method: "post",
@@ -140,18 +143,18 @@ const JudgeReview = ({alert}) => {
           </div>
         </div>
       ) : (
-        <div className="  mt-5">
+        <div className="  mt-4">
           <div className="w-75 mx-auto  container">
           <div className="">
             <div className="h3 text-center mb-5">{data.teamName}</div>
          
-            <div className="my-2 fw-semibold h5  d-flex justify-content-around">
+            <div className="my-2 fw-semibold h5  d-flex ">
               <div className="">Idea Title - </div>
-              <div className="">{data.idea.title}</div>
+              <div className="ms-4">{data.idea.title}</div>
             </div>
-            <div className="my-2 fw-semibold h5 d-flex justify-content-around">
+            <div className="my-2 fw-semibold h5 d-flex ">
             <p className=" ">Idea Summary - </p>
-            <div className="">{data.idea.summary}</div>
+            <div className="ms-4">{data.idea.summary}</div>
             </div>
             {/* display your project field component */}
           </div>

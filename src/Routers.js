@@ -53,7 +53,7 @@ export default function Router({alert}){
                 <Route path="/judgeReview/:id" element={<JudgeReview alert={alert} />}></Route>
                 <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
                 <Route path="/Reg2" element={<Reg2 user={user} setUser={setUser} alert={alert}/>}></Route>
-                <Route path="/admin" element={<Admin user={user} setUser={setUser}/>}></Route>
+                <Route path="/admin" element={<Admin user={user} setUser={setUser} alert={alert}/>}></Route>
                 <Route path="/JudgeProjectList" element={<JudgeProjectList user={user} setUser={setUser}/>}></Route>
                 <Route path="/impl" element={<Implementation/>}></Route>
                 <Route path="/idea" element={<Idea/>}></Route>

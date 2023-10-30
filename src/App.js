@@ -20,6 +20,9 @@ function App() {
 
   const divStyle = {
     background: alertStatus === "success" ? "#1aae13" : "#FF0000",
+    position:"fixed",
+    bottom : "20px",
+    right:"20px"
   };
 
   return (
