@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SubmitImplementation from "./SubmitImplementation";
 import EditIcon from "../assests/images/edit3.png"
+import documentIcon from "../assests/images/document.svg";
+import { Link } from "react-router-dom";
 
-export default function Implementation({alert}) {
+export default function Implementation({alert,role}) {
   const [data, setData] = useState({});
   const [implSubmitted, setImplSubmitted] = useState(true);
   const [ppt, setPpt] = useState("");
@@ -14,9 +16,11 @@ export default function Implementation({alert}) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/user/dashboard/impl",
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/dashboard/impl",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
+         'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
     }).then((res) => {
       console.log("impl", res.data[0]);
@@ -48,9 +52,10 @@ export default function Implementation({alert}) {
     };
     axios({
       method: "put",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/implementations/" + `${data.implementationId}`,
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/api/implementations/" + `${data.implementationId}`,
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
       data: updateData,
     }).then((res) => {
@@ -58,6 +63,12 @@ export default function Implementation({alert}) {
       alert.setMessage("Your implementations has been updated!");
       alert.setAlertStatus("success")
       alert.setShow(true);
+    }).catch((e)=>{
+      if(e.response.data.message=="Forbidden"){
+        alert.setMessage("Only Leader can Edit")
+        alert.setAlertStatus("error")
+        alert.setShow(true);
+      }
     });
   }
   return (
@@ -68,36 +79,57 @@ export default function Implementation({alert}) {
   </div>
 </div>):(implSubmitted ? (
         <div>
-          <div className="d-flex">
+          {role==="Role_Leader"&&<div className="d-flex">
           <img src={EditIcon}  data-bs-toggle="modal"
             data-bs-target="#staticBackdrop1"
             className="btn text-white  ms-auto px-4 "
             height="40px"/>
             </div>
-            
+            }
           <table class="table">
             <tbody>
               <tr>
                 <th scope="row">Description</th>
-                <td>{description}</td>
+                <td><p className="container">{description}</p></td>
               </tr>
               <tr>
                 <th scope="row">PPT</th>
-                <td><a target="_blank" href={data.pptURL}>{ppt}</a></td>
+                <td> <Link to={ppt} target={ppt} className="link-to-text">
+                  <img
+                    src={documentIcon}
+                    style={{ width: "25px" }}
+                    className="mx-1"
+                  />
+                  Click here to view the PPT
+                </Link></td>
               </tr>
               <tr>
                 <th scope="row">Recording</th>
-                <td><a target="_blank" href={data.recordingURL}>{recording}</a></td>
+                <td><Link to={recording} target={recording} className="link-to-text">
+                  <img
+                    src={documentIcon}
+                    style={{ width: "25px" }}
+                    className="mx-1"
+                  />
+                  Click here to view the Recording
+                </Link></td>
               </tr>
               <tr>
                 <th scope="row">GitRepoUrl</th>
-                <td><a target="_blank" href={data.gitHubURL}>{git}</a></td>
+                <td><Link to={git} target={git} className="link-to-text">
+                  <img
+                    src={documentIcon}
+                    style={{ width: "25px" }}
+                    className="mx-1"
+                  />
+                  Click here to view the git repo
+                </Link></td>
               </tr>
             </tbody>
           </table>
         </div>
       ) : (
-        <SubmitImplementation setImplSubmitted={setImplSubmitted} />
+        <SubmitImplementation recording={recording} description={description} ppt={ppt} git={git} setRecording={setRecording} setPpt={setPpt} setGit={setGit} setDescription={setDescription} setImplSubmitted={setImplSubmitted} />
       ))}
       <div
         class="modal fade"
@@ -142,7 +174,7 @@ export default function Implementation({alert}) {
                    Description
                   </label>
                   <div class="col-sm-10">
-                    <input
+                    <textarea
                       type="text"
                       value={description}
                       class="form-control"

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EditIcon from "../assests/images/edit3.png"
+import documentIcon from "../assests/images/document.svg";
+import { Link } from "react-router-dom";
 
-
-export default function Idea({setTitle,setDocumentation,setSummary,title,documentation,summary,id,alert}){
+export default function Idea({status,setTitle,role,setDocumentation,setSummary,title,documentation,summary,id,alert}){
 
   
 
@@ -16,7 +17,7 @@ export default function Idea({setTitle,setDocumentation,setSummary,title,documen
       })
         axios({
             method: "put",
-            url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/v1/api/ideas/"+`${id}`,
+            url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/v1/api/ideas/"+`${id}`,
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -31,17 +32,23 @@ export default function Idea({setTitle,setDocumentation,setSummary,title,documen
             alert.setMessage("Your idea has been updated.");
             alert.setAlertStatus("success")
             alert.setShow(true);
+          }).catch((e)=>{
+            if(e.response.data.message=="Forbidden"){
+              alert.setMessage("Only Leader can Edit")
+              alert.setAlertStatus("error")
+              alert.setShow(true);
+            }
           })
     }
     return(
         <div className="p-5 mb-5" style={{backgroundColor:"#fff",marginLeft:"10%",marginRight:"10%",borderRadius:"5px"}}>
                <div>
-               <div className=" d-flex">
+               {(!status&&role==="Role_Leader")&&<div className=" d-flex">
           <img src={EditIcon}  data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
             className="btn text-white  ms-auto px-4 "
             height="40px"/>
-            </div>
+            </div>}
 <table class="table" >
           
 
@@ -52,12 +59,19 @@ export default function Idea({setTitle,setDocumentation,setSummary,title,documen
     </tr>
     <tr>
       <th scope="row">Summary</th>
-      <td>{summary}</td>
+      <td className="container">{summary}</td>
 
     </tr>
     <tr>
       <th scope="row">Documentation</th>
-      <td colspan="2"><a target="_blank" href={documentation}>{documentation}</a></td>
+      <td colspan="2"><Link to={documentation} target={documentation} className="link-to-text">
+                  <img
+                    src={documentIcon}
+                    style={{ width: "25px" }}
+                    className="mx-1"
+                  />
+                  Click here to view the Documentation
+                </Link></td>
     </tr>
   </tbody>
 </table>

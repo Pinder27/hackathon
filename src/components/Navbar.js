@@ -20,7 +20,7 @@ export default function Navbar({user,setUser}) {
   if(user){
     const token = localStorage.getItem("token");
      username = jwt(token).sub; // decode your token here
-    console.log(username.sub)
+    console.log("user",username.sub)
 }
 console.log("path",location.pathname)
 if(location.pathname=="/JudgeProjectList"||location.pathname.startsWith('/judgeReview/')||location.pathname=="/panelistProjectList"||location.pathname.startsWith('/panelReview/')) return(

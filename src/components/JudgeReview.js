@@ -38,9 +38,10 @@ const JudgeReview = ({alert}) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/implementations/" + `${param.id}`,
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/api/implementations/" + `${param.id}`,
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
     }).then((res) => {
       console.log("data",res.data);
@@ -112,7 +113,7 @@ const JudgeReview = ({alert}) => {
     
     axios({
       method: "post",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/implementations/addScores",
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/api/implementations/addScores",
       data: { 
         implementationId: data.implementation.implementationId,
         technicalProficiencyScore:rating1 ,
@@ -123,7 +124,8 @@ const JudgeReview = ({alert}) => {
         developmentRecommendationsFeedback:dfeedback
       },
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
     }).then((res) => {
       console.log(res.data);

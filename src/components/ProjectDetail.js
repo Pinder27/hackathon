@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { styled } from "@mui/material/styles";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableRow from "@mui/material/TableRow";
-import SubmittedDetails from "./SubmittedDetails";
 import "../assests/css/ProjectDetail.css";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import Implementation from "./implementaion";
 import Idea from "./Idea";
 import Team from "./Teams";
+
 
 const ProjectDetail = ({alert}) => {
 
@@ -24,12 +20,26 @@ const ProjectDetail = ({alert}) => {
   const [summary,setSummary] = useState("");
   const [documentation,setDocumentation] = useState("");
   const [status,setStatus] = useState(false);
+  const [role,setRole] = useState("user")
 
+  
+useEffect(()=>{
+  axios({
+    method: "get",
+    url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/userRole",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }).then((res)=>{
+    console.log(res)
+    setRole(res.data.roles[res.data.roles.length-1])
+  })
+},[])
 
  useEffect(() => {
      axios({
        method: "get",
-       url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/user/dashboard/teamDetails",
+       url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/dashboard/teamDetails",
        headers: {
          Authorization: `Bearer ${localStorage.getItem("token")}`,
        },
@@ -48,7 +58,7 @@ const ProjectDetail = ({alert}) => {
    useEffect(()=>{
     axios({
         method: "get",
-        url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/user/dashboard/idea",
+        url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/dashboard/idea",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -85,14 +95,14 @@ const ProjectDetail = ({alert}) => {
    
     {  team&&<div className="d-flex justify-content-center"><button className="btn btn-dark col-4 mb-2 " onClick={(e)=>{setIdea(!idea)}}>Idea</button></div>}
       
-      {(idea)&&<Idea title={title} setTitle={(setTitle)} alert={alert} summary={summary} setSummary={(setSummary)} documentation={documentation} setDocumentation={setDocumentation} id={data.ideas[0].id}/>}
+      {(idea)&&<Idea status={status} title={title} role={role} setTitle={(setTitle)} alert={alert} summary={summary} setSummary={(setSummary)} documentation={documentation} setDocumentation={setDocumentation} id={data.ideas[0].id}/>}
      {(team&&status)&& <div className="d-flex justify-content-center">
       <button className="btn btn-dark col-4 mt-5 mb-2" onClick={(e)=>{
              setImplimentation(!implementaion)
       }}>implementations</button>
       </div>}
      
-      {(implementaion)&&<Implementation alert={alert}/>}
+      {(implementaion)&&<Implementation role={role} alert={alert}/>}
       </div>)}
       
     </div>

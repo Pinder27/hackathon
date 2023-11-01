@@ -52,18 +52,18 @@ const TeamDetail = ({alert}) => {
       teamName: teamName,
       leaderEmail:leaderEmail,
       leaderName:leaderName,
-      member1Name:formFields[0].name,
-      member1Email:formFields[0].email,
-      member2Name:formFields[1].name,
-      member2Email:formFields[1].email,
-      member3Name:formFields[2].name,
-      member3Email:formFields[2].email,
+      member1Name:(formFields.length>=1)?(formFields[0].name):(""),
+      member1Email:(formFields.length>=1)?(formFields[0].email):(""),
+      member2Name:(formFields.length>=2)?(formFields[1].name):(""),
+      member2Email:(formFields.length>=2)?(formFields[1].email):(""),
+      member3Name:(formFields.length>=3)?(formFields[2].name):(""),
+      member3Email:(formFields.length>=3)?(formFields[2].email):(""),
     }
    
     
     axios({
       method: "post",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/TeamRegistration",
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/TeamRegistration",
       data: data,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,

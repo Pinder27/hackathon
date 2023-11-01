@@ -37,7 +37,7 @@ export default function Reg2({user,setUser,alert}){
      console.log(user)
      axios({
          method:"post",
-         url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/auth/login",
+         url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/auth/login",
          data:user
      }).then((res)=>{
          console.log(res.data.role[res.data.role.length-1].name);
@@ -46,8 +46,9 @@ export default function Reg2({user,setUser,alert}){
          alert.setMessage("Login successful")
          alert.setAlertStatus("success")
          alert.setShow(true);
-         
+        
          if(res.data.role[res.data.role.length-1].name==="Role_Panelist"){
+             
              navigate("/panelistProjectList")
          }
          else if(res.data.role[res.data.role.length-1].name==="Role_Judge"){
@@ -58,7 +59,10 @@ export default function Reg2({user,setUser,alert}){
          }
          else navigate("/");
      }).catch((e)=>{
-       console.log(e);
+      console.log(e)
+      alert.setMessage("invalid Credentials")
+      alert.setAlertStatus("error")
+      alert.setShow(true);
      })
      
    
@@ -67,7 +71,10 @@ export default function Reg2({user,setUser,alert}){
  const handleSubmitSignup = async (e) => {
      e.preventDefault();
      if(password!==cpassword){
-
+           alert.setMessage("Passwords do not match")
+           alert.setAlertStatus("error")
+           alert.setShow(true);
+           return;
      }
      var user = {
          username:username,
@@ -78,7 +85,7 @@ export default function Reg2({user,setUser,alert}){
      }
      axios({
          method:"post",
-         url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/registration/register",
+         url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/registration/register",
          data:user
      }).then((res)=>{
          console.log("sign in",res)
@@ -87,8 +94,11 @@ export default function Reg2({user,setUser,alert}){
         // navigate("/");
         setVerify(true);
         
-     },function(error){
-         console.log("error from sign up", error)
+     }).catch((e)=>{
+      console.log(e)
+      alert.setMessage(e.data)
+      alert.setAlertStatus("error")
+      alert.setShow(true);
      })
 
  };
@@ -97,7 +107,7 @@ export default function Reg2({user,setUser,alert}){
             <div className="body12 ">
   <div className={`container12 ${isSignupActive ? 'right-panel-active' : ''}`} id="container12">
     <div className="form-container sign-up-container">
-      {(verify)?(<Verification email_={email} buttonRef={buttonRef} alert={alert}/>):(<form action="#">
+      {(verify)?(<Verification setVerify={setVerify} email_={email} buttonRef={buttonRef} alert={alert}/>):(<form action="#">
         <h1>Create Account</h1>
         
         <span>or use your email for registration</span>
@@ -123,7 +133,7 @@ export default function Reg2({user,setUser,alert}){
       </form>)}
     </div>
    { <div className="form-container sign-in-container">
-     { forgotPassword?(<ResetPassword setForgotPassword={setForgotPassword}/>):(<form action="#">
+     { forgotPassword?(<ResetPassword email={email} alert={alert} setForgotPassword={setForgotPassword}/>):(<form action="#">
         <h1 >Sign in</h1>
       
         <span>or use your account</span>

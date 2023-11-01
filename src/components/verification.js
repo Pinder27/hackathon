@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-function Verification({email_,buttonRef,alert}) {
+function Verification({email_,buttonRef,alert,setVerify}) {
     const [email,setEmail] = useState(email_);
     const [otp,setOtp] = useState("");
     const [reotp,setReotp] = useState(true);
@@ -41,10 +41,11 @@ function Verification({email_,buttonRef,alert}) {
         return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
       };
     
-    function handleVerify(){
+    function handleVerify(e){
+        e.preventDefault();
         axios({
             method:"put",
-            url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/registration/verifyEmail",
+            url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/registration/verifyEmail",
             params:{
                 email:email,
                 otp:otp
@@ -55,14 +56,20 @@ function Verification({email_,buttonRef,alert}) {
             alert.setAlertStatus("success")
             alert.setShow(true);
             buttonRef.current.click();
-        })
+            setVerify(false)
+        }).catch((e)=>{
+            console.log(e)
+            alert.setMessage(e.response.data)
+            alert.setAlertStatus("error")
+            alert.setShow(true);
+           })
     }
 
     function handleRegenrateOtp(){
         console.log("email",email)
         axios({
             method:"put",
-            url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/registration/regenerate-otp",
+            url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/registration/regenerate-otp",
             params:{
                 email:email
             }
@@ -73,7 +80,10 @@ function Verification({email_,buttonRef,alert}) {
             setIsActive(true)
         }).catch((e)=>{
             console.log(e)
-        })
+            alert.setMessage(e.response.data)
+            alert.setAlertStatus("error")
+            alert.setShow(true);
+           })
     }
     return ( 
         <div className='mt-5'>

@@ -4,17 +4,66 @@ import axios from "axios";
 
 
 
-function ResetPassword({setForgotPassword}) {
-    const navigate = useNavigate();
+function ResetPassword({email,setForgotPassword,alert}) {
     const [username,setUsername] = useState("");
     const [otp,setOtp] = useState("");
     const [newPassword,setNewPassword] = useState("");
     const [confirmPassword,setConfirmPassword] = useState("");
     const [flag,setFlag] = useState(true);
- function handleSend(){
+    const [reotp,setReotp] = useState(true);
+  
+    const [seconds, setSeconds] = useState(120); // Initial time in seconds
+    const [isActive, setIsActive] = useState(true);
+
+    function handleRegenrateOtp(){
+        console.log("email",email)
+        axios({
+            method:"put",
+            url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/registration/regenerate-otp",
+            params:{
+                email:email
+            }
+        }).then((res)=>{
+            console.log(res.data)
+            setReotp(true)
+            setSeconds(120); // Reset the timer to 2 minutes
+            setIsActive(true)
+        }).catch((e)=>{
+            console.log(e)
+            alert.setMessage(e.response.data)
+            alert.setAlertStatus("error")
+            alert.setShow(true);
+           })
+    }
+
+    
+    useEffect(() => {
+        let countdown;
+        
+        if (isActive && seconds > 0) {
+          countdown = setInterval(() => {
+            setSeconds(seconds - 1);
+          }, 1000);
+        } else if (seconds === 0) {
+            setIsActive(false)
+          clearInterval(countdown);
+          // You can perform any action when the countdown finishes here
+        }
+    
+        return () => clearInterval(countdown); // Cleanup interval on unmount or state change
+      }, [isActive, seconds]);
+
+      const formatTime = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      };
+    
+ function handleSend(e){
+    e.preventDefault()
     axios({
         method:"post",
-        url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/auth/forgotPassword",
+        url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/auth/forgotPassword",
         params:{
             username:username,
         }
@@ -22,13 +71,18 @@ function ResetPassword({setForgotPassword}) {
         console.log(res.data)
         setFlag(false);
        
-    })
+    }).catch((e)=>{
+        console.log(e)
+        alert.setMessage(e.response.data)
+        alert.setAlertStatus("error")
+        alert.setShow(true);
+       })
  }
 
  function handleUpdate(){
     axios({
         method:"post",
-        url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/auth/resetPassword",
+        url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/auth/resetPassword",
         data:{
             username:username,
             otp:otp,
@@ -36,10 +90,23 @@ function ResetPassword({setForgotPassword}) {
             newPassword2:confirmPassword
         }
     }).then((res)=>{
-        console.log(res.data)
-        alert("Password Updated")
-        setForgotPassword(false);
-    })
+        console.log("res",res.data)
+        
+        if(res.data==="Invalid OTP."){
+            alert.setMessage("Invalid OTP")
+            alert.setAlertStatus("error")
+            alert.setShow(true);
+        }
+        else{
+            setForgotPassword(false);
+        }
+        
+    }).catch((e)=>{
+        console.log(e)
+        alert.setMessage(e.response.data)
+        alert.setAlertStatus("error")
+        alert.setShow(true);
+       })
  }
  
     return ( 
@@ -64,7 +131,11 @@ function ResetPassword({setForgotPassword}) {
         <input type="password"  onChange={(e)=>setNewPassword(e.target.value)} placeholder="New Password" />
         <input type="password"  onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
      
-        <button onClick={handleUpdate}>Update</button>
+       {isActive&&<button onClick={handleUpdate}>
+            <span className='me-1'>Update</span>
+        <span>{formatTime(seconds)}</span>
+        </button>}
+        <a onClick={handleRegenrateOtp}>Regenerate otp</a>
         
       </form>}
         </div>

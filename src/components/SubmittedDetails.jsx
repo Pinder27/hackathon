@@ -27,9 +27,10 @@ const SubmittedDetails = ({
     }
     axios({
       method: "put",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/implementations/" + `${implementationId}`,
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/api/implementations/" + `${implementationId}`,
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
       data: data,
     }).then((res) => {

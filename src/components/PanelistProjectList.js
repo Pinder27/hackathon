@@ -9,9 +9,10 @@ const PanelistProjectList = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/v1/api/ideas",
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/v1/api/ideas",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
     }).then((res) => {
       console.log("allotedlist- ", res.data);

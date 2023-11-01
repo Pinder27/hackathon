@@ -16,16 +16,16 @@ export default function Footer(){
                 <div className="text-white text-center h5 mb-5 mt-5" >Stay Up To Date with our News and Notifications</div>
                 <div className="d-flex justify-content-center mb-5">
                      <div className="me-2">
-                      <img src={Instagram} height="40px"/>
+                     <a href="https://www.instagram.com/incedoinc/?hl=en" target="_blank"> <img src={Instagram} height="40px"/> </a>
                      </div>
                      <div className="me-2">
-                      <img src={Facebook} height="40px"/>
+                     <a href="https://m.facebook.com/IncedoInc" target="_blank"> <img src={Facebook} height="40px"/></a>
                      </div>
                      <div className="me-2">
-                      <img src={Twitter} height="40px"/>
+                     <a href="https://twitter.com/IncedoInc" target="_blank"> <img src={Twitter} height="40px"/></a>
                      </div>
                      <div className="me-2">
-                      <img src={Linkedin} height="40px"/>
+                     <a href="https://www.linkedin.com/company/incedo-inc/" target="_blank"> <img src={Linkedin} height="40px"/></a>
                      </div>
                 </div>
                 <div className="text-white text-center mb-5">Copyright © Hackathon 4.0 | All rights reserved</div>

@@ -19,7 +19,7 @@ function App() {
   };
 
   const divStyle = {
-    background: alertStatus === "success" ? "#1aae13" : "#FF0000",
+    background: alertStatus === "success" ? "#3ea739" : "#e60000",
     position:"fixed",
     bottom : "20px",
     right:"20px"
@@ -31,7 +31,7 @@ function App() {
         <ToastContainer
           className="p-3 fixed-toast"
           position="bottom-end"
-          style={{ zIndex: 1 }}
+          style={{ zIndex: 200 }}
         >
           <Toast
             onClose={() => setShow(false)}

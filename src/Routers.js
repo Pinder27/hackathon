@@ -4,9 +4,9 @@ import Home from './components/Home'
 import UserDashboard from './components/UserDashboard'
 import ProjectDetail from './components/ProjectDetail';
 import GuideLines from './components/Guidelines'
-import Result from './components/Results'
+
 import Contact from './components/Contact'
-import Reg from './components/Reg'
+
 import TeamDetail from './components/TeamDetailForm'
 import IdeaDescription from './components/IdeaDescription'
 import PanelistProjectList from './components/PanelistProjectList';
@@ -17,7 +17,6 @@ import Footer from './components/Footer';
 import JudgeReview from './components/JudgeReview';
 import DetailResult from './components/DetailResult';
 
-import Login from './components/login';
 import Admin from './components/Admin';
 import JudgeProjectList from './components/judgeProjectlist';
 import Implementation from './components/implementaion';
@@ -30,10 +29,12 @@ import Reg2 from './components/Reg2';
 
 export default function Router({alert}){
     const [user,setUser] = useState(false)
-    console.log(localStorage.getItem("token1"))
+
+
     if(!user&&localStorage.getItem("token")!=null){
        setUser(true);
     }
+
     return(
         <div>
             <BrowserRouter>
@@ -43,7 +44,6 @@ export default function Router({alert}){
                 <Route  path='/guidelines'  element={<GuideLines user={user} setUser={setUser}/>}/>
                 <Route  path='/results'  element={<DetailResult/>}/>
                 <Route  path='/contact'  element={<Contact/>}/>
-                <Route  path='/reg'  element={<Reg user={user} setUser={setUser}/>}/>
                 <Route  path='/teamdetail'  element={<TeamDetail alert={alert}/> }/>
                 <Route  path='/ideadescription'  element={<IdeaDescription alert={alert}/>}/>
                 <Route path="/userdashboard" element={<UserDashboard user={user} setUser={setUser} />}></Route>
@@ -51,7 +51,6 @@ export default function Router({alert}){
                 <Route path="/panelistProjectList" element={<PanelistProjectList />}></Route>
                 <Route path="/panelReview/:id" element={<PanelReview alert={alert} />}></Route>
                 <Route path="/judgeReview/:id" element={<JudgeReview alert={alert} />}></Route>
-                <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
                 <Route path="/Reg2" element={<Reg2 user={user} setUser={setUser} alert={alert}/>}></Route>
                 <Route path="/admin" element={<Admin user={user} setUser={setUser} alert={alert}/>}></Route>
                 <Route path="/JudgeProjectList" element={<JudgeProjectList user={user} setUser={setUser}/>}></Route>

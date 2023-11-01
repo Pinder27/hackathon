@@ -14,7 +14,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToJudges(){
     axios({
       method:"get",
-      url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/admin/sendReminderToJudges",
+      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/sendReminderToJudges",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -27,7 +27,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToPanelist(){
     axios({
       method:"get",
-      url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/admin/sendReminderToPanelists",
+      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/sendReminderToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -40,7 +40,7 @@ export default function Admin({setUser,alert}) {
 function handleAssignToOtherPanelist(){
   axios({
     method:"get",
-    url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/admin/assignIdeasToOtherPanelists",
+    url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/assignIdeasToOtherPanelists",
     params:{
       panelistEmail:email
     },
@@ -58,7 +58,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/admin/checkPanelistProgress",
+      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/checkPanelistProgress",
       params:{
         panelistEmail:email
       },
@@ -81,7 +81,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"put",
-      url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/admin/updateRole",
+      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/updateRole",
       data:{
         userEmail: email,
         role: value
@@ -103,7 +103,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/admin/assignIdeasToPanelists",
+      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/assignIdeasToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -138,7 +138,7 @@ function handleAssignToOtherPanelist(){
             aria-controls="collapseExample"
 
           >
-            Update Role
+            Update
           </a>
           <button
             class="btn btn-primary m-3"

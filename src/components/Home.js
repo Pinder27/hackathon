@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import vrGlasses from "../assests/images/VRGlasses.png";
-import google from "../assests/images/google.png";
-import microsoft from "../assests/images/microsoft.png";
-import ola from "../assests/images/ola.png";
-import fedex from "../assests/images/fedex.png";
-import fedx from "../assests/images/fedx.png";
-import amazon from "../assests/images/amazon.png";
-import walmart from "../assests/images/walmart.png";
+import Novoartis from "../assests/images/novartis-logo-transparent.png.png";
+import atnt from "../assests/images/atnt.png";
+import Belden from "../assests/images/belden-logo.png";
+import Cisco from "../assests/images/cisco.png";
+import AssetMark from "../assests/images/assetmark logo2x.png";
+import Citi from "../assests/images/Citibank-Logo.png";
+import Verizon from "../assests/images/verizon.png";
 import incedologo from "../assests/images/incedo-logo.png"
 import Poster from "../assests/images/Poster.png";
 import { useNavigate } from "react-router";
 import bgImage from "../assests/images/pexels-alexander-kovalev-2847648.jpg"
 import "../assests/css/Home.css"
+
 
  
 
@@ -43,7 +44,7 @@ const Home = ({user,setUser}) => {
 
     return timeLeft;
   };
-  const targetDate = "2023-11-09T10:00:00";
+  const targetDate = "2023-11-06T10:00:00";
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
@@ -68,67 +69,58 @@ const Home = ({user,setUser}) => {
   return (
     <div>
       
-      <div
-        className="container-fluid body-store  d-flex row m-0 pb-5"
-       
-      >
-        <div
-          className="col-5 d-flex mt-5 flex-column "
-          style={{ paddingLeft: "160px" }}
-        >
-          <div className="mb-2 h5 d-flex ">
-            <img src={incedologo} height="30px"/>
-          </div>
-          <div className="mb-3 h5 d-flex ">PRESENTS</div>
-          <div className=" display-5 d-flex " style={{ fontWeight: "bold" }}>
-            Hackathon 2023
-          </div>
-        
-          <div className="mb-2 text-left d-flex ">
-            The 4th iteration of Incedo Hackathon, Hackathon 2023 welcomes
-            you!
-          </div>
-          <button
-            className="mb-2 mt-5 btn btn-lg text-white col-5"
-            style={{ backgroundColor: "#ef4815", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
-            onClick={HandleGetStarted}
-          >
-            Get Started
-          </button>
-        </div>
-        <div className="  col-7 position-relative p-0">
-          <img
-            src={vrGlasses}
-            className="img-fluid"
-            alt="VR Glasses"
-          />
-          <div
-            className="display-3   text-white"
-            style={{
-              position: "absolute",
-              top: "30%",
-              left: "20%",
-              fontWeight: "bold",
-            }}
-          >
-            {`${days}` +
-              " : " +
-              `${hours}` +
-              " : " +
-              `${minutes}` +
-              " : " +
-              `${seconds}`}
-          </div>
-          <pre
-            className="  h5  text-white"
-            style={{ position: "absolute", top: "50%", left: "23%" }}
-          >
-            days     hours      minutes   seconds
-          </pre>
-        </div>
-      </div>
+      <div className="container-fluid body-store d-flex m-0 pb-5">
+  <div className="col-lg-5 col-md-12 d-flex mt-5 flex-column" style={{ paddingLeft: "160px" }}>
+    <div className="mb-2 h5 d-flex">
+      <img src={incedologo} height="30px" alt="Incedo Logo" />
+    </div>
+    <div className="mb-3 h5 d-flex">PRESENTS</div>
+    <div className="display-5 d-flex" style={{ fontWeight: "bold" }}>
+      Hackathon 2023
+    </div>
+    <div className="mb-2 text-left d-flex">
+      The 4th iteration of Incedo Hackathon, Hackathon 2023 welcomes you!
+    </div>
+    <button
+      className="mb-2 mt-5 btn btn-lg text-white col-5"
+      style={{ backgroundColor: "#ef4815", boxShadow: "0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
+      onClick={HandleGetStarted}
+    >
+      Get Started
+    </button>
+  </div>
+  <div className="col-lg-7 col-md-12 position-relative p-0">
+  <div className="image-container">
+      <img src={vrGlasses} className="img-fluid" alt="VR Glasses" />
+    </div>
+    <div
+      className="display-3 text-white"
+      style={{
+        position: "absolute",
+        top: "30%",
+        left: "18%",
+        fontWeight: "bold",
+      }}
+    >
+      {`${days < 10 ? `0${days}` : days}` +
+        " : " +
+        `${hours < 10 ? `0${hours}` : hours}` +
+        " : " +
+        `${minutes < 10 ? `0${minutes}` : minutes}` +
+        " : " +
+        `${seconds < 10 ? `0${seconds}` : seconds}`}
+    </div>
+    <pre
+      className="h5 text-white"
+      style={{ position: "absolute", top: "50%", left: "23%" }}
+    >
+      days      hours      minutes    seconds
+    </pre>
+  </div>
+</div>
 
-      <div className="p-5 d-flex justify-content-center" >
+
+      <div className="p-5 d-flex justify-content-center"  >
         <img src={Poster}/>
       </div>
 
@@ -143,28 +135,28 @@ const Home = ({user,setUser}) => {
               className="p-4 rounded-top-1 me-5"
               style={{ backgroundColor: "#E4E4E4", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
             >
-              <img src={google} height="40px" />
+              <img src={Belden} height="40px" />
             </div>
 
             <div
               className="p-4 rounded-top-1 me-5"
               style={{ backgroundColor: "#E4E4E4", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
             >
-              <img src={ola} height="40px" />
+              <img src={Cisco} height="40px" />
             </div>
 
             <div
               className="p-4 rounded-top-1 me-5"
               style={{ backgroundColor: "#E4E4E4", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
             >
-              <img src={fedex} height="40px" />
+              <img src={AssetMark} height="40px" />
             </div>
 
             <div
               className="p-4 rounded-top-1"
               style={{ backgroundColor: "#E4E4E4", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
             >
-              <img src={microsoft} height="40px" />
+              <img src={Verizon} height="40px" />
             </div>
           </div>
 
@@ -173,30 +165,30 @@ const Home = ({user,setUser}) => {
               className="p-4 rounded-top-1 me-5"
               style={{ backgroundColor: "#E4E4E4", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
             >
-              <img src={walmart} height="40px" />
+              <img src={atnt} height="40px" />
             </div>
 
             <div
               className="p-4 rounded-top-1 me-5"
               style={{ backgroundColor: "#E4E4E4", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
             >
-              <img src={amazon} height="40px" />
+              <img src={Citi} height="40px" />
             </div>
             <div
               className="p-4 rounded-top-1 me-5"
               style={{ backgroundColor: "#E4E4E4", boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)" }}
             >
-              <img src={fedx} height="40px" />
+              <img src={Novoartis} height="40px" />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="p-5">
+      <div className="p-5" >
         <div className="h1 text-center mb-3">
           What is incedo Hackathon 2023?
         </div>
-        <div className="mb-3">
+        <div className="mb-3 ">
           Hackathon 2023  is an initiative in sync with the vision of incedo,
           towards providing a mega platform to the programming community,
           technophiles and techpreneurs to address the critical challenges of
@@ -204,7 +196,7 @@ const Home = ({user,setUser}) => {
           prototypes leveraging technologies under the umbrella of incedo.
         </div>
 
-        <div>
+        <div className="">
           Hackathon 2023 is a 96 hour coding marathon planning to invite
           participants from G20 Nations and our associate International
           Universities to come together and participate in developing solutions
@@ -213,14 +205,14 @@ const Home = ({user,setUser}) => {
         </div>
       </div>
 
-      <div className="p-5">
-        <div className="h1 text-center">Our History</div>
-        <div>
+      <div className="p-5" >
+        <div className="h1 text-center ">Our History</div>
+        <div className="">
           First Hackathon  was held on 5th and 6th August 2019. The event witnessed
           participation from SAARC Nations as well. The event was applauded by
           Honorable Prime Minister Of India, Shri Narendra Modi.
         </div>
-        <div>
+        <div className="">
           The first version of the event - “Hackathon 1.0” was organized in May,
           2019, which attracted student participation from 10 states of the
           country. The hackathon was unique in its concept to have problem

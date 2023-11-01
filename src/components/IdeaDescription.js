@@ -18,10 +18,11 @@ const IdeaDescription = ({alert}) => {
     };
     axios({
       method: "post",
-      url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/v1/api/ideas",
+      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/v1/api/ideas",
       data: data,
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
     }).then((res) => {
       console.log(res);
@@ -30,7 +31,8 @@ const IdeaDescription = ({alert}) => {
       alert.setShow(true);
       navigate("/projectDetail");
     }).catch((e)=>{
-      alert.setMessage(e.data);
+      console.log(e)
+      alert.setMessage(e.response.data);
       alert.setAlertStatus("error")
       alert.setShow(true);
     });

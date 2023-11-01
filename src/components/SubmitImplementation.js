@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function SubmitImplementation({setImplSubmitted}){
-    const [description,setDescription] = useState("");
-    const [git,setGit] = useState("");
-    const [ppt,setPpt] = useState("");
-    const [recording,setRecording] = useState("");
+export default function SubmitImplementation({git,recording,ppt,description,setDescription,setGit,setPpt,setRecording,setImplSubmitted}){
 
 
     function HandleSubmit(e){
         e.preventDefault();
         axios({
             method: "post",
-            url: "http://ec2-51-20-107-65.eu-north-1.compute.amazonaws.com:8087/api/submitImplementation",
+            url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/api/submitImplementation",
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },

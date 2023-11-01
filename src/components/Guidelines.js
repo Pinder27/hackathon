@@ -167,23 +167,20 @@ export default function GuideLines({ user, setUser }) {
                   {" "}
                   1. Register for the Hackathon on the Hackathon Website by
                   clicking the “Join Hackathon” button. To complete
-                  registration, sign up to create a free Devpost account, or log
-                  in with an existing Devpost account. This will enable you to
+                  registration, sign up to create a free  account, or log
+                  in with an existing  account. This will enable you to
                   receive important updates and to create your Submission.
                 </p>
                 <p>
                   {" "}
-                  2. Entrants will obtain access to the required developer
-                  tools/platform and complete a Project described below in
-                  Project Requirements. Use of the developer tools will be
-                  subject to the license agreement related thereto. Entry in the
-                  Hackathon constitutes consent for the Sponsor and Devpost to
-                  collect and maintain an Entrant’s personal information for the
-                  purpose of operating and publicizing the Hackathon.
+                  2. Once registered you can create team by clicking on getStarted button on home paage
+                   ,every team member need to be registered to participate in event, after submiting team details
+                   you have to submit idea details, then you can view the team and idea in your dashboard ,remember only leader of
+                   team can edit the details.
                 </p>
                 <p>
-                  3. Sign up for a free Test Mode DropboxSign account at
-                  https://app.hellosign.com/account/signUp
+                  3. you need to upload pdf file on any cloud platform like google drive ,and 
+                  you need to put the drive link in idea form
                 </p>
                 <p>
                   4. To be considered for the Most Valuable Feedback Prizes,
