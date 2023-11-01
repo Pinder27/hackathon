@@ -9,7 +9,7 @@ const PanelistProjectList = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/v1/api/ideas",
+      url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/panelists/viewIdeas",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
   'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
@@ -23,7 +23,7 @@ const PanelistProjectList = () => {
 
   return (
     <>
-      <div className="w-75 mx-auto" style={{height:"100vh"}}>
+      <div className="w-75 mx-auto mb-3" style={{height:"100vh"}}>
         <h3 className="text-center mb-4 mt-4">Project List</h3>
         <div
           className="p-3 d-flex justify-content-between mb-3"

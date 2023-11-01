@@ -16,7 +16,7 @@ export default function Implementation({alert,role}) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/dashboard/impl",
+      url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/user/dashboard/impl",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
          'Access-Control-Allow-Origin' : '*',
@@ -52,7 +52,7 @@ export default function Implementation({alert,role}) {
     };
     axios({
       method: "put",
-      url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/api/implementations/" + `${data.implementationId}`,
+      url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/api/implementations/" + `${data.implementationId}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
   'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',

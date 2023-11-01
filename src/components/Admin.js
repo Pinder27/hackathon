@@ -14,7 +14,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToJudges(){
     axios({
       method:"get",
-      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/sendReminderToJudges",
+      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/sendReminderToJudges",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -27,7 +27,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToPanelist(){
     axios({
       method:"get",
-      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/sendReminderToPanelists",
+      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/sendReminderToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -40,7 +40,7 @@ export default function Admin({setUser,alert}) {
 function handleAssignToOtherPanelist(){
   axios({
     method:"get",
-    url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/assignIdeasToOtherPanelists",
+    url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/assignIdeasToOtherPanelists",
     params:{
       panelistEmail:email
     },
@@ -58,7 +58,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/checkPanelistProgress",
+      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/checkPanelistProgress",
       params:{
         panelistEmail:email
       },
@@ -81,7 +81,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"put",
-      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/updateRole",
+      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/updateRole",
       data:{
         userEmail: email,
         role: value
@@ -96,6 +96,10 @@ function handleAssignToOtherPanelist(){
       alert.setShow(true)
       setEmail("");
       setValue("")
+    }).catch((e)=>{
+      alert.setMessage("Email not found")
+      alert.setAlertStatus("error")
+      alert.setShow(true)
     })
   }
 
@@ -103,7 +107,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/admin/assignIdeasToPanelists",
+      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/assignIdeasToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -111,6 +115,11 @@ function handleAssignToOtherPanelist(){
       console.log(res);
       alert.setMessage("Ideas Assigned")
       alert.setAlertStatus("success")
+      alert.setShow(true)
+    }).catch((e)=>{
+      console.log(e);
+      alert.setMessage(e.response.data)
+      alert.setAlertStatus("error")
       alert.setShow(true)
     })
   }
@@ -190,17 +199,10 @@ function handleAssignToOtherPanelist(){
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div>
-        <div class="mb-3">
-    <label for="exampleInputEmail123"  class="form-label">Email address</label>
-    <input type="email" class="form-control" onChange={(e)=>setEmail(e.target.value)} id="exampleInputEmail123" aria-describedby="emailHelp"/>
-  </div>
-        </div>
-      </div>
+     
       <div class="modal-footer">
         <button type="button" onClick={handleAssignToOtherPanelist} class="btn btn-primary" data-bs-dismiss="modal">Assign</button>
       </div>

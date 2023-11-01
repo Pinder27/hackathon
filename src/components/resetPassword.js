@@ -15,11 +15,12 @@ function ResetPassword({email,setForgotPassword,alert}) {
     const [seconds, setSeconds] = useState(120); // Initial time in seconds
     const [isActive, setIsActive] = useState(true);
 
-    function handleRegenrateOtp(){
+    function handleRegenrateOtp(e){
+        e.preventDefault();
         console.log("email",email)
         axios({
             method:"put",
-            url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/registration/regenerate-otp",
+            url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/registration/regenerate-otp",
             params:{
                 email:email
             }
@@ -63,7 +64,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
     e.preventDefault()
     axios({
         method:"post",
-        url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/auth/forgotPassword",
+        url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/auth/forgotPassword",
         params:{
             username:username,
         }
@@ -79,10 +80,11 @@ function ResetPassword({email,setForgotPassword,alert}) {
        })
  }
 
- function handleUpdate(){
+ function handleUpdate(e){
+    e.preventDefault();
     axios({
         method:"post",
-        url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/auth/resetPassword",
+        url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/auth/resetPassword",
         data:{
             username:username,
             otp:otp,

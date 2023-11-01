@@ -37,7 +37,7 @@ export default function Reg2({user,setUser,alert}){
      console.log(user)
      axios({
          method:"post",
-         url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/auth/login",
+         url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/auth/login",
          data:user
      }).then((res)=>{
          console.log(res.data.role[res.data.role.length-1].name);
@@ -85,7 +85,7 @@ export default function Reg2({user,setUser,alert}){
      }
      axios({
          method:"post",
-         url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/registration/register",
+         url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/registration/register",
          data:user
      }).then((res)=>{
          console.log("sign in",res)

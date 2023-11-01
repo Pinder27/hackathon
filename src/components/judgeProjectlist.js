@@ -22,7 +22,7 @@ const [loader,setLoader] = useState(true)
   useEffect(()=>{
       axios({
         method:"get",
-        url:"http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/api/implementations",
+        url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/api/implementations",
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("token")}`,
         }

@@ -26,7 +26,7 @@ const ProjectDetail = ({alert}) => {
 useEffect(()=>{
   axios({
     method: "get",
-    url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/userRole",
+    url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/user/userRole",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
@@ -39,7 +39,7 @@ useEffect(()=>{
  useEffect(() => {
      axios({
        method: "get",
-       url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/dashboard/teamDetails",
+       url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/user/dashboard/teamDetails",
        headers: {
          Authorization: `Bearer ${localStorage.getItem("token")}`,
        },
@@ -58,7 +58,7 @@ useEffect(()=>{
    useEffect(()=>{
     axios({
         method: "get",
-        url: "http://ec2-65-0-108-48.ap-south-1.compute.amazonaws.com:8087/user/dashboard/idea",
+        url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/user/dashboard/idea",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
