@@ -96,7 +96,7 @@ export default function Reg2({user,setUser,alert}){
         
      }).catch((e)=>{
       console.log(e)
-      alert.setMessage(e.data)
+      alert.setMessage(e.response.data)
       alert.setAlertStatus("error")
       alert.setShow(true);
      })
