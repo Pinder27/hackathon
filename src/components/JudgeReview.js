@@ -38,7 +38,7 @@ const JudgeReview = ({alert}) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/api/implementations/" + `${param.id}`,
+      url: "http://localhost:8087/api/implementations/" + `${param.id}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
   'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
@@ -113,7 +113,7 @@ const JudgeReview = ({alert}) => {
     
     axios({
       method: "post",
-      url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/api/implementations/addScores",
+      url: "http://localhost:8087/api/implementations/addScores",
       data: { 
         implementationId: data.implementation.implementationId,
         technicalProficiencyScore:rating1 ,

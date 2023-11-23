@@ -20,7 +20,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
         console.log("email",email)
         axios({
             method:"put",
-            url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/registration/regenerate-otp",
+            url:"http://localhost:8087/registration/regenerate-otp",
             params:{
                 email:email
             }
@@ -64,7 +64,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
     e.preventDefault()
     axios({
         method:"post",
-        url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/auth/forgotPassword",
+        url:"http://localhost:8087/auth/forgotPassword",
         params:{
             username:username,
         }
@@ -84,7 +84,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
     e.preventDefault();
     axios({
         method:"post",
-        url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/auth/resetPassword",
+        url:"http://localhost:8087/auth/resetPassword",
         data:{
             username:username,
             otp:otp,

@@ -18,7 +18,7 @@ const IdeaDescription = ({alert}) => {
     };
     axios({
       method: "post",
-      url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/v1/api/ideas",
+      url: "http://localhost:8087/v1/api/ideas",
       data: data,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',

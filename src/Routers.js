@@ -22,6 +22,7 @@ import JudgeProjectList from './components/judgeProjectlist';
 import Implementation from './components/implementaion';
 import Idea from './components/Idea';
 import Reg2 from './components/Reg2';
+import Admin2 from './components/Admin/Admin2';
 
 
 
@@ -29,6 +30,7 @@ import Reg2 from './components/Reg2';
 
 export default function Router({alert}){
     const [user,setUser] = useState(false)
+    const [userName,setUserName] = useState("Pinder")
 
 
     if(!user&&localStorage.getItem("token")!=null){
@@ -38,7 +40,7 @@ export default function Router({alert}){
     return(
         <div>
             <BrowserRouter>
-            <Navbar user={user} setUser={setUser}/>
+            <Navbar userName={userName} setUserName={setUserName} user={user} setUser={setUser}/>
             <Routes>
                 <Route  path='/'  element={<Home user={user} setUser={setUser}/>}/>
                 <Route  path='/guidelines'  element={<GuideLines user={user} setUser={setUser}/>}/>
@@ -56,6 +58,7 @@ export default function Router({alert}){
                 <Route path="/JudgeProjectList" element={<JudgeProjectList user={user} setUser={setUser}/>}></Route>
                 <Route path="/impl" element={<Implementation/>}></Route>
                 <Route path="/idea" element={<Idea/>}></Route>
+                <Route path="/admin2" element={<Admin2 userName={userName} user={user} setUser={setUser} alert={alert}/>}></Route>
                 
                 
                 

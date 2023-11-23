@@ -67,7 +67,7 @@ const Home = ({user,setUser}) => {
     }
    }
   return (
-    <div>
+    <div className="d-flex flex-column">
       
       <div className="container-fluid body-store d-flex m-0 pb-5">
   <div className="col-lg-5 col-md-12 d-flex mt-5 flex-column" style={{ paddingLeft: "160px" }}>
@@ -235,6 +235,8 @@ const Home = ({user,setUser}) => {
       </div>
         
     </div>
+    
+    
   );
 };
 

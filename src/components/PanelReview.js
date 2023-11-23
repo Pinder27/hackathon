@@ -23,7 +23,7 @@ const PanelReview = ({alert}) => {
  useEffect(()=>{
    axios({
     method:"get",
-    url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/v1/api/ideas/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/"+`${param.id}`,
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("token")}`,
     }
@@ -37,7 +37,7 @@ const PanelReview = ({alert}) => {
  function HandleApprove(){
   axios({
     method:"put",
-    url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
       status:"approved",
       feedback:feedback
@@ -56,7 +56,7 @@ const PanelReview = ({alert}) => {
  function HandleReject(){
   axios({
     method:"put",
-    url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/v1/api/ideas/updateStatus/"+`${param.id}`,
+    url:"http://localhost:8087/v1/api/ideas/updateStatus/"+`${param.id}`,
     data:{
       status:"rejected",
       feedback:feedback

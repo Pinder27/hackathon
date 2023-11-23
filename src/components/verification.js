@@ -45,7 +45,7 @@ function Verification({email_,buttonRef,alert,setVerify}) {
         e.preventDefault();
         axios({
             method:"put",
-            url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/registration/verifyEmail",
+            url:"http://localhost:8087/registration/verifyEmail",
             params:{
                 email:email,
                 otp:otp
@@ -69,7 +69,7 @@ function Verification({email_,buttonRef,alert,setVerify}) {
         console.log("email",email)
         axios({
             method:"put",
-            url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/registration/regenerate-otp",
+            url:"http://localhost:8087/registration/regenerate-otp",
             params:{
                 email:email
             }

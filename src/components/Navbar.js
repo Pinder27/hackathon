@@ -6,21 +6,21 @@ import userimage from "../assests/images/user-3296 1.png"
 import jwt from 'jwt-decode'
 
 
-export default function Navbar({user,setUser}) {
+export default function Navbar({userName,user,setUser,setUserName}) {
    const navigate = useNavigate();
    const location = useLocation();
    const param = useParams();
   if(location.pathname=="/reg") return null;
   if(location.pathname=="/login") return null;
   if(location.pathname=="/admin") return null;
+  if(location.pathname=="/admin2") return null;
   if(location.pathname=="/reg2") return null;
  
-  var username = "pinder";
+  
 
   if(user){
     const token = localStorage.getItem("token");
-     username = jwt(token).sub; // decode your token here
-    console.log("user",username.sub)
+     setUserName(jwt(token).sub); // decode your token here
 }
 console.log("path",location.pathname)
 if(location.pathname=="/JudgeProjectList"||location.pathname.startsWith('/judgeReview/')||location.pathname=="/panelistProjectList"||location.pathname.startsWith('/panelReview/')) return(
@@ -42,7 +42,7 @@ if(location.pathname=="/JudgeProjectList"||location.pathname.startsWith('/judgeR
      {user&&<div class="dropdown-center me-4">
 <div class=" me-5  dropdown-toggle d-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   <img src={userimage} height="30px"/>
-  <div className="ms-2">{username}</div>
+  <div className="ms-2">{userName}</div>
 </div>
 <ul class="dropdown-menu dropdown-menu-right" style={{}}>
   
@@ -85,7 +85,7 @@ if(location.pathname=="/JudgeProjectList"||location.pathname.startsWith('/judgeR
        {user&&<div class="dropdown-center me-4">
   <div class=" me-5  dropdown-toggle d-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <img src={userimage} height="30px"/>
-    <div className="ms-2">{username}</div>
+    <div className="ms-2">{userName}</div>
   </div>
   <ul class="dropdown-menu dropdown-menu-right" style={{}}>
     <li><Link to="/projectDetail" class="dropdown-item" href="#">Dashboard</Link></li>

@@ -9,6 +9,7 @@ export default function Footer(){
   if(location.pathname=="/reg") return null;
   if(location.pathname=="/login") return null;
   if(location.pathname=="/admin") return null;
+  if(location.pathname=="/admin2") return null;
   if(location.pathname=="/reg2") return null;
     return(
         <div>

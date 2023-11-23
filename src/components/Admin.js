@@ -1,5 +1,4 @@
 import axios from "axios";
-import ExcelUploadForm from "./Excel";
 import { useState } from "react";
 import {useNavigate} from "react-router-dom"
 
@@ -14,7 +13,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToJudges(){
     axios({
       method:"get",
-      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/sendReminderToJudges",
+      url:"http://localhost:8087/admin/sendReminderToJudges",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -27,7 +26,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToPanelist(){
     axios({
       method:"get",
-      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/sendReminderToPanelists",
+      url:"http://localhost:8087/admin/sendReminderToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -40,7 +39,7 @@ export default function Admin({setUser,alert}) {
 function handleAssignToOtherPanelist(){
   axios({
     method:"get",
-    url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/assignIdeasToOtherPanelists",
+    url:"http://localhost:8087/admin/assignIdeasToOtherPanelists",
     params:{
       panelistEmail:email
     },
@@ -58,7 +57,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/checkPanelistProgress",
+      url:"http://localhost:8087/admin/checkPanelistProgress",
       params:{
         panelistEmail:email
       },
@@ -81,7 +80,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"put",
-      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/updateRole",
+      url:"http://localhost:8087/admin/updateRole",
       data:{
         userEmail: email,
         role: value
@@ -107,7 +106,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/admin/assignIdeasToPanelists",
+      url:"http://localhost:8087/admin/assignIdeasToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}

@@ -8,7 +8,7 @@ export default function SubmitImplementation({git,recording,ppt,description,setD
         e.preventDefault();
         axios({
             method: "post",
-            url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/api/submitImplementation",
+            url: "http://localhost:8087/api/submitImplementation",
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },

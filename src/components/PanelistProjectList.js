@@ -9,7 +9,7 @@ const PanelistProjectList = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://fre03ohz02.execute-api.ap-south-1.amazonaws.com/panelists/viewIdeas",
+      url: "http://localhost:8087/panelists/viewIdeas",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
   'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
