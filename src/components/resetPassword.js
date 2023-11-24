@@ -20,7 +20,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
         console.log("email",email)
         axios({
             method:"put",
-            url:"http://localhost:8087/registration/regenerate-otp",
+            url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/registration/regenerate-otp",
             params:{
                 email:email
             }
@@ -64,7 +64,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
     e.preventDefault()
     axios({
         method:"post",
-        url:"http://localhost:8087/auth/forgotPassword",
+        url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/auth/forgotPassword",
         params:{
             username:username,
         }
@@ -84,7 +84,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
     e.preventDefault();
     axios({
         method:"post",
-        url:"http://localhost:8087/auth/resetPassword",
+        url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/auth/resetPassword",
         data:{
             username:username,
             otp:otp,

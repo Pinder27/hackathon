@@ -41,7 +41,7 @@ export default function Admin2({ alert, userName, setUser }) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:8087/admin/getPanelistsDetails",
+      url: "https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/getPanelistsDetails",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -53,7 +53,7 @@ export default function Admin2({ alert, userName, setUser }) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:8087/admin/getListOfAllJudges",
+      url: "https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/getListOfAllJudges",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -65,7 +65,7 @@ export default function Admin2({ alert, userName, setUser }) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:8087/v1/api/ideas",
+      url: "https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/v1/api/ideas",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -132,7 +132,7 @@ export default function Admin2({ alert, userName, setUser }) {
             boxShadow: "0px 0px 5px 1px rgba(0, 0, 0, 0.15)",
           }}
         >
-          <div class="dropdown me-5">
+          <div class="dropdown-center me-5">
             <div
               class="dropdown-toggle d-flex"
               type="button"

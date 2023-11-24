@@ -13,7 +13,7 @@ function Panelist({panelistList,alert}) {
          e.preventDefault();
          axios({
             method:"get",
-            url:"http://localhost:8087/admin/sendReminderToPanelists",
+            url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/sendReminderToPanelists",
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("token")}`,
               }
@@ -29,7 +29,7 @@ function Panelist({panelistList,alert}) {
     e.preventDefault();
     axios({
        method:"delete",
-       url:"http://localhost:8087/admin/removeAllAssignedIdeas",
+       url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/removeAllAssignedIdeas",
        headers: {
            'Authorization': `Bearer ${localStorage.getItem("token")}`,
          }
@@ -46,7 +46,7 @@ function Panelist({panelistList,alert}) {
     e.preventDefault();
     axios({
        method:"get",
-       url:"http://localhost:8087/admin/sendReminderToIndividualPanelist",
+       url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/sendReminderToIndividualPanelist",
        headers: {
            'Authorization': `Bearer ${localStorage.getItem("token")}`,
          },
@@ -65,7 +65,7 @@ function handleGetIdeas(e,id){
     e.preventDefault();
     axios({
         metod:"get",
-        url:"http://localhost:8087/admin/getIdeasByPanelistId",
+        url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/getIdeasByPanelistId",
         params:{
             id:id
         },
@@ -86,7 +86,7 @@ function handleGetIdeas(e,id){
 function handleAssignIdeasToOthers(e,email){
     axios({
         metod:"get",
-        url:"http://localhost:8087/admin/assignIdeasToOtherPanelists",
+        url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/assignIdeasToOtherPanelists",
         params:{
             panelistEmail:email
         },

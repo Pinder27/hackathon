@@ -10,7 +10,7 @@ function Role({alert}) {
         e.preventDefault();
         axios({
           method:"put",
-          url:"http://localhost:8087/admin/updateRole",
+          url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/updateRole",
           data:{
             userEmail: email,
             role: value

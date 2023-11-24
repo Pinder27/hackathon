@@ -13,7 +13,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToJudges(){
     axios({
       method:"get",
-      url:"http://localhost:8087/admin/sendReminderToJudges",
+      url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/sendReminderToJudges",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -26,7 +26,7 @@ export default function Admin({setUser,alert}) {
   function handleReminderToPanelist(){
     axios({
       method:"get",
-      url:"http://localhost:8087/admin/sendReminderToPanelists",
+      url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/sendReminderToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}
@@ -39,7 +39,7 @@ export default function Admin({setUser,alert}) {
 function handleAssignToOtherPanelist(){
   axios({
     method:"get",
-    url:"http://localhost:8087/admin/assignIdeasToOtherPanelists",
+    url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/assignIdeasToOtherPanelists",
     params:{
       panelistEmail:email
     },
@@ -57,7 +57,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"http://localhost:8087/admin/checkPanelistProgress",
+      url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/checkPanelistProgress",
       params:{
         panelistEmail:email
       },
@@ -80,7 +80,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"put",
-      url:"http://localhost:8087/admin/updateRole",
+      url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/updateRole",
       data:{
         userEmail: email,
         role: value
@@ -106,7 +106,7 @@ function handleAssignToOtherPanelist(){
     e.preventDefault();
     axios({
       method:"get",
-      url:"http://localhost:8087/admin/assignIdeasToPanelists",
+      url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/assignIdeasToPanelists",
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
       }}

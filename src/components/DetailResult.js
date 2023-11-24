@@ -23,7 +23,7 @@ export default function DetailResult() {
   useEffect(()=>{
        axios({
         method:"get",
-        url:"http://localhost:8087/api/teamScores"
+        url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/api/teamScores"
        }).then((res)=>{
               setTeams(res.data);
        })

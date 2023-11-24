@@ -27,7 +27,7 @@ const SubmittedDetails = ({
     }
     axios({
       method: "put",
-      url: "http://localhost:8087/api/implementations/" + `${implementationId}`,
+      url: "https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/api/implementations/" + `${implementationId}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, 'Access-Control-Allow-Origin' : '*',
   'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',

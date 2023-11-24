@@ -17,7 +17,7 @@ export default function Idea({status,setTitle,role,setDocumentation,setSummary,t
       })
         axios({
             method: "put",
-            url: "http://localhost:8087/v1/api/ideas/"+`${id}`,
+            url: "https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/v1/api/ideas/"+`${id}`,
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },

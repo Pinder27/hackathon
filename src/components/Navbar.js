@@ -10,6 +10,12 @@ export default function Navbar({userName,user,setUser,setUserName}) {
    const navigate = useNavigate();
    const location = useLocation();
    const param = useParams();
+
+   if(user){
+    const token = localStorage.getItem("token");
+     setUserName(jwt(token).sub); // decode your token here
+}
+
   if(location.pathname=="/reg") return null;
   if(location.pathname=="/login") return null;
   if(location.pathname=="/admin") return null;
@@ -18,10 +24,7 @@ export default function Navbar({userName,user,setUser,setUserName}) {
  
   
 
-  if(user){
-    const token = localStorage.getItem("token");
-     setUserName(jwt(token).sub); // decode your token here
-}
+  
 console.log("path",location.pathname)
 if(location.pathname=="/JudgeProjectList"||location.pathname.startsWith('/judgeReview/')||location.pathname=="/panelistProjectList"||location.pathname.startsWith('/panelReview/')) return(
   <nav class="navbar navbar-expand-lg bg-body-tertiary"style={{boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.25)"}}>

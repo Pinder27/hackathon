@@ -6,7 +6,7 @@ function Idea({ ideasList, alert }) {
     e.preventDefault();
     axios({
       method: "get",
-      url: "http://localhost:8087/admin/assignIdeasToPanelists",
+      url: "https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/assignIdeasToPanelists",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -21,7 +21,7 @@ function Idea({ ideasList, alert }) {
     e.preventDefault();
     axios({
       method: "put",
-      url: "http://localhost:8087/admin/AssignIndividualIdea",
+      url: "https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/AssignIndividualIdea",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

@@ -42,7 +42,7 @@ function Judge({judgeList,alert}) {
         e.preventDefault();
         axios({
            method:"get",
-           url:"http://localhost:8087/admin/sendReminderToJudges",
+           url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/sendReminderToJudges",
            headers: {
                'Authorization': `Bearer ${localStorage.getItem("token")}`,
              }
@@ -58,7 +58,7 @@ function Judge({judgeList,alert}) {
     e.preventDefault();
     axios({
        method:"get",
-       url:"http://localhost:8087/admin/sendReminderToIndividualJudge",
+       url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/sendReminderToIndividualJudge",
        headers: {
            'Authorization': `Bearer ${localStorage.getItem("token")}`,
          },
@@ -77,7 +77,7 @@ function handleGetIdeas(e,id){
     e.preventDefault();
     axios({
         metod:"get",
-        url:"http://localhost:8087/admin/getIdeasByPanelistId",
+        url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/getIdeasByPanelistId",
         params:{
             id:id
         },
