@@ -8,7 +8,6 @@ function Panelist({panelistList,alert}) {
   const [ideaList,setIdeaList] = useState([{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"}])
   const [ideasAssigned,setIdeasAssigned] = useState();
   const [ideasEvaluated,setIdeasEvaluated] = useState();
-  const buttonRef = useRef(null);
   function handleSendReminderPanelists(e){
          e.preventDefault();
          axios({
@@ -84,6 +83,7 @@ function handleGetIdeas(e,id){
     })
 }
 function handleAssignIdeasToOthers(e,email){
+    e.preventDefault();
     axios({
         metod:"get",
         url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/assignIdeasToOtherPanelists",
@@ -94,6 +94,7 @@ function handleAssignIdeasToOthers(e,email){
             'Authorization': `Bearer ${localStorage.getItem("token")}`,
           }
     }).then((res)=>{
+        setIdeaList([]);
        alert.setMessage(res.data);
        alert.setAlertStatus("success");
        alert.setShow(true);
@@ -175,7 +176,8 @@ function handleAssignIdeasToOthers(e,email){
               <div className='col-2'>Status</div>
            </div>
                         <div style={{overflowY:"auto",height:"30vh"}}>
-                           {ideaList.map((idea,index)=>{
+        
+                           {ideaList.length==0?(<div>This Panelist has no ideas assigned</div>):(ideaList.map((idea,index)=>{
                             return(
                                 <div className='row mx-auto p-2 mb-2' style={{width:"100%",background:"#86b7feb5",borderRadius:5}}>
                                 <div className='col-2'>{index+1}</div>
@@ -184,7 +186,7 @@ function handleAssignIdeasToOthers(e,email){
                                 <div className='col-2' >{idea.status===null?"Pending":idea.status==="approved"?"Approved":"Rejected"}</div>
                           </div>
                             )
-                           })}
+                           }))}
                         </div>
                      </div>
                     </div>
