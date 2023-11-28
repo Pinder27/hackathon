@@ -91,7 +91,7 @@ useEffect(()=>{
                   </div>):(<div>
       <h2 className="mb-5 mt-3 text-center">Hackathon 2023</h2>
       
-      <Team teamList={teamList} team={team}/>
+      
    
     {  team&&<div className="d-flex justify-content-center"><button className="btn btn-dark col-4 mb-2 " onClick={(e)=>{setIdea(!idea)}}>Idea</button></div>}
       
@@ -104,6 +104,8 @@ useEffect(()=>{
      
       {(implementaion)&&<Implementation role={role} alert={alert}/>}
       </div>)}
+
+      <Team teamList={teamList} team={team}/>
       
     </div>
   );

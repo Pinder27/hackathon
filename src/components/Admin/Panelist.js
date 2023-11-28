@@ -8,6 +8,9 @@ function Panelist({panelistList,alert}) {
   const [ideaList,setIdeaList] = useState([{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"},{title:"codeit",teamname:"codebusters"}])
   const [ideasAssigned,setIdeasAssigned] = useState();
   const [ideasEvaluated,setIdeasEvaluated] = useState();
+
+  
+     
   function handleSendReminderPanelists(e){
          e.preventDefault();
          axios({
@@ -60,8 +63,11 @@ function Panelist({panelistList,alert}) {
     })
 }
 
-function handleGetIdeas(e,id){
+function handleGetIdeas(e,id,index){
+    
     e.preventDefault();
+                  
+    
     axios({
         metod:"get",
         url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/admin/getIdeasByPanelistId",
@@ -135,11 +141,14 @@ function handleAssignIdeasToOthers(e,email){
                 <div className="col-4">{panelist.name}</div>
                 <div className="col-4 ps-4">{panelist.email}</div>
                 <div
+                  key={index}
                   className="col-2"
                   data-bs-toggle="collapse"
                   data-bs-target={`#collapseWidthExample${panelist.id}`}
                   type="button"
-                  onClick={(e)=>handleGetIdeas(e,panelist.id)}
+                  onClick={(e)=>{
+                    
+                    handleGetIdeas(e,panelist.id,index)}}
                 >
                   <img src={DropDown} height="20px"/>
                 </div>

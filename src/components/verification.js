@@ -7,7 +7,7 @@ function Verification({email_,buttonRef,alert,setVerify}) {
     const [otp,setOtp] = useState("");
     const [reotp,setReotp] = useState(true);
   
-    const [seconds, setSeconds] = useState(120); // Initial time in seconds
+    const [seconds, setSeconds] = useState(300); // Initial time in seconds
     const [isActive, setIsActive] = useState(true);
 
     useEffect(() => {

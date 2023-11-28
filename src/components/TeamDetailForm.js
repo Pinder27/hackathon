@@ -15,6 +15,7 @@ const TeamDetail = ({alert}) => {
   const [teamName, setTeamName] = useState("");
   const [leaderName, setLeaderName] = useState("");
   const [leaderEmail, setLeaderEmail] = useState("");
+  const [showBtn,setShowBtn] = useState(1);
   
 
   //to handle input fields
@@ -84,20 +85,18 @@ const TeamDetail = ({alert}) => {
   };
 
   const addFields = () => {
+    setShowBtn(showBtn+1);
     if (formFields.length < 3) {
       const newFormFields = [...formFields, { name: "", email: "" }];
       setFormFields(newFormFields);
-    } else {
-      alert.setMessage("You can add a maximum of 4 participants");
-      alert.setAlertStatus("error")
-      alert.setShow(true)
-    }
+    } 
   };
 
   const removeFields = (index) => {
     let data = [...formFields];
     data.splice(index, 1);
     setFormFields(data);
+    setShowBtn(showBtn-1)
   };
   return (
     <div className="d-flex p-5" style={{backgroundColor:"#e2eaf9"}} >
@@ -178,17 +177,17 @@ const TeamDetail = ({alert}) => {
               })}
             </form>
 
-            <button
+            {showBtn<3&&<button
               className="btn btn-primary btn-sm add-btn mb-3 "
               style={{marginLeft:"15%"}}
               onClick={addFields}
             >
               + Add more
-            </button>
+            </button>}
           </div>
           <div className="text-center">
             <button
-              className="btn submit-btn text-white text-center mb-5"
+              className="btn submit-btn text-white text-center mb-5 mt-3"
              style={{boxShadow:"0px 0px 8px 1px rgba(0, 0, 0, 0.2)"}}
               onClick={submit}
             >

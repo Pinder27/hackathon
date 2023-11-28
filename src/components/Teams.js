@@ -26,7 +26,7 @@ export default function Team({teamList,team}){
       )
     
     return(
-        <div>
+        <div className="mt-5">
             <div className=" d-flex">
         <div className="col" style={{marginLeft:"10%",marginRight:"10%"}}>
           <p className="h5">Your Team</p>

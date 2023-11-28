@@ -72,7 +72,7 @@ export default function Implementation({alert,role}) {
     });
   }
   return (
-    <div className="p-5" style={{backgroundColor:"#fff",marginLeft:"10%",marginRight:"10%",borderRadius:"5px"}}>
+    <div className="p-5 mb-5" style={{backgroundColor:"#fff",marginLeft:"10%",marginRight:"10%",borderRadius:"5px"}}>
       {loader?(<div class="d-flex justify-content-center">
   <div class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>

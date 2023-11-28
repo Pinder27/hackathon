@@ -45,7 +45,7 @@ export default function Router({alert}){
                 <Route  path='/'  element={<Home user={user} setUser={setUser}/>}/>
                 <Route  path='/guidelines'  element={<GuideLines user={user} setUser={setUser}/>}/>
                 <Route  path='/results'  element={<DetailResult/>}/>
-                <Route  path='/contact'  element={<Contact/>}/>
+                <Route  path='/contact'  element={<Contact alert={alert}/>}/>
                 <Route  path='/teamdetail'  element={<TeamDetail alert={alert}/> }/>
                 <Route  path='/ideadescription'  element={<IdeaDescription alert={alert}/>}/>
                 <Route path="/userdashboard" element={<UserDashboard user={user} setUser={setUser} />}></Route>

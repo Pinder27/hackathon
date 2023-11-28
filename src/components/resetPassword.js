@@ -12,7 +12,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
     const [flag,setFlag] = useState(true);
     const [reotp,setReotp] = useState(true);
   
-    const [seconds, setSeconds] = useState(120); // Initial time in seconds
+    const [seconds, setSeconds] = useState(300); // Initial time in seconds
     const [isActive, setIsActive] = useState(true);
 
     function handleRegenrateOtp(e){
