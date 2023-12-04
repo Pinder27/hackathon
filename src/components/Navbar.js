@@ -92,6 +92,8 @@ if(location.pathname=="/JudgeProjectList"||location.pathname.startsWith('/judgeR
   </div>
   <ul class="dropdown-menu dropdown-menu-right" style={{}}>
     <li><Link to="/projectDetail" class="dropdown-item" href="#">Dashboard</Link></li>
+    <li><Link to="/CreateTeam" class="dropdown-item" href="#">Create Team</Link></li>
+    <li><Link to="/joinTeam" class="dropdown-item" href="#">Join Team</Link></li>
     <li><a onClick={()=>{setUser(false); localStorage.removeItem("token"); navigate("/")}} class="dropdown-item" href="#">Log Out</a></li>
     
   </ul>

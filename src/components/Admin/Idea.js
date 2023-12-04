@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 function Idea({ ideasList, alert }) {
     const [PanelistEmail,setPanelistEmail] = useState("")
+    const [filteredList,setFilteredList] = useState(ideasList);
   function handleAutoAssignIdeas(e) {
     e.preventDefault();
     axios({
@@ -40,6 +41,12 @@ function Idea({ ideasList, alert }) {
       alert.setShow(true);
     });
   }
+  function handleFilter(e){
+    
+    if(e.target.value=="") setFilteredList(ideasList)
+    const filtered = ideasList.filter((panelist)=>panelist.idea.title.toLowerCase().includes(e.target.value))
+    setFilteredList(filtered)
+  }
   return (
     <div>
       <div className="d-flex px-5 mt-4">
@@ -59,10 +66,13 @@ function Idea({ ideasList, alert }) {
         <div className="row mx-auto" style={{ width: "100%" }}>
           <div className="col-2">S.no</div>
           <div className="col-4">Idea title</div>
-          <div className="col-4">Team Name</div>
+          <div className="col-3">Team Name</div>
+          <div className="input-group input-group-sm col-3 d-flex flex-end mb-3 " style={{width:"15vw"}}>
+        <input placeholder="search" type="search" onChange={(e)=>handleFilter(e)} className="form-control" />
+      </div>
         </div>
         <div style={{ overflowY: "auto", width: "100%", height: "52vh" }}>
-          {ideasList.map((idea, index) => {
+          {filteredList.map((idea, index) => {
             return (
               <div
                 className="row mx-auto p-2 mb-2"

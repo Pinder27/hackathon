@@ -4,12 +4,13 @@ import axios from "axios";
 import Implementation from "./implementaion";
 import Idea from "./Idea";
 import Team from "./Teams";
+import {useNavigate} from "react-router-dom"
 
 
 const ProjectDetail = ({alert}) => {
 
  
-  
+  const navigate = useNavigate();
   const [implementaion, setImplimentation] = useState(false);
   const [idea, setIdea] = useState(false);
   const [teamList, setTeamList] = useState([]);
@@ -21,6 +22,8 @@ const ProjectDetail = ({alert}) => {
   const [documentation,setDocumentation] = useState("");
   const [status,setStatus] = useState(false);
   const [role,setRole] = useState("user")
+  const [teamCode,setTeamCode] = useState("")
+  const [isIdeaSubmitted,setIsIdeaSubmitted] = useState(false);
 
   
 useEffect(()=>{
@@ -49,6 +52,7 @@ useEffect(()=>{
        team.push(res.data.leader);
        setTeamList(team);
        setLoader(false);
+       setTeamCode(res.data.teamCode)
       }).catch((e)=>{
          setTeam(false)
          setLoader(false)
@@ -63,6 +67,9 @@ useEffect(()=>{
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       }).then((res)=>{
+        if(res.data.ideas.length!==0){
+              setIsIdeaSubmitted(true);
+        }
         console.log("idea",res.data)
         setData(res.data);
         setTitle(res.data.ideas[0].title)
@@ -71,7 +78,7 @@ useEffect(()=>{
         if(res.data.ideas[0].status==="approved")
         setStatus(true);
       }).catch((e)=>{
-        setTeam(false)
+        //setTeam(false)
       })
 },[])
 
@@ -93,7 +100,8 @@ useEffect(()=>{
       
       
    
-    {  team&&<div className="d-flex justify-content-center"><button className="btn btn-dark col-4 mb-2 " onClick={(e)=>{setIdea(!idea)}}>Idea</button></div>}
+    {  (team&&isIdeaSubmitted)&&<div className="d-flex justify-content-center"><button className="btn btn-dark col-4 mb-2 " onClick={(e)=>{setIdea(!idea)}}>Idea</button></div>}
+    {  (team&&!isIdeaSubmitted&&role=="Role_Leader")&&<div className="d-flex justify-content-center"><button className="btn btn-dark col-4 mb-2 " onClick={(e)=>{navigate('/ideadescription')}}>Submit Idea</button></div>}
       
       {(idea)&&<Idea status={status} title={title} role={role} setTitle={(setTitle)} alert={alert} summary={summary} setSummary={(setSummary)} documentation={documentation} setDocumentation={setDocumentation} id={data.ideas[0].id}/>}
      {(team&&status)&& <div className="d-flex justify-content-center">
@@ -105,7 +113,7 @@ useEffect(()=>{
       {(implementaion)&&<Implementation role={role} alert={alert}/>}
       </div>)}
 
-      <Team teamList={teamList} team={team}/>
+      <Team teamList={teamList} team={team} teamCode={teamCode}/>
       
     </div>
   );

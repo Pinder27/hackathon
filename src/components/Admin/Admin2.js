@@ -170,10 +170,10 @@ export default function Admin2({ alert, userName, setUser }) {
           )}
           {activeBtn === "idea" && <Idea ideasList={ideasList} alert={alert} />}
           {activeBtn === "judge" && (
-            <Judge judgeList={judgeList} alert={alert} />
+            <Judge judgeList={judgeList} setJudgeList={setJudgeList} alert={alert} />
           )}
           {activeBtn === "panelist" && (
-            <Panelist panelistList={panelistList} alert={alert} />
+            <Panelist panelistList={panelistList} setPanelistList={setPanelistList} alert={alert} />
           )}
           {activeBtn === "role" && <Role alert={alert} />}
         </div>

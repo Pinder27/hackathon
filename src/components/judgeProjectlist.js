@@ -64,7 +64,7 @@ const [loader,setLoader] = useState(true)
                         sNo={index}
                         teamName={row.teamName}
                         projectName={row.ideaTitle}
-                        status={row.implementation.score.length===0?true:false}
+                        status={row.Status==="Pending"?true:false}
                         id={row.implementation.implementationId}
                         />
               </div>

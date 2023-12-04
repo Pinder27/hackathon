@@ -23,6 +23,8 @@ import Implementation from './components/implementaion';
 import Idea from './components/Idea';
 import Reg2 from './components/Reg2';
 import Admin2 from './components/Admin/Admin2';
+import JoinTeam from './components/JoinTeam';
+import CreateTeam from './components/CreateTeam';
 
 
 
@@ -58,6 +60,8 @@ export default function Router({alert}){
                 <Route path="/JudgeProjectList" element={<JudgeProjectList user={user} setUser={setUser}/>}></Route>
                 <Route path="/impl" element={<Implementation/>}></Route>
                 <Route path="/idea" element={<Idea/>}></Route>
+                <Route path="/JoinTeam" element={<JoinTeam alert={alert}/>}></Route>
+                <Route path="/CreateTeam" element={<CreateTeam alert={alert}/>}></Route>
                 <Route path="/admin2" element={<Admin2 userName={userName} user={user} setUser={setUser} alert={alert}/>}></Route>
                 
                 

@@ -21,62 +21,50 @@ function Dashboard({ideas,judges,panelists}) {
         <ul className='mt-3' style={{width:"100%"}}>
             <li>
                 <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
+                       <div className=''>Final Review and scoring by judges going on</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>8-Dec 11:00 am</div>
+                </div>
+            </li>
+            <li>
+                <div className='d-flex '>
+                       <div className=''>Implementation round ends</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>8-Dec 10:00 am</div>
+                </div>
+            </li>
+            <li>
+                <div className='d-flex '>
+                       <div className=''>Implementation submission begins for selected Ideas</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>5-Dec 11:00 am</div>
+                </div>
+            </li>
+            <li>
+                <div className='d-flex '>
+                       <div className=''>Idea submissions ends</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>5-Dec 10:00 am</div>
+                </div>
+            </li>
+            <li>
+                <div className='d-flex '>
+                       <div className=''>Idea Submission starts</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>3-Dec 11:00 am</div>
+                </div>
+            </li>
+            <li>
+                <div className='d-flex '>
+                       <div className=''>Teams formed</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>3-Dec 10:00 am</div>
+                </div>
+            </li>
+            <li>
+                <div className='d-flex '>
+                       <div className=''>Team creation starts</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>1-Dec 11:00 am</div>
                 </div>
             </li>
             <li>
                 <div className='d-flex '>
                        <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
-                </div>
-            </li>
-            <li>
-                <div className='d-flex '>
-                       <div className=''>Hackathon Begins</div>
-                       <div className='ms-auto me-3 text-end opacity-50'>18-Nov 11:48 pm</div>
+                       <div className='ms-auto me-3 text-end opacity-50'>1-Dec 10:00 am</div>
                 </div>
             </li>
            
