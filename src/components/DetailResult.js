@@ -2,30 +2,25 @@ import bgImage from "../assests/images/pexels-alexander-kovalev-2847648.jpg";
 import React, { useEffect, useState,useRef } from "react";
 import axios from "axios";
 export default function DetailResult() {
-   const [teams, setTeams] = useState([
-    {
-      name: "hackathons",
-      idea: "ML OS",
-    },
-    {
-      name: "Nortons",
-      idea: "finance app",
-    },
-    {
-      name: "Avastas",
-      idea: "VM ware",
-    },
-    {
-      name: "Posideions",
-      idea: "Protocoling system",
-    },
-  ]);
+  
+  const [teams, setTeams] = useState([]);
+  const [filteredList, setFilteredList] = useState(teams);
+
+  function handleFilter(e) {
+    if (e.target.value == "") setFilteredList(teams);
+    const filtered = teams.filter((team) =>
+      team.teamName.includes(e.target.value)
+    );
+    setFilteredList(filtered);
+  }
   useEffect(()=>{
        axios({
         method:"get",
         url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/api/teamScores"
        }).then((res)=>{
+              console.log(res.data)
               setTeams(res.data);
+              setFilteredList(res.data)
        })
   },[])
   
@@ -40,6 +35,11 @@ export default function DetailResult() {
     >
       <div className="col">
       <div className=" mt-4 h4">Hackathon 2023</div>
+      <div>
+      <div className="input-group input-group-sm ms-auto me-5 " style={{width:"15vw"}} >
+        <input placeholder="search" onChange={handleFilter} type="search"  className="form-control" />
+      </div>
+      </div>
       <div className="mx-5">
         <div>
           <table class="table table-striped p-5">
@@ -51,7 +51,7 @@ export default function DetailResult() {
               </tr>
             </thead>
             <tbody>
-              {teams.map((team,index)=>{
+              {filteredList.map((team,index)=>{
                 return(
                   <tr>
                 <th scope="row">{index+1}</th>
