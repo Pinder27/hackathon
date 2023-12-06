@@ -46,10 +46,11 @@ export default function Contact({alert}){
                     <input value={subject} onChange={(e)=>setSubject(e.target.value)} className="form-control" placeholder="Subject"/>
                     </div>
                     <div className="input-group mb-2 ">
-                    <textarea value={message} onChange={(e)=>setMessage(e.target.value)} className="form-control" placeholder="your Message" style={{height:"25vh"}}/>
+                    <textarea value={message} onChange={(e)=>setMessage(e.target.value)} className="form-control" placeholder="Your Message" style={{height:"25vh"}}/>
                     </div>
-                
-                    <button onClick={handleSend} className="btn text-white" style={{backgroundColor:"#ef4815",}}>send mesage</button>
+                     <div className="d-flex justify-content-center">
+                    <button onClick={handleSend} className="btn text-white" style={{backgroundColor:"#ef4815"}}>Send Message</button>
+                    </div>
                    </div>
              </div>
              <div className="container-sm-6 flex-fill d-flex justify-content-center align-items-center mt-5">

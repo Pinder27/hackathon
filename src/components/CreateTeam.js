@@ -7,7 +7,7 @@ export default function CreateTeam({alert}){
     const [teamName,setTeamName] = useState("");
     const [teamCode,setTeamCode] = useState("");
     const [copied,setCopied] = useState(false);
-    const [generated,setGenerated] = useState(false);
+    const [generated,setGenerated] = useState(true);
     const inputRef1 = useRef(null);
   const handleCopy = (e) => {
     // Manually select and copy the text from the input field
@@ -73,7 +73,8 @@ export default function CreateTeam({alert}){
            
            {copied?(<img src={Check} className=""  height="30px"/>):(<img src={Copy} type="button" onClick={handleCopy}  height="30px"/>)}
            </div>
-           <p className='mt-3'>Share this code with your team members and ask them join in join team section</p>
+           <p className='mt-3'>Share this code with your team members and ask them to join in join team section</p>
+           <p className='mt-3'>(There can be maximum 4 members in a team)</p>
                     </div>}
             </div>
            

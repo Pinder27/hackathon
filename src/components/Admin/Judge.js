@@ -128,7 +128,7 @@ function handleFilter(e){
   return (
     <div>
     <div className="d-flex px-5 mt-4">
-      <div className="d-flex align-self-center">{`total Judges - ${judgeList.length}`}</div>
+      <div className="d-flex align-self-center">{`Total Judges - ${judgeList.length}`}</div>
       <button onClick={handleSendReminderJudges} className="btn ms-auto" style={{ background: "#EFEDB1" }}>
         Send Reminder
       </button>
@@ -137,11 +137,11 @@ function handleFilter(e){
       className="p-4 mx-5 mt-4"
       style={{ background: "#9AD0C2", height: "70vh", borderRadius: 5 }}
     >
-      <div className="row mx-auto" style={{ width: "100%" }}>
-        <div className="col-2">S.no</div>
-        <div className="col-4">Judge Name</div>
-        <div className="col-3">Judge Email</div>
-        <div className="input-group input-group-sm col-3 d-flex flex-end mb-3 " style={{width:"15vw"}}>
+      <div className="row mx-auto mb-2 py-1" style={{ width: "100%",background:"#ffffff54",borderRadius:5 }}>
+        <div className="col-2 fw-semibold pt-1">S.No</div>
+        <div className="col-4 fw-semibold pt-1">Judge Name</div>
+        <div className="col-3 fw-semibold pt-1">Judge Email</div>
+        <div className="input-group input-group-sm col-3 d-flex flex-end " style={{width:"15vw"}}>
         <input placeholder="search" type="search" onChange={(e)=>handleFilter(e)} className="form-control" />
       </div>
       </div>
@@ -177,7 +177,9 @@ function handleFilter(e){
                       <div className="row mt-2">
                       <div className="col-5 ps-5">{`ideas evaluated - ${ideasEvaluated}`}</div>
                    
-                   <div className="col text-center"><img src={Bell} type="button" onClick={(e)=>handleSendReminderIndividualJudge(e,panelist.userEmail)} height="20px"/></div>
+                   <div className="col text-center"><img src={Bell}    data-tooltip-id="my-tooltip"
+                            data-tooltip-content="Send Reminder"
+                            data-tooltip-place="top" type="button" onClick={(e)=>handleSendReminderIndividualJudge(e,panelist.userEmail)} height="20px"/></div>
                    <div className="col text-center d-flex"  ><button  className="btn btn-sm bg-light" data-bs-toggle="modal" data-bs-target={`#staticBackdropRemovejudge${index}`}>Remove</button></div>
                      <div class="modal fade" id={`staticBackdropRemovejudge${index}`} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -198,7 +200,7 @@ function handleFilter(e){
                       </div>
                       <div className="p-2 mt-2" style={{background:"#f1c9c9",borderRadius:5,width:"100%"}}>
                       <div className='row mx-auto mt-2' style={{width:"100%"}}>
-            <div className='col-1'>S.no</div>
+            <div className='col-1'>S.No</div>
             <div className='col-2'>Team Name</div>
             <div className='col-3'>presentation And Communication Score</div>
             <div className='col-3'>technical Proficiency Score</div>

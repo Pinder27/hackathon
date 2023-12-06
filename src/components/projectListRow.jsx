@@ -10,7 +10,7 @@ const projectList = ({sNo, teamName, projectName, status, id}) => {
             <span style={{width:"20%"}}> {status}</span> 
             <span style={{width:"10%"}}>
         
-           {status=="Pending"&&<Link className='btn text-white' style={{ backgroundColor:"#043465"}} to={`/panelReview/`+`${id}`}>Review</Link>}
+           {status=="Pending"&&<Link className='btn btn-sm text-white' style={{ backgroundColor:"#043465"}} to={`/panelReview/`+`${id}`}>Review</Link>}
         
         </span>
     </div>

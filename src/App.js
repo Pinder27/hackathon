@@ -6,6 +6,8 @@ import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import Tick from "./assests/images/tick1.png";
 import Cross from "./assests/images/cross1.png";
+import { Tooltip } from "react-tooltip";
+
 
 function App() {
   const [show, setShow] = useState(false);
@@ -27,6 +29,7 @@ function App() {
 
   return (
     <div>
+      <Tooltip id="my-tooltip" />
       <div>
         <ToastContainer
           className="p-3 fixed-toast"

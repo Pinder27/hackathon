@@ -50,7 +50,7 @@ function Idea({ ideasList, alert }) {
   return (
     <div>
       <div className="d-flex px-5 mt-4">
-        <div className="d-flex align-self-center">{`total ideas - ${ideasList.length}`}</div>
+        <div className="d-flex align-self-center">{`Total Ideas - ${ideasList.length}`}</div>
         <button
           onClick={handleAutoAssignIdeas}
           className="btn ms-auto text-white"
@@ -61,17 +61,17 @@ function Idea({ ideasList, alert }) {
       </div>
       <div
         className="p-4 mx-5 mt-4"
-        style={{ background: "#9AD0C2", height: "65vh", borderRadius: 5 }}
+        style={{ background: "#9AD0C2", height: "70vh", borderRadius: 5 }}
       >
-        <div className="row mx-auto" style={{ width: "100%" }}>
-          <div className="col-2">S.no</div>
-          <div className="col-4">Idea title</div>
-          <div className="col-3">Team Name</div>
-          <div className="input-group input-group-sm col-3 d-flex flex-end mb-3 " style={{width:"15vw"}}>
+        <div className="row mx-auto mb-3 p-1" style={{ width: "100%",background:"#ffffff54",borderRadius:5 }}>
+          <div className="col-2 fw-semibold pt-1">S.No</div>
+          <div className="col-4 fw-semibold pt-1">Idea title</div>
+          <div className="col-3 fw-semibold pt-1">Team Name</div>
+          <div className="input-group input-group-sm col-3 d-flex flex-end" style={{width:"15vw"}}>
         <input placeholder="search" type="search" onChange={(e)=>handleFilter(e)} className="form-control" />
       </div>
         </div>
-        <div style={{ overflowY: "auto", width: "100%", height: "52vh" }}>
+        <div style={{ overflowY: "auto", width: "100%", height: "58vh" }}>
           {filteredList.map((idea, index) => {
             return (
               <div

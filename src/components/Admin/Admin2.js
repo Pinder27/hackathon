@@ -8,6 +8,7 @@ import Role from "./Role";
 import axios from "axios";
 import userimage from "../../assests/images/user-3296 1.png";
 import { useNavigate } from "react-router-dom";
+import Logo from '../../assests/images/Logo.png'
 export default function Admin2({ alert, userName, setUser }) {
   const navigate = useNavigate();
   const [activeBtn, setActiveBtn] = useState("dashboard");
@@ -132,6 +133,7 @@ export default function Admin2({ alert, userName, setUser }) {
             boxShadow: "0px 0px 5px 1px rgba(0, 0, 0, 0.15)",
           }}
         >
+           <div className="me-auto ms-2"> <img src={Logo} height="30px"/></div>
           <div class="dropdown-center me-5">
             <div
               class="dropdown-toggle d-flex"

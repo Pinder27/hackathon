@@ -22,8 +22,8 @@ const PanelistProjectList = () => {
   }, []);
 
   return (
-    <>
-      <div className="w-75 mx-auto mb-3" style={{height:"100vh"}}>
+    <div className="p-1" style={{background:"#e2eaf9"}}>
+      <div className="w-75 mx-auto mb-3 " style={{height:"100vh"}}>
         <h3 className="text-center mb-4 mt-4">Project List</h3>
         <div
           className="p-3 d-flex justify-content-between mb-3"
@@ -98,7 +98,7 @@ const PanelistProjectList = () => {
           </table>
        */}
       </div>
-    </>
+    </div>
   );
 };
 
