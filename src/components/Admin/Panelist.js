@@ -1,36 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState} from "react";
 import DropDown from "../../assests/images/drop-down-4.png";
 import Bell from "../../assests/images/bell-3.png";
 import axios from "axios";
 
 
 function Panelist({ panelistList, setPanelistList, alert }) {
-  const [ideaList, setIdeaList] = useState([
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-    { title: "codeit", teamname: "codebusters" },
-  ]);
+    const array = new Array(panelistList.length);
+    array.fill([]);
+  const [ideaList, setIdeaList] = useState(array);
   const [ideasAssigned, setIdeasAssigned] = useState();
   const [ideasEvaluated, setIdeasEvaluated] = useState();
-  const [currentButtonRef, setCurrentButtonRef] = useState(null);
   const [filteredList, setFilteredList] = useState(panelistList);
 
-  // Function to handle button clicks and update the reference
-  const handleButtonClick = (ref) => {
-    console.log(currentButtonRef);
-    if (currentButtonRef !== null) {
-      // currentButtonRef.current.click();
-      console.log("click");
-    }
-    setCurrentButtonRef(ref);
-    // Do something with the button reference
-  };
 
   function handleFilter(e) {
     if (e.target.value == "") setFilteredList(panelistList);
@@ -64,6 +45,8 @@ function Panelist({ panelistList, setPanelistList, alert }) {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     }).then((res) => {
+        console.log(array)
+        setIdeaList(array)
       alert.setMessage(res.data);
       alert.setAlertStatus("success");
       alert.setShow(true);
@@ -103,8 +86,10 @@ function Panelist({ panelistList, setPanelistList, alert }) {
       },
     }).then((res) => {
       console.log(res.data);
-      setIdeaList(res.data);
-
+      const newarray = ideaList;
+      newarray[index] = res.data;
+      setIdeaList(newarray);
+      
       let count = 0;
       for (let i = 0; i < res.data.length; i++) {
         if (res.data[i].status === null) count++;
@@ -126,7 +111,9 @@ function Panelist({ panelistList, setPanelistList, alert }) {
       },
     }).then((res) => {
       console.log("pane", res);
-      setIdeaList([]);
+      const newarray = ideaList;
+      newarray[index] = []
+      setIdeaList(newarray);
       alert.setMessage(res.data);
       alert.setAlertStatus("success");
       alert.setShow(true);
@@ -212,7 +199,6 @@ function Panelist({ panelistList, setPanelistList, alert }) {
                 <div className="col-4">{panelist.name}</div>
                 <div className="col-4 ps-4">{panelist.email}</div>
                 <div
-                  ref={(btnRef) => handleButtonClick(btnRef)}
                   className="col-2"
                   data-bs-toggle="collapse"
                   data-bs-target={`#collapseWidthExample${index}`}
@@ -324,7 +310,7 @@ function Panelist({ panelistList, setPanelistList, alert }) {
                                   class="modal-title fs-5"
                                   id="staticBackdropLabel"
                                 >
-                                  Are you sure to remove this panelist -{" "}
+                                  Are you sure to remove this panelist -
                                   {panelist.name}
                                 </h1>
                                 <button
@@ -365,10 +351,10 @@ function Panelist({ panelistList, setPanelistList, alert }) {
                           <div className="col-2">Status</div>
                         </div>
                         <div style={{ overflowY: "auto", height: "30vh" }}>
-                          {ideaList.length == 0 ? (
+                          {ideaList[index].length == 0 ? (
                             <div>This Panelist has no ideas assigned</div>
                           ) : (
-                            ideaList.map((idea, index) => {
+                            ideaList[index].map((idea, index) => {
                               return (
                                 <div
                                   className="row mx-auto p-2 mb-2"

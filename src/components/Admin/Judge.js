@@ -4,40 +4,12 @@ import Bell from "../../assests/images/bell-3.png"
 import axios from "axios"
 
 function Judge({setJudgeList,judgeList,alert}) {
+    const array = new Array(judgeList.length);
+    array.fill([]);
     const [ideasAssigned,setIdeasAssigned] = useState();
     const [ideasEvaluated,setIdeasEvaluated] = useState();
     const [filteredList,setFilteredList] = useState(judgeList);
-      const [ideaList,setIdeaList] = useState([{
-        teamName: "string",
-        presentationAndCommunicationScore: 0,
-        technicalProficiencyScore: 0,
-        creativityAndInnovationScore: 0
-      },{
-        teamName: "string",
-        presentationAndCommunicationScore: 0,
-        technicalProficiencyScore: 0,
-        creativityAndInnovationScore: 0
-      },{
-        teamName: "string",
-        presentationAndCommunicationScore: 0,
-        technicalProficiencyScore: 0,
-        creativityAndInnovationScore: 0
-      },{
-        teamName: "string",
-        presentationAndCommunicationScore: 0,
-        technicalProficiencyScore: 0,
-        creativityAndInnovationScore: 0
-      },{
-        teamName: "string",
-        presentationAndCommunicationScore: 0,
-        technicalProficiencyScore: 0,
-        creativityAndInnovationScore: 0
-      },{
-        teamName: "string",
-        presentationAndCommunicationScore: 0,
-        technicalProficiencyScore: 0,
-        creativityAndInnovationScore: 0
-      }])
+      const [ideaList,setIdeaList] = useState(array)
 
       function handleSendReminderJudges(e){
         e.preventDefault();
@@ -74,7 +46,7 @@ function Judge({setJudgeList,judgeList,alert}) {
     })
 }
 
-function handleGetIdeas(e,id){
+function handleGetIdeas(e,id,index){
     e.preventDefault();
     axios({
         metod:"get",
@@ -87,7 +59,9 @@ function handleGetIdeas(e,id){
           }
     }).then((res)=>{
         console.log("kkk",res.data)
-        setIdeaList(res.data);
+        const newarray = ideaList;
+        newarray[index] = res.data;
+        setIdeaList(newarray);
         let count = 0;
         for(let i=0;i<res.data.length;i++){
             if(res.data[i].creativityAndInnovationScore===0) count++;
@@ -164,7 +138,7 @@ function handleFilter(e){
                 data-bs-toggle="collapse"
                 data-bs-target={`#collapseWidthExample${panelist.id}`}
                 type="button"
-                onClick={(e)=>handleGetIdeas(e,panelist.id)}
+                onClick={(e)=>handleGetIdeas(e,panelist.id,index)}
               >
                 <img src={DropDown} height="20px"/>
               </div>
@@ -207,7 +181,7 @@ function handleFilter(e){
             <div className='col-3'>creativity And Innovation Score</div>
          </div>
                       <div style={{overflowY:"auto",height:"30vh",width:"100%"}}>
-                         {ideaList.map((idea,index)=>{
+                         {ideaList[index].map((idea,index)=>{
                           return(
                               <div className='row mx-auto p-2 mb-2' style={{width:"100%",background:"#ecf4d6e0",borderRadius:5}}>
                               <div className='col-1'>{index+1}</div>
