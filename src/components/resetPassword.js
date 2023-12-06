@@ -17,18 +17,20 @@ function ResetPassword({email,setForgotPassword,alert}) {
 
     function handleRegenrateOtp(e){
         e.preventDefault();
-        console.log("email",email)
         axios({
             method:"put",
             url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/registration/regenerate-otp",
             params:{
-                email:email
+                username:username
             }
         }).then((res)=>{
             console.log(res.data)
             setReotp(true)
-            setSeconds(120); // Reset the timer to 2 minutes
+            setSeconds(300); // Reset the timer to 2 minutes
             setIsActive(true)
+            alert.setMessage("Otp Sent")
+            alert.setAlertStatus("success")
+            alert.setShow(true);
         }).catch((e)=>{
             console.log(e)
             alert.setMessage(e.response.data)
@@ -137,7 +139,7 @@ function ResetPassword({email,setForgotPassword,alert}) {
             <span className='me-1'>Update</span>
         <span>{formatTime(seconds)}</span>
         </button>}
-        <a onClick={handleRegenrateOtp}>Regenerate otp</a>
+        <button className='p-0 btn text-black mt-3' onClick={handleRegenrateOtp} style={{background:"#fff",border:0, textTransform: "none",fontWeight:"normal"}}>Regenerate otp</button>
         
       </form>}
         </div>

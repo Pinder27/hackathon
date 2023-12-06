@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-function Verification({email_,buttonRef,alert,setVerify}) {
+function Verification({username,email_,buttonRef,alert,setVerify}) {
     const [email,setEmail] = useState(email_);
     const [otp,setOtp] = useState("");
     const [reotp,setReotp] = useState(true);
@@ -65,19 +65,23 @@ function Verification({email_,buttonRef,alert,setVerify}) {
            })
     }
 
-    function handleRegenrateOtp(){
-        console.log("email",email)
+    function handleRegenrateOtp(e){
+      e.preventDefault();
+        console.log("email",username)
         axios({
             method:"put",
             url:"https://lb0y9x24b9.execute-api.us-east-1.amazonaws.com/registration/regenerate-otp",
             params:{
-                email:email
+                username:username
             }
         }).then((res)=>{
             console.log(res.data)
             setReotp(true)
-            setSeconds(120); // Reset the timer to 2 minutes
+            setSeconds(300); // Reset the timer to 2 minutes
             setIsActive(true)
+            alert.setMessage("Otp Sent")
+            alert.setAlertStatus("success")
+            alert.setShow(true);
         }).catch((e)=>{
             console.log(e)
             alert.setMessage(e.response.data)
@@ -99,7 +103,7 @@ function Verification({email_,buttonRef,alert,setVerify}) {
         <span className='me-2'>verify</span>
         <span>{formatTime(seconds)}</span>
         </button>}
-        <a onClick={handleRegenrateOtp}>Regenerate otp</a>
+        <button className='btn text-black' onClick={handleRegenrateOtp} style={{background:"#fff",border:0, textTransform: "none",fontWeight:"normal"}}>Regenerate otp</button>
         {reotp&&<span className='text-success pb-5'>Otp sent please check</span>}
       </form>
         </div>

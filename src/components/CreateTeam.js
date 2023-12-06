@@ -7,7 +7,7 @@ export default function CreateTeam({alert}){
     const [teamName,setTeamName] = useState("");
     const [teamCode,setTeamCode] = useState("");
     const [copied,setCopied] = useState(false);
-    const [generated,setGenerated] = useState(true);
+    const [generated,setGenerated] = useState(false);
     const inputRef1 = useRef(null);
   const handleCopy = (e) => {
     // Manually select and copy the text from the input field

@@ -107,7 +107,7 @@ export default function Reg2({user,setUser,alert}){
             <div className="body12 ">
   <div className={`container12 ${isSignupActive ? 'right-panel-active' : ''}`} id="container12">
     <div className="form-container sign-up-container">
-      {(verify)?(<Verification setVerify={setVerify} email_={email} buttonRef={buttonRef} alert={alert}/>):(<form action="#">
+      {(verify)?(<Verification username={username} setVerify={setVerify} email_={email} buttonRef={buttonRef} alert={alert}/>):(<form action="#">
         <h1>Create Account</h1>
         
         <span>or use your email for registration</span>
