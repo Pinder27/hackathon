@@ -11,6 +11,7 @@ const SubmittedDetails = ({
   pdfUrl,
   GitRepoUrl,
   implementationId,
+  recordingUrl
 }) => {
   const [ppt, setPpt] = useState(pptUrl);
   const [pdf, setPdf] = useState(pdfUrl);
@@ -76,14 +77,12 @@ const SubmittedDetails = ({
                 </Link>
               </td>
             </tr>}
+
             <tr>
               <td className="fw-semibold">Documentation:-</td>
               <td>
-                <a
-                  download="Addresources.js"
-                  href={pdfUrl}
-                  target="_blank"
-                  className="link-to-text"
+                <Link
+                  to={pdfUrl} target={pdfUrl} className="link-to-text"
                 >
                   <img
                     src={documentIcon}
@@ -91,9 +90,22 @@ const SubmittedDetails = ({
                     className="mx-1"
                   />
                   Click here to view the documentation
-                </a>
+                </Link>
               </td>
             </tr>
+            {user!=="panelist"&& <tr>
+              <td className="fw-semibold">Recording Url:-</td>
+              <td>
+                <Link to={recordingUrl} target={recordingUrl} className="link-to-text">
+                  <img
+                    src={documentIcon}
+                    style={{ width: "25px" }}
+                    className="mx-1"
+                  />
+                  Click here to view the recording
+                </Link>
+              </td>
+            </tr>}
            {user!=="panelist" && <tr>
               <td className="fw-semibold mb-3">Github Repository:-</td>
               <td>
