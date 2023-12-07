@@ -166,8 +166,9 @@ const JudgeReview = ({alert}) => {
             ideaTitle={data.ideaTitle}
             documentation={data.implementation.description}
             pptUrl={data.implementation.pptURL}
-            pdfUrl={data.pdfUrl}
+            pdfUrl={data.idea.pdfUrl}
             GitRepoUrl={data.implementation.gitHubURL}
+            recordingUrl = {data.implementation.recordingURL}
           />
            </div>
 
